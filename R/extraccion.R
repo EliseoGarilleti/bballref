@@ -15,6 +15,7 @@
 #' totals <- extraer_tabla_de_html(url, "totals_stats")
 #' }
 #'
+#'
 #' @export
 extraer_tabla_de_html <- function(url, id_tabla) {
 
@@ -41,7 +42,9 @@ extraer_tabla_de_html <- function(url, id_tabla) {
   patron_comentario <- "<!--[\\s\\S]*?-->"
   comentarios <- stringr::str_extract_all(html_raw, stringr::regex(patron_comentario))[[1]]
 
-  idx_comentario <- which(stringr::str_detect(comentarios, stringr::fixed(id_tabla)))
+  # CAMBIO: Usar regex en vez de fixed()
+  patron_tabla_especifica <- paste0('<table.*?id="', id_tabla, '"')
+  idx_comentario <- which(stringr::str_detect(comentarios, stringr::regex(patron_tabla_especifica)))
 
   if (length(idx_comentario) == 0) {
     cat("  -> Tabla NO encontrada (ni visible ni comentada)\n")
