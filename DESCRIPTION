@@ -1,0 +1,19 @@
+Package: bballref
+Type: Package
+Title: Web Scraping Tools for Basketball Reference
+Version: 0.1.0
+Author: Eliseo
+Maintainer: Eliseo <eliseogarilleti@gmail.com>
+Description: Herramientas para extraer datos de Basketball Reference,
+    incluyendo estadísticas de equipos, jugadores y campeones históricos de la NBA.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    rvest,
+    dplyr,
+    stringr,
+    glue,
+    magrittr
+RoxygenNote: 7.3.3
+
