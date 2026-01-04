@@ -12,7 +12,7 @@ get_champions(año_inicio = NULL, año_fin = NULL)
 \item{año_fin}{Último año a incluir (NULL = hasta el último disponible)}
 }
 \value{
-Dataframe con columnas: Year, Champion, codigo_equipo
+Dataframe con columnas: Year, Champion, team
 }
 \description{
 Extrae la lista histórica de campeones de la NBA desde Basketball Reference,

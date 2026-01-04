@@ -6,7 +6,7 @@
 #' @param año_inicio Primer año a incluir (NULL = desde el primero disponible)
 #' @param año_fin Último año a incluir (NULL = hasta el último disponible)
 #'
-#' @return Dataframe con columnas: Year, Champion, codigo_equipo
+#' @return Dataframe con columnas: Year, Champion, team
 #'
 #' @examples
 #' \dontrun{
@@ -65,7 +65,7 @@ get_champions <- function(año_inicio = NULL, año_fin = NULL) {
 
   campeones <- campeones %>%
     dplyr::mutate(
-      codigo_equipo = dplyr::case_when(
+      team = dplyr::case_when(
         stringr::str_detect(Champion, "Thunder") ~ "OKC",
         stringr::str_detect(Champion, "Lakers") ~ "LAL",
         stringr::str_detect(Champion, "Celtics") ~ "BOS",
