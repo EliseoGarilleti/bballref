@@ -23,3 +23,4 @@ url <- construir_url_bball_ref("equipo_temporada", list(codigo = "LAL", year = 2
 }
 
 }
+\keyword{internal}

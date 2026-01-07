@@ -16,7 +16,7 @@
 #' }
 #'
 #'
-#' @export
+#' @keywords internal
 extraer_tabla_de_html <- function(url, id_tabla) {
 
   cat("Buscando tabla con ID:", id_tabla, "\n")

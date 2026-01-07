@@ -27,3 +27,4 @@ totals <- extraer_tabla_de_html(url, "totals_stats")
 
 
 }
+\keyword{internal}

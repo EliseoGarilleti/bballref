@@ -12,7 +12,7 @@
 #' url <- construir_url_bball_ref("equipo_temporada", list(codigo = "LAL", year = 2020))
 #' }
 #'
-#' @export
+#' @keywords internal
 construir_url_bball_ref <- function(tipo, parametros) {
 
   base_url <- "https://www.basketball-reference.com"
