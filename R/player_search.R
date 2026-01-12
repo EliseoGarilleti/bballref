@@ -1,4 +1,4 @@
-#' Find player ID by name
+#' Find player ID by name (internal function)
 #'
 #' Search for a player's ID on Basketball Reference using their name.
 #' Returns the player_id needed for other functions.
@@ -20,7 +20,7 @@
 #' find_player_id("James", return_all = TRUE)
 #' }
 #'
-#' @export
+#' @keywords internal
 find_player_id <- function(player_name, return_all = FALSE, verbose = TRUE) {
 
   if (verbose) cat("Searching player:", player_name, "\n")

@@ -1,27 +1,27 @@
-#' Obtener lista de campeones de la NBA
+#' Get NBA champions list
 #'
-#' Extrae la lista histórica de campeones de la NBA desde Basketball Reference,
-#' con validación automática de rangos de años.
+#' Extract historical list of NBA champions from Basketball Reference,
+#' with automatic year range validation.
 #'
-#' @param año_inicio Primer año a incluir (NULL = desde el primero disponible)
-#' @param año_fin Último año a incluir (NULL = hasta el último disponible)
+#' @param first_year First year to include (NULL = from earliest available)
+#' @param last_year Last year to include (NULL = to latest available)
 #'
-#' @return Dataframe con columnas: Year, Champion, team
+#' @return Dataframe with columns: Year, Champion, team
 #'
 #' @examples
 #' \dontrun{
-#' # Todos los campeones disponibles
-#' campeones <- champions()
+#' # All available champions
+#' champs <- champions()
 #'
-#' # Campeones desde 1980 hasta 2023
-#' campeones <- champions(año_inicio = 1980, año_fin = 2023)
+#' # Champions from 1980 to 2023
+#' champs <- champions(first_year = 1980, last_year = 2023)
 #'
-#' # Campeones desde 2000 hasta el último disponible
-#' campeones <- champions(año_inicio = 2000)
+#' # Champions from 2000 to latest available
+#' champs <- champions(first_year = 2000)
 #' }
 #'
 #' @export
-champions <- function(año_inicio = NULL, año_fin = NULL) {
+champions <- function(first_year = NULL, last_year = NULL) {
 
   url <- "https://www.basketball-reference.com/playoffs/"
 
@@ -43,25 +43,25 @@ champions <- function(año_inicio = NULL, año_fin = NULL) {
 
   cat("  -> Años disponibles:", año_min_disponible, "-", año_max_disponible, "\n")
 
-  if (is.null(año_inicio)) año_inicio <- año_min_disponible
-  if (is.null(año_fin)) año_fin <- año_max_disponible
+  if (is.null(first_year)) first_year <- año_min_disponible
+  if (is.null(last_year)) last_year <- año_max_disponible
 
-  if (año_inicio < año_min_disponible) {
-    warning("Año inicial (", año_inicio, ") es anterior al disponible (", año_min_disponible, "). Usando ", año_min_disponible)
-    año_inicio <- año_min_disponible
+  if (first_year < año_min_disponible) {
+    warning("Año inicial (", first_year, ") es anterior al disponible (", año_min_disponible, "). Usando ", año_min_disponible)
+    first_year <- año_min_disponible
   }
 
-  if (año_fin > año_max_disponible) {
-    warning("Año final (", año_fin, ") es posterior al disponible (", año_max_disponible, "). Usando ", año_max_disponible)
-    año_fin <- año_max_disponible
+  if (last_year > año_max_disponible) {
+    warning("Año final (", last_year, ") es posterior al disponible (", año_max_disponible, "). Usando ", año_max_disponible)
+    last_year <- año_max_disponible
   }
 
-  if (año_inicio > año_fin) {
-    stop("Error: año_inicio (", año_inicio, ") no puede ser mayor que año_fin (", año_fin, ")")
+  if (first_year > last_year) {
+    stop("Error: first_year (", first_year, ") no puede ser mayor que last_year (", last_year, ")")
   }
 
   campeones <- campeones %>%
-    dplyr::filter(Year >= año_inicio, Year <= año_fin)
+    dplyr::filter(Year >= first_year, Year <= last_year)
 
   campeones <- campeones %>%
     dplyr::mutate(
@@ -84,9 +84,9 @@ champions <- function(año_inicio = NULL, año_fin = NULL) {
         TRUE ~ NA_character_
       )
     ) %>%
-    select(1:5,11)
+    dplyr::select(1:5, 11)
 
-  cat("  -> Éxito:", nrow(campeones), "campeones obtenidos (", año_inicio, "-", año_fin, ")\n")
+  cat("  -> Éxito:", nrow(campeones), "campeones obtenidos (", first_year, "-", last_year, ")\n")
 
   return(campeones)
 }

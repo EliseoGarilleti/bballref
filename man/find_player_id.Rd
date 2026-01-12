@@ -2,7 +2,7 @@
 % Please edit documentation in R/player_search.R
 \name{find_player_id}
 \alias{find_player_id}
-\title{Find player ID by name}
+\title{Find player ID by name (internal function)}
 \usage{
 find_player_id(player_name, return_all = FALSE, verbose = TRUE)
 }
@@ -32,3 +32,4 @@ find_player_id("James", return_all = TRUE)
 }
 
 }
+\keyword{internal}

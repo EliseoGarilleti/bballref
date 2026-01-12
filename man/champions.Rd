@@ -2,32 +2,32 @@
 % Please edit documentation in R/campeones.R
 \name{champions}
 \alias{champions}
-\title{Obtener lista de campeones de la NBA}
+\title{Get NBA champions list}
 \usage{
-champions(año_inicio = NULL, año_fin = NULL)
+champions(first_year = NULL, last_year = NULL)
 }
 \arguments{
-\item{año_inicio}{Primer año a incluir (NULL = desde el primero disponible)}
+\item{first_year}{First year to include (NULL = from earliest available)}
 
-\item{año_fin}{Último año a incluir (NULL = hasta el último disponible)}
+\item{last_year}{Last year to include (NULL = to latest available)}
 }
 \value{
-Dataframe con columnas: Year, Champion, team
+Dataframe with columns: Year, Champion, team
 }
 \description{
-Extrae la lista histórica de campeones de la NBA desde Basketball Reference,
-con validación automática de rangos de años.
+Extract historical list of NBA champions from Basketball Reference,
+with automatic year range validation.
 }
 \examples{
 \dontrun{
-# Todos los campeones disponibles
-campeones <- champions()
+# All available champions
+champs <- champions()
 
-# Campeones desde 1980 hasta 2023
-campeones <- champions(año_inicio = 1980, año_fin = 2023)
+# Champions from 1980 to 2023
+champs <- champions(first_year = 1980, last_year = 2023)
 
-# Campeones desde 2000 hasta el último disponible
-campeones <- champions(año_inicio = 2000)
+# Champions from 2000 to latest available
+champs <- champions(first_year = 2000)
 }
 
 }
