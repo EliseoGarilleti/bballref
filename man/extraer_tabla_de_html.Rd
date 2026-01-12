@@ -4,12 +4,14 @@
 \alias{extraer_tabla_de_html}
 \title{Extraer tabla de HTML (visible o comentada)}
 \usage{
-extraer_tabla_de_html(url, id_tabla)
+extraer_tabla_de_html(url, id_tabla, verbose = TRUE)
 }
 \arguments{
 \item{url}{URL completa de la página}
 
 \item{id_tabla}{ID exacto de la tabla HTML a extraer}
+
+\item{verbose}{If TRUE, prints extraction progress messages (default: TRUE)}
 }
 \value{
 Dataframe con los datos de la tabla, o NULL si no se encuentra

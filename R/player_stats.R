@@ -183,19 +183,21 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
 
   player_id <- player
 
+  player_name <- player  # Guardar el nombre original para mostrar
+
   if (es_nombre) {
-    cat("Detectado nombre de jugador. Buscando ID...\n")
-    player_id <- find_player_id(player)
+    player_id <- find_player_id(player, verbose = FALSE)
 
     if (is.null(player_id)) {
-      cat("  -> No se pudo encontrar el jugador:", player, "\n")
+      cat("Error: Player not found -", player, "\n")
       return(NULL)
     }
-
-    cat("  -> ID encontrado:", player_id, "\n")
+  } else {
+    # Si es un ID, no tenemos el nombre completo para mostrar
+    player_name <- player_id
   }
 
-  cat("Obteniendo estadísticas de jugador:", player_id, "-", tipo_stats, "(", temporada, ")\n")
+  cat("Searching player:", player_name, "\n")
 
   Sys.sleep(pausa)
 
@@ -210,19 +212,16 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
     tipo_stats
   }
 
-  cat("  -> URL:", url, "\n")
-  cat("  -> ID de tabla:", id_tabla, "\n")
-
   # Extraer tabla
   tabla <- tryCatch({
-    extraer_tabla_de_html(url, id_tabla)
+    extraer_tabla_de_html(url, id_tabla, verbose = FALSE)
   }, error = function(e) {
-    cat("  -> Error al extraer tabla:", e$message, "\n")
+    cat("Error: Could not extract table\n")
     return(NULL)
   })
 
   if (is.null(tabla)) {
-    cat("  -> No se pudo obtener la tabla\n")
+    cat("Error: Table not found\n")
     return(NULL)
   }
 
@@ -246,13 +245,11 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
 
   # Si la primera fila contiene encabezados, usarla y eliminarla de los datos
   if (primera_fila_es_header) {
-    cat("  -> Detectados encabezados en la primera fila, reestructurando tabla\n")
     nuevos_nombres <- as.character(tabla[1, ])
     tabla <- tabla[-1, ]
     names(tabla) <- nuevos_nombres
     nombres_columnas <- nuevos_nombres
   } else if (any(nombres_vacios)) {
-    cat("  -> Arreglando", sum(nombres_vacios), "columnas sin nombre\n")
     nombres_columnas[nombres_vacios] <- paste0("col_", seq_len(sum(nombres_vacios)))
     names(tabla) <- nombres_columnas
   }
@@ -262,7 +259,6 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
   names(tabla) <- nombres_columnas
 
   # Limpiar nombres de columnas: reemplazar símbolos problemáticos
-  cat("  -> Limpiando nombres de columnas\n")
   nombres_columnas <- gsub("^3P", "three_P", nombres_columnas)
   nombres_columnas <- gsub("^3PA", "three_PA", nombres_columnas)
   nombres_columnas <- gsub("^3P%", "three_Ppct", nombres_columnas)
@@ -280,14 +276,8 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
   # Filtrar filas que no son temporadas válidas
   # Las temporadas válidas tienen formato "YYYY-YY" (ej: "2023-24")
   if ("Season" %in% names(tabla_limpia)) {
-    filas_antes <- nrow(tabla_limpia)
     tabla_limpia <- tabla_limpia %>%
       dplyr::filter(grepl("^\\d{4}-\\d{2}$", Season))
-    filas_despues <- nrow(tabla_limpia)
-
-    if (filas_antes > filas_despues) {
-      cat("  -> Eliminadas", filas_antes - filas_despues, "filas no válidas (totales/resúmenes)\n")
-    }
   }
 
   # Agregar metadatos
@@ -298,7 +288,7 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
       season_type = temporada
     )
 
-  cat("  -> Éxito:", nrow(tabla_limpia), "temporadas obtenidas\n")
+  cat("Success:", nrow(tabla_limpia), "rows obtained\n")
 
   return(tabla_limpia)
 }

@@ -5,6 +5,7 @@
 #'
 #' @param player_name Player's name (first and/or last name, case insensitive)
 #' @param return_all If TRUE, returns all matches. If FALSE (default), returns only the first match
+#' @param verbose If TRUE, prints search progress messages. If FALSE, runs silently (default: TRUE)
 #'
 #' @return Character vector with player_id(s), or NULL if no match found
 #'
@@ -20,24 +21,22 @@
 #' }
 #'
 #' @export
-find_player_id <- function(player_name, return_all = FALSE) {
+find_player_id <- function(player_name, return_all = FALSE, verbose = TRUE) {
 
-  cat("Buscando jugador:", player_name, "\n")
+  if (verbose) cat("Searching player:", player_name, "\n")
 
   # Normalizar nombre (minúsculas, eliminar espacios extras)
   nombre_normalizado <- tolower(trimws(player_name))
   palabras <- strsplit(nombre_normalizado, "\\s+")[[1]]
 
   if (length(palabras) == 0) {
-    cat("  -> Error: nombre vacío\n")
+    if (verbose) cat("Error: Empty player name\n")
     return(NULL)
   }
 
   # Determinar letras a buscar (empezar por la primera letra de cada palabra)
   # Típicamente el apellido está al final, pero también buscaremos por la primera palabra
   letras_buscar <- unique(substr(palabras, 1, 1))
-
-  cat("  -> Buscando en índices:", paste(letras_buscar, collapse = ", "), "\n")
 
   resultados <- list()
 
@@ -85,12 +84,12 @@ find_player_id <- function(player_name, return_all = FALSE) {
       }
 
     }, error = function(e) {
-      cat("  -> Error buscando en letra", letra, ":", e$message, "\n")
+      if (verbose) cat("Error searching letter", letra, "\n")
     })
   }
 
   if (length(resultados) == 0) {
-    cat("  -> No se encontraron jugadores\n")
+    if (verbose) cat("No players found\n")
     return(NULL)
   }
 
@@ -109,21 +108,21 @@ find_player_id <- function(player_name, return_all = FALSE) {
   jugadores_encontrados <- todos_resultados[coincidencias, ]
 
   if (nrow(jugadores_encontrados) == 0) {
-    cat("  -> No se encontraron coincidencias para:", player_name, "\n")
+    if (verbose) cat("No matches found for:", player_name, "\n")
     return(NULL)
   }
 
-  cat("  -> Encontrados", nrow(jugadores_encontrados), "jugador(es):\n")
-  for (i in 1:nrow(jugadores_encontrados)) {
-    cat("     ", i, ".", jugadores_encontrados$nombre[i], "->", jugadores_encontrados$player_id[i], "\n")
+  if (verbose) {
+    cat("Found", nrow(jugadores_encontrados), "player(s):", jugadores_encontrados$nombre[1])
+    if (nrow(jugadores_encontrados) > 1) {
+      cat(" (and", nrow(jugadores_encontrados) - 1, "more)")
+    }
+    cat("\n")
   }
 
   if (return_all) {
     return(jugadores_encontrados$player_id)
   } else {
-    if (nrow(jugadores_encontrados) > 1) {
-      cat("  -> Múltiples coincidencias. Retornando la primera. Usa return_all = TRUE para ver todas.\n")
-    }
     return(jugadores_encontrados$player_id[1])
   }
 }

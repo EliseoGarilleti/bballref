@@ -4,12 +4,14 @@
 \alias{find_player_id}
 \title{Find player ID by name}
 \usage{
-find_player_id(player_name, return_all = FALSE)
+find_player_id(player_name, return_all = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{player_name}{Player's name (first and/or last name, case insensitive)}
 
 \item{return_all}{If TRUE, returns all matches. If FALSE (default), returns only the first match}
+
+\item{verbose}{If TRUE, prints search progress messages. If FALSE, runs silently (default: TRUE)}
 }
 \value{
 Character vector with player_id(s), or NULL if no match found

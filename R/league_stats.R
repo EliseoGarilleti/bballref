@@ -77,7 +77,8 @@ get_league_per_poss <- function(season_type = "regular") {
 #' @keywords internal
 obtener_stats_liga <- function(tipo_stats, temporada, pausa = 2) {
 
-  cat("Obteniendo estadísticas de liga:", tipo_stats, "(", temporada, ")\n")
+  season_label <- if (temporada == "playoffs") "playoffs" else "regular season"
+  cat("Searching league:", tipo_stats, paste0("(", season_label, ")"), "\n")
 
   Sys.sleep(pausa)
 
@@ -91,19 +92,16 @@ obtener_stats_liga <- function(tipo_stats, temporada, pausa = 2) {
     "stats-Regular-Season"
   }
 
-  cat("  -> URL:", url, "\n")
-  cat("  -> ID de tabla:", id_tabla, "\n")
-
   # Extraer tabla
   tabla <- tryCatch({
-    extraer_tabla_de_html(url, id_tabla)
+    extraer_tabla_de_html(url, id_tabla, verbose = FALSE)
   }, error = function(e) {
-    cat("  -> Error al extraer tabla:", e$message, "\n")
+    cat("Error: Could not extract table\n")
     return(NULL)
   })
 
   if (is.null(tabla)) {
-    cat("  -> No se pudo obtener la tabla\n")
+    cat("Error: Table not found\n")
     return(NULL)
   }
 
@@ -129,14 +127,12 @@ obtener_stats_liga <- function(tipo_stats, temporada, pausa = 2) {
 
   # Si la primera fila contiene encabezados, usarla y eliminarla de los datos
   if (primera_fila_es_header) {
-    cat("  -> Detectados encabezados en la primera fila, reestructurando tabla\n")
     # Usar la primera fila como nombres de columnas
     nuevos_nombres <- as.character(tabla[1, ])
     tabla <- tabla[-1, ]  # Eliminar la primera fila
     names(tabla) <- nuevos_nombres
     nombres_columnas <- nuevos_nombres
   } else if (any(nombres_vacios)) {
-    cat("  -> Arreglando", sum(nombres_vacios), "columnas sin nombre\n")
     nombres_columnas[nombres_vacios] <- paste0("col_", seq_len(sum(nombres_vacios)))
     names(tabla) <- nombres_columnas
   }
@@ -146,7 +142,6 @@ obtener_stats_liga <- function(tipo_stats, temporada, pausa = 2) {
   names(tabla) <- nombres_columnas
 
   # Limpiar nombres de columnas: reemplazar símbolos problemáticos
-  cat("  -> Limpiando nombres de columnas\n")
   nombres_columnas <- gsub("^3P", "three_P", nombres_columnas)
   nombres_columnas <- gsub("^3PA", "three_PA", nombres_columnas)
   nombres_columnas <- gsub("^3P%", "three_Ppct", nombres_columnas)
@@ -176,7 +171,7 @@ obtener_stats_liga <- function(tipo_stats, temporada, pausa = 2) {
       season_type = temporada
     )
 
-  cat("  -> Éxito:", nrow(tabla_limpia), "temporadas obtenidas\n")
+  cat("Success:", nrow(tabla_limpia), "rows obtained\n")
 
   return(tabla_limpia)
 }
