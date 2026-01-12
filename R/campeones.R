@@ -11,17 +11,17 @@
 #' @examples
 #' \dontrun{
 #' # Todos los campeones disponibles
-#' campeones <- get_champions()
+#' campeones <- champions()
 #'
 #' # Campeones desde 1980 hasta 2023
-#' campeones <- get_champions(año_inicio = 1980, año_fin = 2023)
+#' campeones <- champions(año_inicio = 1980, año_fin = 2023)
 #'
 #' # Campeones desde 2000 hasta el último disponible
-#' campeones <- get_champions(año_inicio = 2000)
+#' campeones <- champions(año_inicio = 2000)
 #' }
 #'
 #' @export
-get_champions <- function(año_inicio = NULL, año_fin = NULL) {
+champions <- function(año_inicio = NULL, año_fin = NULL) {
 
   url <- "https://www.basketball-reference.com/playoffs/"
 

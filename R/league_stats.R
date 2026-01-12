@@ -9,14 +9,14 @@
 #' @examples
 #' \dontrun{
 #' # Get regular season league averages
-#' league_per_game <- get_league_per_game()
+#' league_per_game <- league_per_game()
 #'
 #' # Get playoff league averages
-#' league_per_game_playoffs <- get_league_per_game("playoffs")
+#' league_per_game_playoffs <- league_per_game("playoffs")
 #' }
 #'
 #' @export
-get_league_per_game <- function(season_type = "regular") {
+league_per_game <- function(season_type = "regular") {
   obtener_stats_liga("per_game", season_type)
 }
 
@@ -31,14 +31,14 @@ get_league_per_game <- function(season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get regular season league totals
-#' league_totals <- get_league_totals()
+#' league_totals <- league_totals()
 #'
 #' # Get playoff league totals
-#' league_totals_playoffs <- get_league_totals("playoffs")
+#' league_totals_playoffs <- league_totals("playoffs")
 #' }
 #'
 #' @export
-get_league_totals <- function(season_type = "regular") {
+league_totals <- function(season_type = "regular") {
   obtener_stats_liga("totals", season_type)
 }
 
@@ -53,14 +53,14 @@ get_league_totals <- function(season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get regular season per 100 poss stats
-#' league_per_poss <- get_league_per_poss()
+#' league_per_poss <- league_per_poss()
 #'
 #' # Get playoff per 100 poss stats
-#' league_per_poss_playoffs <- get_league_per_poss("playoffs")
+#' league_per_poss_playoffs <- league_per_poss("playoffs")
 #' }
 #'
 #' @export
-get_league_per_poss <- function(season_type = "regular") {
+league_per_poss <- function(season_type = "regular") {
   obtener_stats_liga("per_poss", season_type)
 }
 

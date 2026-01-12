@@ -18,7 +18,7 @@ cat("-----------------------------------\n\n")
 
 # Prueba 1.1: Per game stats - Lakers 2020 (temporada regular)
 cat("1.1) Lakers 2020 - Per Game (Regular Season)\n")
-lakers_pg_2020 <- get_team_per_game("LAL", 2020, "regular")
+lakers_pg_2020 <- team_per_game("LAL", 2020, "regular")
 cat("   Dimensiones:", nrow(lakers_pg_2020), "filas x", ncol(lakers_pg_2020), "columnas\n")
 cat("   Columnas clave:", paste(names(lakers_pg_2020)[1:10], collapse = ", "), "...\n")
 cat("   Verificación 3P -> three_P:", "three_P" %in% names(lakers_pg_2020), "\n")
@@ -26,13 +26,13 @@ cat("   Verificación % -> pct:", any(grepl("pct$", names(lakers_pg_2020))), "\n
 
 # Prueba 1.2: Per game stats - Lakers 2020 (playoffs)
 cat("1.2) Lakers 2020 - Per Game (Playoffs)\n")
-lakers_pg_playoffs <- get_team_per_game("LAL", 2020, "playoffs")
+lakers_pg_playoffs <- team_per_game("LAL", 2020, "playoffs")
 cat("   Dimensiones:", nrow(lakers_pg_playoffs), "filas x", ncol(lakers_pg_playoffs), "columnas\n")
 cat("   Season type:", unique(lakers_pg_playoffs$season_type), "\n\n")
 
 # Prueba 1.3: Totals - Celtics 2024
 cat("1.3) Celtics 2024 - Totals\n")
-celtics_totals <- get_team_totals("BOS", 2024)
+celtics_totals <- team_totals("BOS", 2024)
 cat("   Dimensiones:", nrow(celtics_totals), "filas x", ncol(celtics_totals), "columnas\n")
 cat("   Primeros 3 jugadores:\n")
 print(head(celtics_totals[, c("Player", "Age", "G", "PTS")], 3))
@@ -40,7 +40,7 @@ cat("\n")
 
 # Prueba 1.4: Advanced stats - Warriors 2022
 cat("1.4) Warriors 2022 - Advanced Stats\n")
-warriors_adv <- get_team_advanced("GSW", 2022)
+warriors_adv <- team_advanced("GSW", 2022)
 cat("   Dimensiones:", nrow(warriors_adv), "filas x", ncol(warriors_adv), "columnas\n\n")
 
 # ============================================
@@ -53,7 +53,7 @@ cat("-----------------------------------\n\n")
 
 # Prueba 2.1: Per game stats usando NOMBRE
 cat("2.1) LeBron James - Per Game (usando nombre)\n")
-lebron_pg <- get_player_per_game("LeBron James")
+lebron_pg <- player_per_game("LeBron James")
 cat("   Dimensiones:", nrow(lebron_pg), "filas x", ncol(lebron_pg), "columnas\n")
 cat("   Primera temporada:", head(lebron_pg$Season, 1), "\n")
 cat("   Última temporada:", tail(lebron_pg$Season, 1), "\n")
@@ -65,26 +65,26 @@ cat("   Verificación % -> pct:", any(grepl("pct$", names(lebron_pg))), "\n\n")
 
 # Prueba 2.2: Per game stats usando ID
 cat("2.2) Stephen Curry - Per Game (usando ID: curryst01)\n")
-curry_pg <- get_player_per_game("curryst01")
+curry_pg <- player_per_game("curryst01")
 cat("   Dimensiones:", nrow(curry_pg), "filas x", ncol(curry_pg), "columnas\n")
 cat("   Temporadas:", min(curry_pg$Season), "a", max(curry_pg$Season), "\n\n")
 
 # Prueba 2.3: Totals playoffs
 cat("2.3) Kevin Durant - Totals (Playoffs)\n")
-kd_playoffs <- get_player_totals("Kevin Durant", "playoffs")
+kd_playoffs <- player_totals("Kevin Durant", "playoffs")
 cat("   Dimensiones:", nrow(kd_playoffs), "filas x", ncol(kd_playoffs), "columnas\n")
 cat("   Season type:", unique(kd_playoffs$season_type), "\n")
 cat("   Temporadas de playoffs:", nrow(kd_playoffs), "\n\n")
 
 # Prueba 2.4: Per game con minúsculas
 cat("2.4) Giannis Antetokounmpo - Per Game (minúsculas)\n")
-giannis_pg <- get_player_per_game("giannis antetokounmpo")
+giannis_pg <- player_per_game("giannis antetokounmpo")
 cat("   Dimensiones:", nrow(giannis_pg), "filas x", ncol(giannis_pg), "columnas\n")
 cat("   Player ID detectado:", unique(giannis_pg$player_id), "\n\n")
 
 # Prueba 2.5: Advanced stats
 cat("2.5) Luka Doncic - Advanced Stats\n")
-luka_adv <- get_player_advanced("Luka Doncic")
+luka_adv <- player_advanced("Luka Doncic")
 cat("   Dimensiones:", nrow(luka_adv), "filas x", ncol(luka_adv), "columnas\n\n")
 
 # ============================================
@@ -121,14 +121,14 @@ cat("-----------------------------------\n\n")
 
 # Prueba 4.1: Liga per game
 cat("4.1) Liga - Per Game (Regular Season)\n")
-liga_pg <- get_league_per_game()
+liga_pg <- league_per_game()
 cat("   Dimensiones:", nrow(liga_pg), "filas x", ncol(liga_pg), "columnas\n")
 cat("   Temporadas:", min(liga_pg$Season), "a", max(liga_pg$Season), "\n")
 cat("   Verificación 3P -> three_P:", "three_P" %in% names(liga_pg), "\n\n")
 
 # Prueba 4.2: Liga playoffs
 cat("4.2) Liga - Totals (Playoffs)\n")
-liga_playoffs <- get_league_totals("playoffs")
+liga_playoffs <- league_totals("playoffs")
 cat("   Dimensiones:", nrow(liga_playoffs), "filas x", ncol(liga_playoffs), "columnas\n")
 cat("   Season type:", unique(liga_playoffs$season_type), "\n\n")
 

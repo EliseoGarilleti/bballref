@@ -11,14 +11,14 @@
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 roster
-#' roster <- get_team_roster("LAL", 2020)
+#' roster <- team_roster("LAL", 2020)
 #'
 #' # Get playoff roster
-#' playoff_roster <- get_team_roster("LAL", 2020, "playoffs")
+#' playoff_roster <- team_roster("LAL", 2020, "playoffs")
 #' }
 #'
 #' @export
-get_team_roster <- function(team_code, year, season_type = "regular") {
+team_roster <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "roster", season_type)
 }
 
@@ -35,14 +35,14 @@ get_team_roster <- function(team_code, year, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 per game stats
-#' per_game <- get_team_per_game("LAL", 2020)
+#' per_game <- team_per_game("LAL", 2020)
 #'
 #' # Get playoff per game stats
-#' playoff_per_game <- get_team_per_game("LAL", 2020, "playoffs")
+#' playoff_per_game <- team_per_game("LAL", 2020, "playoffs")
 #' }
 #'
 #' @export
-get_team_per_game <- function(team_code, year, season_type = "regular") {
+team_per_game <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "per_game_stats", season_type)
 }
 
@@ -59,14 +59,14 @@ get_team_per_game <- function(team_code, year, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 season totals
-#' totals <- get_team_totals("LAL", 2020)
+#' totals <- team_totals("LAL", 2020)
 #'
 #' # Get playoff totals
-#' playoff_totals <- get_team_totals("LAL", 2020, "playoffs")
+#' playoff_totals <- team_totals("LAL", 2020, "playoffs")
 #' }
 #'
 #' @export
-get_team_totals <- function(team_code, year, season_type = "regular") {
+team_totals <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "totals_stats", season_type)
 }
 
@@ -83,14 +83,14 @@ get_team_totals <- function(team_code, year, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 advanced stats
-#' advanced <- get_team_advanced("LAL", 2020)
+#' advanced <- team_advanced("LAL", 2020)
 #'
 #' # Get playoff advanced stats
-#' playoff_advanced <- get_team_advanced("LAL", 2020, "playoffs")
+#' playoff_advanced <- team_advanced("LAL", 2020, "playoffs")
 #' }
 #'
 #' @export
-get_team_advanced <- function(team_code, year, season_type = "regular") {
+team_advanced <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "advanced", season_type)
 }
 
@@ -107,11 +107,11 @@ get_team_advanced <- function(team_code, year, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 per minute stats
-#' per_minute <- get_team_per_minute("LAL", 2020)
+#' per_minute <- team_per_minute("LAL", 2020)
 #' }
 #'
 #' @export
-get_team_per_minute <- function(team_code, year, season_type = "regular") {
+team_per_minute <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "per_minute_stats", season_type)
 }
 
@@ -128,11 +128,11 @@ get_team_per_minute <- function(team_code, year, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 per 100 possessions stats
-#' per_poss <- get_team_per_poss("LAL", 2020)
+#' per_poss <- team_per_poss("LAL", 2020)
 #' }
 #'
 #' @export
-get_team_per_poss <- function(team_code, year, season_type = "regular") {
+team_per_poss <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "per_poss", season_type)
 }
 
@@ -149,11 +149,11 @@ get_team_per_poss <- function(team_code, year, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 shooting stats
-#' shooting <- get_team_shooting("LAL", 2020)
+#' shooting <- team_shooting("LAL", 2020)
 #' }
 #'
 #' @export
-get_team_shooting <- function(team_code, year, season_type = "regular") {
+team_shooting <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "shooting", season_type)
 }
 
@@ -170,10 +170,10 @@ get_team_shooting <- function(team_code, year, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get Lakers 2020 play-by-play stats
-#' pbp <- get_team_pbp("LAL", 2020)
+#' pbp <- team_pbp("LAL", 2020)
 #' }
 #'
 #' @export
-get_team_pbp <- function(team_code, year, season_type = "regular") {
+team_pbp <- function(team_code, year, season_type = "regular") {
   obtener_tabla_equipo(team_code, year, "pbp_stats", season_type)
 }

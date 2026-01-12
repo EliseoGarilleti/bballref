@@ -10,17 +10,17 @@
 #' @examples
 #' \dontrun{
 #' # Using player name
-#' lebron_pg <- get_player_per_game("LeBron James")
+#' lebron_pg <- player_per_game("LeBron James")
 #'
 #' # Using player ID
-#' lebron_pg <- get_player_per_game("jamesle01")
+#' lebron_pg <- player_per_game("jamesle01")
 #'
 #' # Get playoff per game stats
-#' lebron_pg_playoffs <- get_player_per_game("LeBron James", "playoffs")
+#' lebron_pg_playoffs <- player_per_game("LeBron James", "playoffs")
 #' }
 #'
 #' @export
-get_player_per_game <- function(player, season_type = "regular") {
+player_per_game <- function(player, season_type = "regular") {
   obtener_stats_jugador(player, "per_game_stats", season_type)
 }
 
@@ -36,14 +36,14 @@ get_player_per_game <- function(player, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get LeBron James regular season totals
-#' lebron_totals <- get_player_totals("jamesle01")
+#' lebron_totals <- player_totals("jamesle01")
 #'
 #' # Get playoff totals
-#' lebron_totals_playoffs <- get_player_totals("jamesle01", "playoffs")
+#' lebron_totals_playoffs <- player_totals("jamesle01", "playoffs")
 #' }
 #'
 #' @export
-get_player_totals <- function(player, season_type = "regular") {
+player_totals <- function(player, season_type = "regular") {
   obtener_stats_jugador(player, "totals_stats", season_type)
 }
 
@@ -59,14 +59,14 @@ get_player_totals <- function(player, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get LeBron James regular season per 36 stats
-#' lebron_per36 <- get_player_per_minute("jamesle01")
+#' lebron_per36 <- player_per_minute("jamesle01")
 #'
 #' # Get playoff per 36 stats
-#' lebron_per36_playoffs <- get_player_per_minute("jamesle01", "playoffs")
+#' lebron_per36_playoffs <- player_per_minute("jamesle01", "playoffs")
 #' }
 #'
 #' @export
-get_player_per_minute <- function(player, season_type = "regular") {
+player_per_minute <- function(player, season_type = "regular") {
   obtener_stats_jugador(player, "per_minute_stats", season_type)
 }
 
@@ -82,14 +82,14 @@ get_player_per_minute <- function(player, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get LeBron James regular season per 100 poss stats
-#' lebron_per_poss <- get_player_per_poss("jamesle01")
+#' lebron_per_poss <- player_per_poss("jamesle01")
 #'
 #' # Get playoff per 100 poss stats
-#' lebron_per_poss_playoffs <- get_player_per_poss("jamesle01", "playoffs")
+#' lebron_per_poss_playoffs <- player_per_poss("jamesle01", "playoffs")
 #' }
 #'
 #' @export
-get_player_per_poss <- function(player, season_type = "regular") {
+player_per_poss <- function(player, season_type = "regular") {
   obtener_stats_jugador(player, "per_poss", season_type)
 }
 
@@ -105,14 +105,14 @@ get_player_per_poss <- function(player, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get LeBron James regular season advanced stats
-#' lebron_advanced <- get_player_advanced("jamesle01")
+#' lebron_advanced <- player_advanced("jamesle01")
 #'
 #' # Get playoff advanced stats
-#' lebron_advanced_playoffs <- get_player_advanced("jamesle01", "playoffs")
+#' lebron_advanced_playoffs <- player_advanced("jamesle01", "playoffs")
 #' }
 #'
 #' @export
-get_player_advanced <- function(player, season_type = "regular") {
+player_advanced <- function(player, season_type = "regular") {
   obtener_stats_jugador(player, "advanced", season_type)
 }
 
@@ -128,14 +128,14 @@ get_player_advanced <- function(player, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get LeBron James regular season shooting stats
-#' lebron_shooting <- get_player_shooting("jamesle01")
+#' lebron_shooting <- player_shooting("jamesle01")
 #'
 #' # Get playoff shooting stats
-#' lebron_shooting_playoffs <- get_player_shooting("jamesle01", "playoffs")
+#' lebron_shooting_playoffs <- player_shooting("jamesle01", "playoffs")
 #' }
 #'
 #' @export
-get_player_shooting <- function(player, season_type = "regular") {
+player_shooting <- function(player, season_type = "regular") {
   obtener_stats_jugador(player, "shooting", season_type)
 }
 
@@ -151,14 +151,14 @@ get_player_shooting <- function(player, season_type = "regular") {
 #' @examples
 #' \dontrun{
 #' # Get LeBron James regular season pbp stats
-#' lebron_pbp <- get_player_pbp("jamesle01")
+#' lebron_pbp <- player_pbp("jamesle01")
 #'
 #' # Get playoff pbp stats
-#' lebron_pbp_playoffs <- get_player_pbp("jamesle01", "playoffs")
+#' lebron_pbp_playoffs <- player_pbp("jamesle01", "playoffs")
 #' }
 #'
 #' @export
-get_player_pbp <- function(player, season_type = "regular") {
+player_pbp <- function(player, season_type = "regular") {
   obtener_stats_jugador(player, "pbp_stats", season_type)
 }
 
