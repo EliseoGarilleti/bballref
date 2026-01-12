@@ -2,7 +2,7 @@
 % Please edit documentation in R/tablas.R
 \name{obtener_tabla_equipo}
 \alias{obtener_tabla_equipo}
-\title{Obtener tabla de estadísticas de un equipo}
+\title{Obtener tabla de estadísticas de un equipo (función interna)}
 \usage{
 obtener_tabla_equipo(codigo_equipo, year, id_tabla, temporada, pausa = 2)
 }
@@ -13,27 +13,15 @@ obtener_tabla_equipo(codigo_equipo, year, id_tabla, temporada, pausa = 2)
 
 \item{id_tabla}{Tipo de tabla: "totals_stats", "advanced", "roster", "per_game_stats", etc.}
 
-\item{temporada}{"regular" para temporada regular, "post" para playoffs}
+\item{temporada}{"regular" para temporada regular, "playoffs" para playoffs}
 
 \item{pausa}{Segundos de pausa entre peticiones (default: 2)}
 }
 \value{
-Dataframe con datos limpios y columnas de metadata añadidas (team, season, temporada_tipo, id_tabla)
+Dataframe con datos limpios y columnas de metadata añadidas (team, season, season_type, table_id)
 }
 \description{
-Función principal para extraer tablas de estadísticas de equipos NBA desde Basketball Reference.
+Función auxiliar para extraer tablas de estadísticas de equipos NBA desde Basketball Reference.
 Maneja automáticamente tablas de temporada regular y playoffs.
 }
-\examples{
-\dontrun{
-# Estadísticas totales de Lakers 2020 (temporada regular)
-totals_regular <- obtener_tabla_equipo("LAL", 2020, "totals_stats", "regular")
-
-# Estadísticas avanzadas de playoffs
-advanced_playoffs <- obtener_tabla_equipo("LAL", 2020, "advanced", "post")
-
-# Roster del equipo
-roster <- obtener_tabla_equipo("LAL", 2020, "roster", "regular")
-}
-
-}
+\keyword{internal}

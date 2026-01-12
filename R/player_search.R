@@ -1,0 +1,129 @@
+#' Find player ID by name
+#'
+#' Search for a player's ID on Basketball Reference using their name.
+#' Returns the player_id needed for other functions.
+#'
+#' @param player_name Player's name (first and/or last name, case insensitive)
+#' @param return_all If TRUE, returns all matches. If FALSE (default), returns only the first match
+#'
+#' @return Character vector with player_id(s), or NULL if no match found
+#'
+#' @examples
+#' \dontrun{
+#' # Find LeBron James
+#' find_player_id("LeBron James")
+#' find_player_id("lebron james")  # Case insensitive
+#' find_player_id("james lebron")  # Order doesn't matter
+#'
+#' # Find all players named "James"
+#' find_player_id("James", return_all = TRUE)
+#' }
+#'
+#' @export
+find_player_id <- function(player_name, return_all = FALSE) {
+
+  cat("Buscando jugador:", player_name, "\n")
+
+  # Normalizar nombre (minúsculas, eliminar espacios extras)
+  nombre_normalizado <- tolower(trimws(player_name))
+  palabras <- strsplit(nombre_normalizado, "\\s+")[[1]]
+
+  if (length(palabras) == 0) {
+    cat("  -> Error: nombre vacío\n")
+    return(NULL)
+  }
+
+  # Determinar letras a buscar (empezar por la primera letra de cada palabra)
+  # Típicamente el apellido está al final, pero también buscaremos por la primera palabra
+  letras_buscar <- unique(substr(palabras, 1, 1))
+
+  cat("  -> Buscando en índices:", paste(letras_buscar, collapse = ", "), "\n")
+
+  resultados <- list()
+
+  for (letra in letras_buscar) {
+    url <- glue::glue("https://www.basketball-reference.com/players/{letra}/")
+
+    tryCatch({
+      Sys.sleep(1)  # Pausa para no saturar el servidor
+
+      pagina <- rvest::read_html(url)
+
+      # Buscar tabla de jugadores
+      tabla <- pagina %>%
+        rvest::html_element("#players") %>%
+        rvest::html_table()
+
+      if (is.null(tabla) || nrow(tabla) == 0) {
+        next
+      }
+
+      # Extraer links de jugadores
+      links <- pagina %>%
+        rvest::html_element("#players") %>%
+        rvest::html_elements("th[data-stat='player'] a") %>%
+        rvest::html_attr("href")
+
+      # Extraer nombres de jugadores
+      nombres <- pagina %>%
+        rvest::html_element("#players") %>%
+        rvest::html_elements("th[data-stat='player'] a") %>%
+        rvest::html_text()
+
+      # Extraer player_id de los links
+      player_ids <- gsub("^/players/./(.+)\\.html$", "\\1", links)
+
+      # Crear dataframe con resultados
+      if (length(nombres) > 0 && length(player_ids) > 0) {
+        df_letra <- data.frame(
+          nombre = nombres,
+          player_id = player_ids,
+          stringsAsFactors = FALSE
+        )
+
+        resultados[[letra]] <- df_letra
+      }
+
+    }, error = function(e) {
+      cat("  -> Error buscando en letra", letra, ":", e$message, "\n")
+    })
+  }
+
+  if (length(resultados) == 0) {
+    cat("  -> No se encontraron jugadores\n")
+    return(NULL)
+  }
+
+  # Combinar todos los resultados
+  todos_resultados <- do.call(rbind, resultados)
+
+  # Filtrar por coincidencias
+  # Buscar que todas las palabras del nombre aparezcan en el nombre del jugador
+  coincidencias <- sapply(todos_resultados$nombre, function(nombre_completo) {
+    nombre_completo_lower <- tolower(nombre_completo)
+    all(sapply(palabras, function(palabra) {
+      grepl(palabra, nombre_completo_lower, fixed = TRUE)
+    }))
+  })
+
+  jugadores_encontrados <- todos_resultados[coincidencias, ]
+
+  if (nrow(jugadores_encontrados) == 0) {
+    cat("  -> No se encontraron coincidencias para:", player_name, "\n")
+    return(NULL)
+  }
+
+  cat("  -> Encontrados", nrow(jugadores_encontrados), "jugador(es):\n")
+  for (i in 1:nrow(jugadores_encontrados)) {
+    cat("     ", i, ".", jugadores_encontrados$nombre[i], "->", jugadores_encontrados$player_id[i], "\n")
+  }
+
+  if (return_all) {
+    return(jugadores_encontrados$player_id)
+  } else {
+    if (nrow(jugadores_encontrados) > 1) {
+      cat("  -> Múltiples coincidencias. Retornando la primera. Usa return_all = TRUE para ver todas.\n")
+    }
+    return(jugadores_encontrados$player_id[1])
+  }
+}

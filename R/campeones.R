@@ -83,7 +83,8 @@ get_champions <- function(año_inicio = NULL, año_fin = NULL) {
         stringr::str_detect(Champion, "Nuggets") ~ "DEN",
         TRUE ~ NA_character_
       )
-    )
+    ) %>%
+    select(1:5,11)
 
   cat("  -> Éxito:", nrow(campeones), "campeones obtenidos (", año_inicio, "-", año_fin, ")\n")
 
