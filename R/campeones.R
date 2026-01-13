@@ -25,7 +25,7 @@ champions <- function(first_year = NULL, last_year = NULL) {
 
   url <- "https://www.basketball-reference.com/playoffs/"
 
-  cat("Obteniendo campeones de NBA...\n")
+  cat("Fetching NBA champions...\n")
 
   pagina <- rvest::read_html(url)
 
@@ -38,26 +38,26 @@ champions <- function(first_year = NULL, last_year = NULL) {
     dplyr::slice(-1) %>%
     dplyr::mutate(Year = as.numeric(Year))
 
-  año_min_disponible <- min(campeones$Year, na.rm = TRUE)
-  año_max_disponible <- max(campeones$Year, na.rm = TRUE)
+  min_year_available <- min(campeones$Year, na.rm = TRUE)
+  max_year_available <- max(campeones$Year, na.rm = TRUE)
 
-  cat("  -> Años disponibles:", año_min_disponible, "-", año_max_disponible, "\n")
+  cat("  -> Available years:", min_year_available, "-", max_year_available, "\n")
 
-  if (is.null(first_year)) first_year <- año_min_disponible
-  if (is.null(last_year)) last_year <- año_max_disponible
+  if (is.null(first_year)) first_year <- min_year_available
+  if (is.null(last_year)) last_year <- max_year_available
 
-  if (first_year < año_min_disponible) {
-    warning("Año inicial (", first_year, ") es anterior al disponible (", año_min_disponible, "). Usando ", año_min_disponible)
-    first_year <- año_min_disponible
+  if (first_year < min_year_available) {
+    warning("First year (", first_year, ") is before available data (", min_year_available, "). Using ", min_year_available)
+    first_year <- min_year_available
   }
 
-  if (last_year > año_max_disponible) {
-    warning("Año final (", last_year, ") es posterior al disponible (", año_max_disponible, "). Usando ", año_max_disponible)
-    last_year <- año_max_disponible
+  if (last_year > max_year_available) {
+    warning("Last year (", last_year, ") is after available data (", max_year_available, "). Using ", max_year_available)
+    last_year <- max_year_available
   }
 
   if (first_year > last_year) {
-    stop("Error: first_year (", first_year, ") no puede ser mayor que last_year (", last_year, ")")
+    stop("Error: first_year (", first_year, ") cannot be greater than last_year (", last_year, ")")
   }
 
   campeones <- campeones %>%
@@ -86,7 +86,7 @@ champions <- function(first_year = NULL, last_year = NULL) {
     ) %>%
     dplyr::select(1:5, 11)
 
-  cat("  -> Éxito:", nrow(campeones), "campeones obtenidos (", first_year, "-", last_year, ")\n")
+  cat("  -> Success:", nrow(campeones), "champions obtained (", first_year, "-", last_year, ")\n")
 
   return(campeones)
 }
