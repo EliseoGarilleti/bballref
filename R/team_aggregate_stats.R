@@ -88,11 +88,16 @@ team_stats_totals <- function(team_code, years = NULL) {
       )
   }
 
+  # Agregar columna team
   tabla_limpia <- tabla_limpia %>%
-    dplyr::mutate(
-      team = team_code,
-      stat_type = "aggregate_totals"
-    )
+    dplyr::mutate(team = team_code)
+
+  # Eliminar columnas vacías (col_1, col_2, etc.) que solo contienen NA
+  columnas_vacias <- sapply(tabla_limpia, function(col) all(is.na(col) | col == ""))
+  if (any(columnas_vacias)) {
+    tabla_limpia <- tabla_limpia %>%
+      dplyr::select(-dplyr::any_of(names(columnas_vacias)[columnas_vacias]))
+  }
 
   # Filtrar por años si se especifica
   if (!is.null(years)) {
@@ -212,11 +217,16 @@ team_stats_per_game <- function(team_code, years = NULL) {
       )
   }
 
+  # Agregar columna team
   tabla_limpia <- tabla_limpia %>%
-    dplyr::mutate(
-      team = team_code,
-      stat_type = "aggregate_per_game"
-    )
+    dplyr::mutate(team = team_code)
+
+  # Eliminar columnas vacías (col_1, col_2, etc.) que solo contienen NA
+  columnas_vacias <- sapply(tabla_limpia, function(col) all(is.na(col) | col == ""))
+  if (any(columnas_vacias)) {
+    tabla_limpia <- tabla_limpia %>%
+      dplyr::select(-dplyr::any_of(names(columnas_vacias)[columnas_vacias]))
+  }
 
   # Filtrar por años si se especifica
   if (!is.null(years)) {
