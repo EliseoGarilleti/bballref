@@ -4,25 +4,31 @@
 \alias{team_stats_totals}
 \title{Get team aggregate totals across all seasons}
 \usage{
-team_stats_totals(team_code)
+team_stats_totals(team_code, years = NULL)
 }
 \arguments{
 \item{team_code}{3-letter team code (e.g., "LAL", "BOS", "ATL")}
+
+\item{years}{Numeric vector of years to filter (optional). If NULL, returns all seasons.
+Can be a range (e.g., 2015:2024) or specific years (e.g., c(2020, 2022, 2024))}
 }
 \value{
-Dataframe with team aggregate totals across all seasons
+Dataframe with team aggregate totals across specified seasons
 }
 \description{
-Extract aggregate total statistics for a specific NBA team across all seasons.
-This shows the team's cumulative totals from all seasons combined.
+Extract aggregate total statistics for a specific NBA team across all seasons
+or a specific range of seasons. This shows the team's cumulative totals.
 }
 \examples{
 \dontrun{
-# Get Lakers aggregate totals
+# Get Lakers aggregate totals (all seasons)
 lakers_total <- team_stats_totals("LAL")
 
-# Get Celtics aggregate totals
-celtics_total <- team_stats_totals("BOS")
+# Get Lakers totals for specific years
+lakers_recent <- team_stats_totals("LAL", years = 2015:2024)
+
+# Get Celtics totals for selected seasons
+celtics_selected <- team_stats_totals("BOS", years = c(2008, 2010, 2020))
 }
 
 }

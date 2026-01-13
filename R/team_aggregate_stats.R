@@ -1,23 +1,28 @@
 #' Get team aggregate totals across all seasons
 #'
-#' Extract aggregate total statistics for a specific NBA team across all seasons.
-#' This shows the team's cumulative totals from all seasons combined.
+#' Extract aggregate total statistics for a specific NBA team across all seasons
+#' or a specific range of seasons. This shows the team's cumulative totals.
 #'
 #' @param team_code 3-letter team code (e.g., "LAL", "BOS", "ATL")
+#' @param years Numeric vector of years to filter (optional). If NULL, returns all seasons.
+#'   Can be a range (e.g., 2015:2024) or specific years (e.g., c(2020, 2022, 2024))
 #'
-#' @return Dataframe with team aggregate totals across all seasons
+#' @return Dataframe with team aggregate totals across specified seasons
 #'
 #' @examples
 #' \dontrun{
-#' # Get Lakers aggregate totals
+#' # Get Lakers aggregate totals (all seasons)
 #' lakers_total <- team_stats_totals("LAL")
 #'
-#' # Get Celtics aggregate totals
-#' celtics_total <- team_stats_totals("BOS")
+#' # Get Lakers totals for specific years
+#' lakers_recent <- team_stats_totals("LAL", years = 2015:2024)
+#'
+#' # Get Celtics totals for selected seasons
+#' celtics_selected <- team_stats_totals("BOS", years = c(2008, 2010, 2020))
 #' }
 #'
 #' @export
-team_stats_totals <- function(team_code) {
+team_stats_totals <- function(team_code, years = NULL) {
 
   cat("Searching team aggregate stats:", team_code, "(totals)\n")
 
@@ -75,6 +80,29 @@ team_stats_totals <- function(team_code) {
       stat_type = "aggregate_totals"
     )
 
+  # Filtrar por años si se especifica
+  if (!is.null(years)) {
+    # Extraer año de la columna Season (formato: "2019-20" -> 2020)
+    if ("Season" %in% names(tabla_limpia)) {
+      tabla_limpia <- tabla_limpia %>%
+        dplyr::mutate(
+          year_end = dplyr::case_when(
+            # Formato "2019-20" -> extraer último número y convertir a año completo
+            stringr::str_detect(Season, "^[0-9]{4}-[0-9]{2}$") ~
+              as.numeric(paste0("20", stringr::str_extract(Season, "[0-9]{2}$"))),
+            # Si ya es un año de 4 dígitos, usarlo directamente
+            stringr::str_detect(Season, "^[0-9]{4}$") ~ as.numeric(Season),
+            # Default: NA
+            TRUE ~ NA_real_
+          )
+        ) %>%
+        dplyr::filter(!is.na(year_end), year_end %in% years) %>%
+        dplyr::select(-year_end)
+
+      cat("Filtered to years:", paste(years, collapse = ", "), "\n")
+    }
+  }
+
   cat("Success:", nrow(tabla_limpia), "rows obtained\n")
 
   return(tabla_limpia)
@@ -82,24 +110,29 @@ team_stats_totals <- function(team_code) {
 
 #' Get team aggregate per game stats across all seasons
 #'
-#' Extract aggregate per game statistics for a specific NBA team across all seasons.
-#' This shows the team's average per game stats from all seasons combined.
+#' Extract aggregate per game statistics for a specific NBA team across all seasons
+#' or a specific range of seasons. This shows the team's average per game stats.
 #'
 #' @param team_code 3-letter team code (e.g., "LAL", "BOS", "ATL")
+#' @param years Numeric vector of years to filter (optional). If NULL, returns all seasons.
+#'   Can be a range (e.g., 2015:2024) or specific years (e.g., c(2020, 2022, 2024))
 #'
-#' @return Dataframe with team aggregate per game stats across all seasons
+#' @return Dataframe with team aggregate per game stats across specified seasons
 #'
 #' @examples
 #' \dontrun{
-#' # Get Lakers aggregate per game stats
+#' # Get Lakers aggregate per game stats (all seasons)
 #' lakers_pg <- team_stats_per_game("LAL")
 #'
-#' # Get Celtics aggregate per game stats
-#' celtics_pg <- team_stats_per_game("BOS")
+#' # Get Lakers per game stats for recent years
+#' lakers_recent <- team_stats_per_game("LAL", years = 2015:2024)
+#'
+#' # Get Celtics per game stats for selected seasons
+#' celtics_selected <- team_stats_per_game("BOS", years = c(2008, 2010, 2020))
 #' }
 #'
 #' @export
-team_stats_per_game <- function(team_code) {
+team_stats_per_game <- function(team_code, years = NULL) {
 
   cat("Searching team aggregate stats:", team_code, "(per game)\n")
 
@@ -156,6 +189,29 @@ team_stats_per_game <- function(team_code) {
       team = team_code,
       stat_type = "aggregate_per_game"
     )
+
+  # Filtrar por años si se especifica
+  if (!is.null(years)) {
+    # Extraer año de la columna Season (formato: "2019-20" -> 2020)
+    if ("Season" %in% names(tabla_limpia)) {
+      tabla_limpia <- tabla_limpia %>%
+        dplyr::mutate(
+          year_end = dplyr::case_when(
+            # Formato "2019-20" -> extraer último número y convertir a año completo
+            stringr::str_detect(Season, "^[0-9]{4}-[0-9]{2}$") ~
+              as.numeric(paste0("20", stringr::str_extract(Season, "[0-9]{2}$"))),
+            # Si ya es un año de 4 dígitos, usarlo directamente
+            stringr::str_detect(Season, "^[0-9]{4}$") ~ as.numeric(Season),
+            # Default: NA
+            TRUE ~ NA_real_
+          )
+        ) %>%
+        dplyr::filter(!is.na(year_end), year_end %in% years) %>%
+        dplyr::select(-year_end)
+
+      cat("Filtered to years:", paste(years, collapse = ", "), "\n")
+    }
+  }
 
   cat("Success:", nrow(tabla_limpia), "rows obtained\n")
 
