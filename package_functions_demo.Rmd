@@ -94,10 +94,10 @@ head(durant_adv, 8) %>%
 
 ## 1.5 player_per_poss()
 
-Get per 100 possessions statistics.
+Get per 100 possessions statistics. Note: Player search is accent-insensitive.
 
 ```{r player_per_poss}
-# Get Nikola Jokic per 100 poss stats
+# Get Nikola Jokic per 100 poss stats (works with or without accent)
 jokic_poss <- player_per_poss("Nikola Jokic")
 
 # Show all seasons

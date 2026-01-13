@@ -7,7 +7,7 @@
 find_player_id(player_name, return_all = FALSE, verbose = TRUE)
 }
 \arguments{
-\item{player_name}{Player's name (first and/or last name, case insensitive)}
+\item{player_name}{Player's name (first and/or last name, case and accent insensitive)}
 
 \item{return_all}{If TRUE, returns all matches. If FALSE (default), returns only the first match}
 
@@ -19,6 +19,7 @@ Character vector with player_id(s), or NULL if no match found
 \description{
 Search for a player's ID on Basketball Reference using their name.
 Returns the player_id needed for other functions.
+Handles accents and special characters automatically.
 }
 \examples{
 \dontrun{
@@ -26,6 +27,10 @@ Returns the player_id needed for other functions.
 find_player_id("LeBron James")
 find_player_id("lebron james")  # Case insensitive
 find_player_id("james lebron")  # Order doesn't matter
+
+# Works with accents
+find_player_id("Nikola Jokic")  # Works with or without ć
+find_player_id("Nikola Jokić")  # Both work
 
 # Find all players named "James"
 find_player_id("James", return_all = TRUE)

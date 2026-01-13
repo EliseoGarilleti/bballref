@@ -1,9 +1,45 @@
+#' Normalize text by removing accents and special characters
+#'
+#' @param text Character string to normalize
+#' @return Normalized character string
+#' @keywords internal
+normalize_text <- function(text) {
+  # Convert to lowercase
+  text <- tolower(text)
+
+  # Remove accents and special characters
+  text <- iconv(text, to = "ASCII//TRANSLIT")
+
+  # If iconv didn't work (returns NA), try manual replacements
+  if (is.na(text)) {
+    text <- tolower(text)
+    text <- gsub("[áàäâã]", "a", text)
+    text <- gsub("[éèëê]", "e", text)
+    text <- gsub("[íìïî]", "i", text)
+    text <- gsub("[óòöôõ]", "o", text)
+    text <- gsub("[úùüû]", "u", text)
+    text <- gsub("[ñ]", "n", text)
+    text <- gsub("[ç]", "c", text)
+    text <- gsub("[ć]", "c", text)
+    text <- gsub("[č]", "c", text)
+    text <- gsub("[ž]", "z", text)
+    text <- gsub("[š]", "s", text)
+    text <- gsub("[đ]", "d", text)
+  }
+
+  # Remove any remaining non-alphanumeric except spaces
+  text <- gsub("[^a-z0-9 ]", "", text)
+
+  return(text)
+}
+
 #' Find player ID by name (internal function)
 #'
 #' Search for a player's ID on Basketball Reference using their name.
 #' Returns the player_id needed for other functions.
+#' Handles accents and special characters automatically.
 #'
-#' @param player_name Player's name (first and/or last name, case insensitive)
+#' @param player_name Player's name (first and/or last name, case and accent insensitive)
 #' @param return_all If TRUE, returns all matches. If FALSE (default), returns only the first match
 #' @param verbose If TRUE, prints search progress messages. If FALSE, runs silently (default: TRUE)
 #'
@@ -16,6 +52,10 @@
 #' find_player_id("lebron james")  # Case insensitive
 #' find_player_id("james lebron")  # Order doesn't matter
 #'
+#' # Works with accents
+#' find_player_id("Nikola Jokic")  # Works with or without ć
+#' find_player_id("Nikola Jokić")  # Both work
+#'
 #' # Find all players named "James"
 #' find_player_id("James", return_all = TRUE)
 #' }
@@ -25,8 +65,8 @@ find_player_id <- function(player_name, return_all = FALSE, verbose = TRUE) {
 
   if (verbose) cat("Searching player:", player_name, "\n")
 
-  # Normalizar nombre (minúsculas, eliminar espacios extras)
-  nombre_normalizado <- tolower(trimws(player_name))
+  # Normalizar nombre (minúsculas, eliminar acentos, eliminar espacios extras)
+  nombre_normalizado <- normalize_text(trimws(player_name))
   palabras <- strsplit(nombre_normalizado, "\\s+")[[1]]
 
   if (length(palabras) == 0) {
@@ -98,10 +138,11 @@ find_player_id <- function(player_name, return_all = FALSE, verbose = TRUE) {
 
   # Filtrar por coincidencias
   # Buscar que todas las palabras del nombre aparezcan en el nombre del jugador
+  # Normalizar ambos nombres para comparar sin acentos
   coincidencias <- sapply(todos_resultados$nombre, function(nombre_completo) {
-    nombre_completo_lower <- tolower(nombre_completo)
+    nombre_completo_norm <- normalize_text(nombre_completo)
     all(sapply(palabras, function(palabra) {
-      grepl(palabra, nombre_completo_lower, fixed = TRUE)
+      grepl(palabra, nombre_completo_norm, fixed = TRUE)
     }))
   })
 
