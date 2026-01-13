@@ -486,8 +486,10 @@ Get historical NBA league per 100 possessions stats.
 # Get league per 100 poss stats
 league_p100 <- league_per_poss()
 
-# Show most recent 10 seasons
-head(league_p100, 5)
+league_p100 %>% 
+  select(Season, FG, FGA, three_P, three_PA) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(league_p100)`
@@ -504,8 +506,10 @@ Get NBA championship history.
 # Get all champions
 all_champs <- champions()
 
-# Show most recent 10 championships
-head(all_champs, 5)
+all_champs %>% 
+  select(Year, Champion, `Runner-Up`, `Finals MVP`) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total championships:** `r nrow(all_champs)`
@@ -520,9 +524,9 @@ Filter champions to specific years.
 # Get champions from 2010-2020
 champs_2010s <- champions(first_year = 2010, last_year = 2020)
 
-# Show all
-champs_2010s %>%
-  select(Year, Champion, team) %>%
+champs_2010s %>% 
+  select(Year, Champion, `Runner-Up`, `Finals MVP`) %>% 
+  head(5) %>% 
   kable()
 ```
 
