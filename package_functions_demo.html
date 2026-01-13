@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.8">
+<title>bballref Package - Complete Function Reference</title>
+<style type="text/css">
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+body, .abstract, code, .footnotes, footer, #refs, .caption { font-size: .9em; }
+li li { font-size: .95em; }
+ul:has(li > input[type="checkbox"]) { list-style: none; padding-left: 1em; }
+*, :before, :after { box-sizing: border-box; }
+a { color: steelblue; }
+pre, img { max-width: 100%; }
+pre { white-space: pre-wrap; word-break: break-word; }
+pre code { display: block; padding: 1em; overflow-x: auto; }
+code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
+:not(pre, th) > code, code[class], div > .caption { background: #f8f8f8; }
+pre > code:is(:not([class]), .language-plain, .language-none, .plain), .box, .figure, .table { background: inherit; border: 1px solid #eee; }
+pre > code {
+  &.message { border-color: #9eeaf9; }
+  &.warning { background: #fff3cd; border-color: #fff3cd; }
+  &.error { background: #f8d7da; border-color: #f8d7da; }
+}
+.fenced-chunk { border-left: 1px solid #666; }
+.code-fence {
+  opacity: .4;
+  border: 1px dashed #666;
+  border-left: 2px solid;
+  &:hover { opacity: inherit; }
+}
+.box, .figure, .table, table { margin: 1em auto; }
+div > .caption { padding: 1px 1em; }
+.figure { p:has(img, svg), pre:has(svg) { text-align: center; } }
+.flex-col { display: flex; justify-content: space-between; }
+table {
+  &:only-child:not(.table > *) { margin: auto; }
+  th, td { padding: 5px; font-variant-numeric: tabular-nums; }
+  thead, tfoot, tr:nth-child(even) { background: whitesmoke; }
+  thead th { border-bottom: 1px solid #ddd; }
+  &:not(.datatable-table) {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+  }
+}
+blockquote {
+  color: #666;
+  margin: 0;
+  padding: 1px 1em;
+  border-left: .5em solid #eee;
+}
+hr, .footnotes::before { border: 1px dashed #ddd; }
+.frontmatter { text-align: center; }
+#TOC {
+  a { text-decoration: none; }
+  ul { list-style: none; padding-left: 1em; }
+  & > ul { padding: 0; }
+  ul ul { border-left: 1px solid lightsteelblue; }
+}
+.body h2 { border-bottom: 1px solid #666; }
+.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
+.main-number::after { content: "."; }
+span[class^="ref-number-"] { font-weight: bold; }
+.ref-number-fig::after, .ref-number-tab::after { content: ":"; }
+.cross-ref-chp::before { content: "Chapter "; }
+.cross-ref-sec::before { content: "Section "; }
+.cross-ref-fig::before, .ref-number-fig::before { content: "Figure "; }
+.cross-ref-tab::before, .ref-number-tab::before { content: "Table "; }
+.cross-ref-eqn::before, .MathJax_ref:has(mjx-mtext > mjx-c + mjx-c)::before { content: "Equation "; }
+.abstract, #refs {
+  &::before { display: block; margin: 1em auto; font-weight: bold; }
+}
+.abstract::before { content: "Abstract"; text-align: center; }
+#refs::before { content: "Bibliography"; font-size: 1.5em; }
+.ref-paren-open::before { content: "("; }
+.ref-paren-close::after { content: ")"; }
+.ref-semicolon::after { content: "; "; }
+.ref-and::after { content: " and "; }
+.ref-et-al::after { content: " et al."; font-style: italic; }
+.footnote-ref a {
+  &::before { content: "["; }
+  &::after { content: "]"; }
+}
+section.footnotes {
+  margin-top: 2em;
+  &::before { content: ""; display: block; max-width: 20em; }
+}
+.fade {
+  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
+  opacity: 0.6;
+}
+
+@media print {
+  body { max-width: 100%; }
+  tr, img { break-inside: avoid; }
+}
+@media only screen and (min-width: 992px) {
+  body:not(.pagesjs) pre:has(.line-numbers):not(:hover) { white-space: pre; }
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.21/css/prism-xcode.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+</head>
+<body>
+<div class="frontmatter">
+<div class="title"><h1>bballref Package - Complete Function Reference</h1></div>
+<div class="date"><h3>2026-01-13</h3></div>
+</div>
+<div class="body">
+<h1 id="chp:bballref-package-complete-function-reference">bballref Package - Complete Function Reference</h1>
+<p>This document demonstrates all functions available in the bballref package with examples and sample output.</p>
+<hr />
+<h1 id="chp:1-player-functions">1. Player Functions</h1>
+<h2 id="sec:1-1-player-per-game">1.1 player_per_game()</h2>
+<p>Get per game statistics for a player across all seasons.</p>
+<pre><code class="language-r"># Get LeBron James per game stats
+lebron_pg &lt;- player_per_game(&quot;LeBron James&quot;)
+</code></pre>
+<pre><code>## Searching player: LeBron James 
+## Success: 23 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show first 10 seasons
+head(lebron_pg, 10) %&gt;%
+  select(Season, Age, Tm, G, PTS, AST, TRB, FGpct) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 23</p>
+<hr />
+<h2 id="sec:1-2-player-totals">1.2 player_totals()</h2>
+<p>Get season totals for a player.</p>
+<pre><code class="language-r"># Get Stephen Curry totals
+curry_totals &lt;- player_totals(&quot;Stephen Curry&quot;)
+</code></pre>
+<pre><code>## Searching player: Stephen Curry 
+## Success: 17 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show first 10 seasons
+head(curry_totals, 10) %&gt;%
+  select(Season, Age, Tm, G, PTS, AST, TRB, three_P) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 17</p>
+<hr />
+<h2 id="sec:1-3-player-per-minute">1.3 player_per_minute()</h2>
+<p>Get per 36 minutes statistics.</p>
+<pre><code class="language-r"># Get Giannis per 36 stats
+giannis_per36 &lt;- player_per_minute(&quot;Giannis Antetokounmpo&quot;)
+</code></pre>
+<pre><code>## Searching player: Giannis Antetokounmpo 
+## Success: 13 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show first 8 seasons
+head(giannis_per36, 8) %&gt;%
+  select(Season, Age, Tm, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 13</p>
+<hr />
+<h2 id="sec:1-4-player-advanced">1.4 player_advanced()</h2>
+<p>Get advanced statistics (PER, TS%, WS, etc.).</p>
+<pre><code class="language-r"># Get Kevin Durant advanced stats
+durant_adv &lt;- player_advanced(&quot;Kevin Durant&quot;)
+</code></pre>
+<pre><code>## Searching player: Kevin Durant 
+## Success: 21 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show first 8 seasons
+head(durant_adv, 8) %&gt;%
+  select(Season, Age, Tm, PER, WS, BPM) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 21</p>
+<hr />
+<h2 id="sec:1-5-player-per-poss">1.5 player_per_poss()</h2>
+<p>Get per 100 possessions statistics.</p>
+<pre><code class="language-r"># Get Nikola Jokic per 100 poss stats
+jokic_poss &lt;- player_per_poss(&quot;Nikola Jokic&quot;)
+</code></pre>
+<pre><code>## Error: Player not found - Nikola Jokic
+</code></pre>
+<pre><code class="language-r"># Show all seasons
+jokic_poss %&gt;%
+  select(Season, Age, Tm, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in UseMethod(&quot;select&quot;): no applicable method for 'select' applied to an object of class &quot;NULL&quot;
+</code></pre>
+<p><strong>Total seasons:</strong></p>
+<hr />
+<h2 id="sec:1-6-player-shooting">1.6 player_shooting()</h2>
+<p>Get shooting statistics by distance and zone.</p>
+<pre><code class="language-r"># Get Stephen Curry shooting stats
+curry_shoot &lt;- player_shooting(&quot;Stephen Curry&quot;)
+</code></pre>
+<pre><code>## Searching player: Stephen Curry 
+## Success: 17 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show recent 5 seasons
+head(curry_shoot, 5) %&gt;%
+  select(Season, Age, Tm, FGpct, three_Ppct) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 17</p>
+<hr />
+<h2 id="sec:1-7-player-pbp">1.7 player_pbp()</h2>
+<p>Get play-by-play statistics.</p>
+<pre><code class="language-r"># Get James Harden pbp stats
+harden_pbp &lt;- player_pbp(&quot;James Harden&quot;)
+</code></pre>
+<pre><code>## Searching player: James Harden 
+## Success: 21 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show recent 5 seasons
+head(harden_pbp, 5) %&gt;%
+  select(Season, Age, Tm, G) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 21</p>
+<hr />
+<h2 id="sec:1-8-player-stats-bulk-new">1.8 player_stats_bulk() - NEW</h2>
+<p>Get career statistics for multiple players at once.</p>
+<pre><code class="language-r"># Compare LeBron and Jordan
+goats &lt;- player_stats_bulk(
+  stat_function = player_per_game,
+  players = c(&quot;LeBron James&quot;, &quot;Michael Jordan&quot;),
+  season_type = &quot;regular&quot;,
+  progress = FALSE
+)
+</code></pre>
+<pre><code>## Fetching data for 2 players...
+## Searching player: LeBron James 
+## Success: 23 rows obtained
+## Searching player: Michael Jordan 
+## Success: 19 rows obtained
+## Success: Combined 42 rows from 2 players
+</code></pre>
+<pre><code class="language-r"># Show first 5 seasons for each
+goats %&gt;%
+  group_by(player_id) %&gt;%
+  slice(1:5) %&gt;%
+  select(Season, Age, Tm, G, PTS, AST, TRB, player_id) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total rows:</strong> 42
+<strong>Players:</strong> 2</p>
+<hr />
+<h1 id="chp:2-team-functions-season-specific">2. Team Functions (Season-Specific)</h1>
+<h2 id="sec:2-1-team-per-game">2.1 team_per_game()</h2>
+<p>Get per game statistics for a team in a specific season.</p>
+<pre><code class="language-r"># Get Lakers 2020 per game stats
+lakers_2020 &lt;- team_per_game(&quot;LAL&quot;, 2020)
+</code></pre>
+<pre><code>## Searching team: LAL 2020 (regular season) 
+## Success: 21 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show all players
+lakers_2020 %&gt;%
+  select(Player, Age, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LeBron James</td>
+<td align="left">35</td>
+<td align="left">67</td>
+<td align="left">25.3</td>
+<td align="left">10.2</td>
+<td align="left">7.8</td>
+</tr>
+<tr>
+<td align="left">Anthony Davis</td>
+<td align="left">26</td>
+<td align="left">62</td>
+<td align="left">26.1</td>
+<td align="left">3.2</td>
+<td align="left">9.3</td>
+</tr>
+<tr>
+<td align="left">Kentavious Caldwell-Pope</td>
+<td align="left">26</td>
+<td align="left">69</td>
+<td align="left">9.3</td>
+<td align="left">1.6</td>
+<td align="left">2.1</td>
+</tr>
+<tr>
+<td align="left">Kyle Kuzma</td>
+<td align="left">24</td>
+<td align="left">61</td>
+<td align="left">12.8</td>
+<td align="left">1.3</td>
+<td align="left">4.5</td>
+</tr>
+<tr>
+<td align="left">Danny Green</td>
+<td align="left">32</td>
+<td align="left">68</td>
+<td align="left">8</td>
+<td align="left">1.3</td>
+<td align="left">3.3</td>
+</tr>
+<tr>
+<td align="left">Avery Bradley</td>
+<td align="left">29</td>
+<td align="left">49</td>
+<td align="left">8.6</td>
+<td align="left">1.3</td>
+<td align="left">2.3</td>
+</tr>
+<tr>
+<td align="left">Dion Waiters</td>
+<td align="left">28</td>
+<td align="left">7</td>
+<td align="left">11.9</td>
+<td align="left">2.4</td>
+<td align="left">1.9</td>
+</tr>
+<tr>
+<td align="left">Rajon Rondo</td>
+<td align="left">33</td>
+<td align="left">48</td>
+<td align="left">7.1</td>
+<td align="left">5</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">Dwight Howard</td>
+<td align="left">34</td>
+<td align="left">69</td>
+<td align="left">7.5</td>
+<td align="left">0.7</td>
+<td align="left">7.3</td>
+</tr>
+<tr>
+<td align="left">Alex Caruso</td>
+<td align="left">25</td>
+<td align="left">64</td>
+<td align="left">5.5</td>
+<td align="left">1.9</td>
+<td align="left">1.9</td>
+</tr>
+<tr>
+<td align="left">JaVale McGee</td>
+<td align="left">32</td>
+<td align="left">68</td>
+<td align="left">6.6</td>
+<td align="left">0.5</td>
+<td align="left">5.7</td>
+</tr>
+<tr>
+<td align="left">Markieff Morris</td>
+<td align="left">30</td>
+<td align="left">14</td>
+<td align="left">5.3</td>
+<td align="left">0.6</td>
+<td align="left">3.2</td>
+</tr>
+<tr>
+<td align="left">Talen Horton-Tucker</td>
+<td align="left">19</td>
+<td align="left">6</td>
+<td align="left">5.7</td>
+<td align="left">1</td>
+<td align="left">1.2</td>
+</tr>
+<tr>
+<td align="left">J.R. Smith</td>
+<td align="left">34</td>
+<td align="left">6</td>
+<td align="left">2.8</td>
+<td align="left">0.5</td>
+<td align="left">0.8</td>
+</tr>
+<tr>
+<td align="left">Quinn Cook</td>
+<td align="left">26</td>
+<td align="left">44</td>
+<td align="left">5.1</td>
+<td align="left">1.1</td>
+<td align="left">1.2</td>
+</tr>
+<tr>
+<td align="left">Troy Daniels</td>
+<td align="left">28</td>
+<td align="left">41</td>
+<td align="left">4.2</td>
+<td align="left">0.3</td>
+<td align="left">1.1</td>
+</tr>
+<tr>
+<td align="left">Devontae Cacok</td>
+<td align="left">23</td>
+<td align="left">1</td>
+<td align="left">6</td>
+<td align="left">1</td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td align="left">Jared Dudley</td>
+<td align="left">34</td>
+<td align="left">45</td>
+<td align="left">1.5</td>
+<td align="left">0.6</td>
+<td align="left">1.2</td>
+</tr>
+<tr>
+<td align="left">Kostas Antetokounmpo</td>
+<td align="left">22</td>
+<td align="left">5</td>
+<td align="left">1.4</td>
+<td align="left">0.4</td>
+<td align="left">0.6</td>
+</tr>
+<tr>
+<td align="left">Zach Norvell</td>
+<td align="left">22</td>
+<td align="left">2</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0.5</td>
+</tr>
+<tr>
+<td align="left">Team Totals</td>
+<td align="left">NA</td>
+<td align="left">71</td>
+<td align="left">113.4</td>
+<td align="left">25.4</td>
+<td align="left">45.7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total players:</strong> 21</p>
+<hr />
+<h2 id="sec:2-2-team-totals">2.2 team_totals()</h2>
+<p>Get season totals for a team.</p>
+<pre><code class="language-r"># Get Warriors 2022 totals
+warriors_2022 &lt;- team_totals(&quot;GSW&quot;, 2022)
+</code></pre>
+<pre><code>## Searching team: GSW 2022 (regular season) 
+## Success: 18 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show top 10 players by games
+head(warriors_2022, 10) %&gt;%
+  select(Player, Age, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Andrew Wiggins</td>
+<td align="left">26</td>
+<td align="left">73</td>
+<td align="left">1256</td>
+<td align="left">161</td>
+<td align="left">325</td>
+</tr>
+<tr>
+<td align="left">Jordan Poole</td>
+<td align="left">22</td>
+<td align="left">76</td>
+<td align="left">1405</td>
+<td align="left">304</td>
+<td align="left">260</td>
+</tr>
+<tr>
+<td align="left">Stephen Curry</td>
+<td align="left">33</td>
+<td align="left">64</td>
+<td align="left">1630</td>
+<td align="left">404</td>
+<td align="left">335</td>
+</tr>
+<tr>
+<td align="left">Kevon Looney</td>
+<td align="left">25</td>
+<td align="left">82</td>
+<td align="left">491</td>
+<td align="left">165</td>
+<td align="left">596</td>
+</tr>
+<tr>
+<td align="left">Otto Porter Jr.</td>
+<td align="left">28</td>
+<td align="left">63</td>
+<td align="left">515</td>
+<td align="left">94</td>
+<td align="left">362</td>
+</tr>
+<tr>
+<td align="left">Draymond Green</td>
+<td align="left">31</td>
+<td align="left">46</td>
+<td align="left">346</td>
+<td align="left">320</td>
+<td align="left">336</td>
+</tr>
+<tr>
+<td align="left">Damion Lee</td>
+<td align="left">29</td>
+<td align="left">63</td>
+<td align="left">467</td>
+<td align="left">63</td>
+<td align="left">203</td>
+</tr>
+<tr>
+<td align="left">Gary Payton II</td>
+<td align="left">29</td>
+<td align="left">71</td>
+<td align="left">502</td>
+<td align="left">64</td>
+<td align="left">247</td>
+</tr>
+<tr>
+<td align="left">Jonathan Kuminga</td>
+<td align="left">19</td>
+<td align="left">70</td>
+<td align="left">652</td>
+<td align="left">64</td>
+<td align="left">234</td>
+</tr>
+<tr>
+<td align="left">Nemanja Bjelica</td>
+<td align="left">33</td>
+<td align="left">71</td>
+<td align="left">433</td>
+<td align="left">159</td>
+<td align="left">294</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total players:</strong> 18</p>
+<hr />
+<h2 id="sec:2-3-team-advanced">2.3 team_advanced()</h2>
+<p>Get advanced statistics for a team.</p>
+<pre><code class="language-r"># Get Celtics 2024 advanced stats
+celtics_adv &lt;- team_advanced(&quot;BOS&quot;, 2024)
+</code></pre>
+<pre><code>## Searching team: BOS 2024 (regular season) 
+## Success: 20 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show top 10 players by games
+head(celtics_adv, 10) %&gt;%
+  select(Player, Age, G, PER, WS) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+<th align="left">PER</th>
+<th align="left">WS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Jayson Tatum</td>
+<td align="left">25</td>
+<td align="left">74</td>
+<td align="left">22.3</td>
+<td align="left">10.4</td>
+</tr>
+<tr>
+<td align="left">Derrick White</td>
+<td align="left">29</td>
+<td align="left">73</td>
+<td align="left">16.9</td>
+<td align="left">8.5</td>
+</tr>
+<tr>
+<td align="left">Jaylen Brown</td>
+<td align="left">27</td>
+<td align="left">70</td>
+<td align="left">18.6</td>
+<td align="left">5.9</td>
+</tr>
+<tr>
+<td align="left">Jrue Holiday</td>
+<td align="left">33</td>
+<td align="left">69</td>
+<td align="left">14.4</td>
+<td align="left">6.3</td>
+</tr>
+<tr>
+<td align="left">Payton Pritchard</td>
+<td align="left">26</td>
+<td align="left">82</td>
+<td align="left">15.3</td>
+<td align="left">6.1</td>
+</tr>
+<tr>
+<td align="left">Sam Hauser</td>
+<td align="left">26</td>
+<td align="left">79</td>
+<td align="left">13</td>
+<td align="left">4.9</td>
+</tr>
+<tr>
+<td align="left">Al Horford</td>
+<td align="left">37</td>
+<td align="left">65</td>
+<td align="left">15</td>
+<td align="left">6.2</td>
+</tr>
+<tr>
+<td align="left">Kristaps Porziņģis</td>
+<td align="left">28</td>
+<td align="left">57</td>
+<td align="left">23.2</td>
+<td align="left">7.9</td>
+</tr>
+<tr>
+<td align="left">Luke Kornet</td>
+<td align="left">28</td>
+<td align="left">63</td>
+<td align="left">19.8</td>
+<td align="left">5.1</td>
+</tr>
+<tr>
+<td align="left">Oshae Brissett</td>
+<td align="left">25</td>
+<td align="left">55</td>
+<td align="left">12.8</td>
+<td align="left">1.7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total players:</strong> 20</p>
+<hr />
+<h2 id="sec:2-4-team-roster">2.4 team_roster()</h2>
+<p>Get roster information for a team.</p>
+<pre><code class="language-r"># Get Heat 2020 roster
+heat_roster &lt;- team_roster(&quot;MIA&quot;, 2020)
+</code></pre>
+<pre><code>## Searching team: MIA 2020 (regular season) 
+## Success: 21 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show all players
+heat_roster %&gt;%
+  select(Player, Pos, Ht, Wt, Birth_Date) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Birth_Date` doesn't exist.
+</code></pre>
+<p><strong>Total players:</strong> 21</p>
+<hr />
+<h2 id="sec:2-5-team-per-minute">2.5 team_per_minute()</h2>
+<p>Get per 36 minutes statistics for a team.</p>
+<pre><code class="language-r"># Get Nuggets 2023 per 36 stats
+nuggets_per36 &lt;- team_per_minute(&quot;DEN&quot;, 2023)
+</code></pre>
+<pre><code>## Searching team: DEN 2023 (regular season) 
+## Success: 18 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show top 10 players
+head(nuggets_per36, 10) %&gt;%
+  select(Player, Age, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Kentavious Caldwell-Pope</td>
+<td align="left">29</td>
+<td align="left">76</td>
+<td align="left">12.4</td>
+<td align="left">2.8</td>
+<td align="left">3.1</td>
+</tr>
+<tr>
+<td align="left">Nikola Jokić</td>
+<td align="left">27</td>
+<td align="left">69</td>
+<td align="left">26.2</td>
+<td align="left">10.5</td>
+<td align="left">12.7</td>
+</tr>
+<tr>
+<td align="left">Bruce Brown</td>
+<td align="left">26</td>
+<td align="left">80</td>
+<td align="left">14.6</td>
+<td align="left">4.2</td>
+<td align="left">5.2</td>
+</tr>
+<tr>
+<td align="left">Jamal Murray</td>
+<td align="left">25</td>
+<td align="left">65</td>
+<td align="left">21.9</td>
+<td align="left">6.8</td>
+<td align="left">4.3</td>
+</tr>
+<tr>
+<td align="left">Aaron Gordon</td>
+<td align="left">27</td>
+<td align="left">68</td>
+<td align="left">19.4</td>
+<td align="left">3.6</td>
+<td align="left">7.8</td>
+</tr>
+<tr>
+<td align="left">Michael Porter Jr.</td>
+<td align="left">24</td>
+<td align="left">62</td>
+<td align="left">21.6</td>
+<td align="left">1.3</td>
+<td align="left">6.8</td>
+</tr>
+<tr>
+<td align="left">Christian Braun</td>
+<td align="left">21</td>
+<td align="left">76</td>
+<td align="left">11</td>
+<td align="left">1.8</td>
+<td align="left">5.5</td>
+</tr>
+<tr>
+<td align="left">Jeff Green</td>
+<td align="left">36</td>
+<td align="left">56</td>
+<td align="left">14.4</td>
+<td align="left">2.3</td>
+<td align="left">4.8</td>
+</tr>
+<tr>
+<td align="left">Vlatko Čančar</td>
+<td align="left">25</td>
+<td align="left">60</td>
+<td align="left">12</td>
+<td align="left">3.2</td>
+<td align="left">5.2</td>
+</tr>
+<tr>
+<td align="left">Bones Hyland</td>
+<td align="left">22</td>
+<td align="left">42</td>
+<td align="left">22.3</td>
+<td align="left">5.5</td>
+<td align="left">3.8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total players:</strong> 18</p>
+<hr />
+<h2 id="sec:2-6-team-per-poss">2.6 team_per_poss()</h2>
+<p>Get per 100 possessions statistics for a team.</p>
+<pre><code class="language-r"># Get Bucks 2021 per 100 poss stats
+bucks_poss &lt;- team_per_poss(&quot;MIL&quot;, 2021)
+</code></pre>
+<pre><code>## Searching team: MIL 2021 (regular season) 
+## Success: 22 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show top 10 players
+head(bucks_poss, 10) %&gt;%
+  select(Player, Age, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Khris Middleton</td>
+<td align="left">29</td>
+<td align="left">68</td>
+<td align="left">28.7</td>
+<td align="left">7.7</td>
+<td align="left">8.4</td>
+</tr>
+<tr>
+<td align="left">Giannis Antetokounmpo</td>
+<td align="left">26</td>
+<td align="left">61</td>
+<td align="left">40.1</td>
+<td align="left">8.3</td>
+<td align="left">15.7</td>
+</tr>
+<tr>
+<td align="left">Jrue Holiday</td>
+<td align="left">30</td>
+<td align="left">59</td>
+<td align="left">25.8</td>
+<td align="left">8.8</td>
+<td align="left">6.6</td>
+</tr>
+<tr>
+<td align="left">Brook Lopez</td>
+<td align="left">32</td>
+<td align="left">70</td>
+<td align="left">21.2</td>
+<td align="left">1.2</td>
+<td align="left">8.6</td>
+</tr>
+<tr>
+<td align="left">Donte DiVincenzo</td>
+<td align="left">24</td>
+<td align="left">66</td>
+<td align="left">17.8</td>
+<td align="left">5.3</td>
+<td align="left">9.8</td>
+</tr>
+<tr>
+<td align="left">Pat Connaughton</td>
+<td align="left">28</td>
+<td align="left">69</td>
+<td align="left">14</td>
+<td align="left">2.4</td>
+<td align="left">9.9</td>
+</tr>
+<tr>
+<td align="left">Bobby Portis</td>
+<td align="left">25</td>
+<td align="left">66</td>
+<td align="left">25.8</td>
+<td align="left">2.4</td>
+<td align="left">16</td>
+</tr>
+<tr>
+<td align="left">Bryn Forbes</td>
+<td align="left">27</td>
+<td align="left">70</td>
+<td align="left">24.3</td>
+<td align="left">1.6</td>
+<td align="left">3.9</td>
+</tr>
+<tr>
+<td align="left">D.J. Augustin</td>
+<td align="left">33</td>
+<td align="left">37</td>
+<td align="left">15</td>
+<td align="left">7.2</td>
+<td align="left">3.3</td>
+</tr>
+<tr>
+<td align="left">Thanasis Antetokounmpo</td>
+<td align="left">28</td>
+<td align="left">57</td>
+<td align="left">14.1</td>
+<td align="left">3.9</td>
+<td align="left">10.6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total players:</strong> 22</p>
+<hr />
+<h2 id="sec:2-7-team-shooting">2.7 team_shooting()</h2>
+<p>Get shooting statistics for a team.</p>
+<pre><code class="language-r"># Get Warriors 2016 shooting stats
+warriors_shoot &lt;- team_shooting(&quot;GSW&quot;, 2016)
+</code></pre>
+<pre><code>## Searching team: GSW 2016 (regular season) 
+## Success: 17 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show top 10 players
+head(warriors_shoot, 10) %&gt;%
+  select(Player, Age, G, FGpct, three_Ppct) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+<th align="left">FGpct</th>
+<th align="left">three_Ppct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Draymond Green</td>
+<td align="left">25</td>
+<td align="left">81</td>
+<td align="left">.490</td>
+<td align="left">.417</td>
+</tr>
+<tr>
+<td align="left">Stephen Curry</td>
+<td align="left">27</td>
+<td align="left">79</td>
+<td align="left">.504</td>
+<td align="left">.482</td>
+</tr>
+<tr>
+<td align="left">Klay Thompson</td>
+<td align="left">25</td>
+<td align="left">80</td>
+<td align="left">.470</td>
+<td align="left">.419</td>
+</tr>
+<tr>
+<td align="left">Harrison Barnes</td>
+<td align="left">23</td>
+<td align="left">66</td>
+<td align="left">.466</td>
+<td align="left">.358</td>
+</tr>
+<tr>
+<td align="left">Andre Iguodala</td>
+<td align="left">32</td>
+<td align="left">65</td>
+<td align="left">.478</td>
+<td align="left">.431</td>
+</tr>
+<tr>
+<td align="left">Shaun Livingston</td>
+<td align="left">30</td>
+<td align="left">78</td>
+<td align="left">.536</td>
+<td align="left">.250</td>
+</tr>
+<tr>
+<td align="left">Andrew Bogut</td>
+<td align="left">31</td>
+<td align="left">70</td>
+<td align="left">.627</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Leandro Barbosa</td>
+<td align="left">33</td>
+<td align="left">68</td>
+<td align="left">.462</td>
+<td align="left">.500</td>
+</tr>
+<tr>
+<td align="left">Brandon Rush</td>
+<td align="left">30</td>
+<td align="left">72</td>
+<td align="left">.427</td>
+<td align="left">.364</td>
+</tr>
+<tr>
+<td align="left">Marreese Speights</td>
+<td align="left">28</td>
+<td align="left">72</td>
+<td align="left">.432</td>
+<td align="left">.333</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total players:</strong> 17</p>
+<hr />
+<h2 id="sec:2-8-team-pbp">2.8 team_pbp()</h2>
+<p>Get play-by-play statistics for a team.</p>
+<pre><code class="language-r"># Get Lakers 2020 pbp stats
+lakers_pbp &lt;- team_pbp(&quot;LAL&quot;, 2020)
+</code></pre>
+<pre><code>## Searching team: LAL 2020 (regular season) 
+## Success: 21 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show top 10 players
+head(lakers_pbp, 10) %&gt;%
+  select(Player, Age, G) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LeBron James</td>
+<td align="left">35</td>
+<td align="left">67</td>
+</tr>
+<tr>
+<td align="left">Anthony Davis</td>
+<td align="left">26</td>
+<td align="left">62</td>
+</tr>
+<tr>
+<td align="left">Kentavious Caldwell-Pope</td>
+<td align="left">26</td>
+<td align="left">69</td>
+</tr>
+<tr>
+<td align="left">Danny Green</td>
+<td align="left">32</td>
+<td align="left">68</td>
+</tr>
+<tr>
+<td align="left">Kyle Kuzma</td>
+<td align="left">24</td>
+<td align="left">61</td>
+</tr>
+<tr>
+<td align="left">Dwight Howard</td>
+<td align="left">34</td>
+<td align="left">69</td>
+</tr>
+<tr>
+<td align="left">Avery Bradley</td>
+<td align="left">29</td>
+<td align="left">49</td>
+</tr>
+<tr>
+<td align="left">Alex Caruso</td>
+<td align="left">25</td>
+<td align="left">64</td>
+</tr>
+<tr>
+<td align="left">JaVale McGee</td>
+<td align="left">32</td>
+<td align="left">68</td>
+</tr>
+<tr>
+<td align="left">Rajon Rondo</td>
+<td align="left">33</td>
+<td align="left">48</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total players:</strong> 21</p>
+<hr />
+<h2 id="sec:2-9-team-stats-bulk-new">2.9 team_stats_bulk() - NEW</h2>
+<p>Get statistics for multiple teams and/or years at once.</p>
+<pre><code class="language-r"># Compare Finals teams 2020: Lakers vs Heat
+finals_2020 &lt;- team_stats_bulk(
+  stat_function = team_per_game,
+  teams = c(&quot;LAL&quot;, &quot;MIA&quot;),
+  years = 2020,
+  season_type = &quot;regular&quot;,
+  progress = FALSE
+)
+</code></pre>
+<pre><code>## Fetching data for 2 team-season combinations...
+## Searching team: LAL 2020 (regular season) 
+## Success: 21 rows obtained
+## Searching team: MIA 2020 (regular season) 
+## Success: 22 rows obtained
+## Success: Combined 43 rows from 2 team-seasons
+</code></pre>
+<pre><code class="language-r"># Show top scorers from each team
+finals_2020 %&gt;%
+  arrange(team, desc(as.numeric(PTS))) %&gt;%
+  group_by(team) %&gt;%
+  slice(1:5) %&gt;%
+  select(Player, team, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">team</th>
+<th align="left">G</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Team Totals</td>
+<td align="left">LAL</td>
+<td align="left">71</td>
+<td align="left">113.4</td>
+<td align="left">25.4</td>
+<td align="left">45.7</td>
+</tr>
+<tr>
+<td align="left">Anthony Davis</td>
+<td align="left">LAL</td>
+<td align="left">62</td>
+<td align="left">26.1</td>
+<td align="left">3.2</td>
+<td align="left">9.3</td>
+</tr>
+<tr>
+<td align="left">LeBron James</td>
+<td align="left">LAL</td>
+<td align="left">67</td>
+<td align="left">25.3</td>
+<td align="left">10.2</td>
+<td align="left">7.8</td>
+</tr>
+<tr>
+<td align="left">Kyle Kuzma</td>
+<td align="left">LAL</td>
+<td align="left">61</td>
+<td align="left">12.8</td>
+<td align="left">1.3</td>
+<td align="left">4.5</td>
+</tr>
+<tr>
+<td align="left">Dion Waiters</td>
+<td align="left">LAL</td>
+<td align="left">7</td>
+<td align="left">11.9</td>
+<td align="left">2.4</td>
+<td align="left">1.9</td>
+</tr>
+<tr>
+<td align="left">Team Totals</td>
+<td align="left">MIA</td>
+<td align="left">73</td>
+<td align="left">112</td>
+<td align="left">25.9</td>
+<td align="left">44.4</td>
+</tr>
+<tr>
+<td align="left">Jimmy Butler</td>
+<td align="left">MIA</td>
+<td align="left">58</td>
+<td align="left">19.9</td>
+<td align="left">6</td>
+<td align="left">6.7</td>
+</tr>
+<tr>
+<td align="left">Goran Dragić</td>
+<td align="left">MIA</td>
+<td align="left">59</td>
+<td align="left">16.2</td>
+<td align="left">5.1</td>
+<td align="left">3.2</td>
+</tr>
+<tr>
+<td align="left">Bam Adebayo</td>
+<td align="left">MIA</td>
+<td align="left">72</td>
+<td align="left">15.9</td>
+<td align="left">5.1</td>
+<td align="left">10.2</td>
+</tr>
+<tr>
+<td align="left">Kendrick Nunn</td>
+<td align="left">MIA</td>
+<td align="left">67</td>
+<td align="left">15.3</td>
+<td align="left">3.3</td>
+<td align="left">2.7</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total rows:</strong> 43
+<strong>Teams:</strong> LAL, MIA</p>
+<hr />
+<h3 id="sec:example-one-team-multiple-years">Example: One Team, Multiple Years</h3>
+<pre><code class="language-r"># Get Lakers stats for 3 consecutive years
+lakers_3years &lt;- team_stats_bulk(
+  stat_function = team_per_game,
+  teams = &quot;LAL&quot;,
+  years = 2022:2024,
+  progress = FALSE
+)
+</code></pre>
+<pre><code>## Fetching data for 3 team-season combinations...
+## Searching team: LAL 2022 (regular season) 
+## Success: 26 rows obtained
+## Searching team: LAL 2023 (regular season) 
+## Success: 25 rows obtained
+## Searching team: LAL 2024 (regular season) 
+## Success: 22 rows obtained
+## Success: Combined 73 rows from 3 team-seasons
+</code></pre>
+<pre><code class="language-r"># Show LeBron's stats across these years
+lakers_3years %&gt;%
+  filter(grepl(&quot;James&quot;, Player)) %&gt;%
+  select(Player, season, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">season</th>
+<th align="left">G</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LeBron James</td>
+<td align="left">2022</td>
+<td align="left">56</td>
+<td align="left">30.3</td>
+<td align="left">6.2</td>
+<td align="left">8.2</td>
+</tr>
+<tr>
+<td align="left">LeBron James</td>
+<td align="left">2023</td>
+<td align="left">55</td>
+<td align="left">28.9</td>
+<td align="left">6.8</td>
+<td align="left">8.3</td>
+</tr>
+<tr>
+<td align="left">LeBron James</td>
+<td align="left">2024</td>
+<td align="left">71</td>
+<td align="left">25.7</td>
+<td align="left">8.3</td>
+<td align="left">7.3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total rows:</strong> 73
+<strong>Seasons:</strong> 2022, 2023, 2024</p>
+<hr />
+<h1 id="chp:3-team-aggregate-functions-historical">3. Team Aggregate Functions (Historical)</h1>
+<h2 id="sec:3-1-team-stats-totals">3.1 team_stats_totals()</h2>
+<p>Get aggregate totals across all seasons in franchise history.</p>
+<pre><code class="language-r"># Get Warriors historical totals
+warriors_history &lt;- team_stats_totals(&quot;GSW&quot;)
+</code></pre>
+<pre><code>## Searching team aggregate stats: GSW (totals)
+## Success: 83 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show most recent 10 seasons
+head(warriors_history, 10) %&gt;%
+  select(Season, Lg, Tm, W, L, Age) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Season</th>
+<th align="left">Lg</th>
+<th align="left">Tm</th>
+<th align="left">W</th>
+<th align="left">L</th>
+<th align="left">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">2025-26</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">21</td>
+<td align="left">19</td>
+<td align="left">29.3</td>
+</tr>
+<tr>
+<td align="left">2024-25</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">48</td>
+<td align="left">34</td>
+<td align="left">28.6</td>
+</tr>
+<tr>
+<td align="left">2023-24</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">46</td>
+<td align="left">36</td>
+<td align="left">28.4</td>
+</tr>
+<tr>
+<td align="left">2022-23</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">44</td>
+<td align="left">38</td>
+<td align="left">27.3</td>
+</tr>
+<tr>
+<td align="left">2021-22</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">53</td>
+<td align="left">29</td>
+<td align="left">27.6</td>
+</tr>
+<tr>
+<td align="left">2020-21</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">39</td>
+<td align="left">33</td>
+<td align="left">26.7</td>
+</tr>
+<tr>
+<td align="left">2019-20</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">15</td>
+<td align="left">50</td>
+<td align="left">24.4</td>
+</tr>
+<tr>
+<td align="left">2018-19</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">57</td>
+<td align="left">25</td>
+<td align="left">28.4</td>
+</tr>
+<tr>
+<td align="left">2017-18</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">58</td>
+<td align="left">24</td>
+<td align="left">28.8</td>
+</tr>
+<tr>
+<td align="left">2016-17</td>
+<td align="left">NBA</td>
+<td align="left">GSW</td>
+<td align="left">67</td>
+<td align="left">15</td>
+<td align="left">28.2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total seasons:</strong> 83</p>
+<hr />
+<h2 id="sec:3-2-team-stats-totals-with-year-filter-new">3.2 team_stats_totals() with Year Filter - NEW</h2>
+<p>Filter aggregate totals to specific years.</p>
+<pre><code class="language-r"># Get Lakers totals for recent years (2015-2024)
+lakers_recent &lt;- team_stats_totals(&quot;LAL&quot;, years = 2015:2024)
+</code></pre>
+<pre><code>## Searching team aggregate stats: LAL (totals)
+</code></pre>
+<pre><code>## Filtered to years: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 
+## Success: 10 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show all filtered seasons
+lakers_recent %&gt;%
+  select(Season, Lg, Tm, W, L, Age) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Season</th>
+<th align="left">Lg</th>
+<th align="left">Tm</th>
+<th align="left">W</th>
+<th align="left">L</th>
+<th align="left">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">2023-24</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">47</td>
+<td align="left">35</td>
+<td align="left">28.0</td>
+</tr>
+<tr>
+<td align="left">2022-23</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">43</td>
+<td align="left">39</td>
+<td align="left">27.9</td>
+</tr>
+<tr>
+<td align="left">2021-22</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">33</td>
+<td align="left">49</td>
+<td align="left">30.2</td>
+</tr>
+<tr>
+<td align="left">2020-21</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">42</td>
+<td align="left">30</td>
+<td align="left">28.2</td>
+</tr>
+<tr>
+<td align="left">2019-20</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">52</td>
+<td align="left">19</td>
+<td align="left">29.5</td>
+</tr>
+<tr>
+<td align="left">2018-19</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">37</td>
+<td align="left">45</td>
+<td align="left">26.2</td>
+</tr>
+<tr>
+<td align="left">2017-18</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">35</td>
+<td align="left">47</td>
+<td align="left">23.7</td>
+</tr>
+<tr>
+<td align="left">2016-17</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">26</td>
+<td align="left">56</td>
+<td align="left">25.1</td>
+</tr>
+<tr>
+<td align="left">2015-16</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">17</td>
+<td align="left">65</td>
+<td align="left">26.5</td>
+</tr>
+<tr>
+<td align="left">2014-15</td>
+<td align="left">NBA</td>
+<td align="left">LAL</td>
+<td align="left">21</td>
+<td align="left">61</td>
+<td align="left">27.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Filtered seasons:</strong> 10</p>
+<hr />
+<h2 id="sec:3-3-team-stats-per-game">3.3 team_stats_per_game()</h2>
+<p>Get aggregate per game stats across all seasons.</p>
+<pre><code class="language-r"># Get Celtics historical per game stats
+celtics_history &lt;- team_stats_per_game(&quot;BOS&quot;)
+</code></pre>
+<pre><code>## Searching team aggregate stats: BOS (per game)
+## Success: 83 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show most recent 10 seasons
+head(celtics_history, 10) %&gt;%
+  select(Season, Lg, Tm, W, L, Age) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Season</th>
+<th align="left">Lg</th>
+<th align="left">Tm</th>
+<th align="left">W</th>
+<th align="left">L</th>
+<th align="left">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">2025-26</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">24</td>
+<td align="left">14</td>
+<td align="left">26.7</td>
+</tr>
+<tr>
+<td align="left">2024-25</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">61</td>
+<td align="left">21</td>
+<td align="left">28.9</td>
+</tr>
+<tr>
+<td align="left">2023-24</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">64</td>
+<td align="left">18</td>
+<td align="left">28.2</td>
+</tr>
+<tr>
+<td align="left">2022-23</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">57</td>
+<td align="left">25</td>
+<td align="left">27.4</td>
+</tr>
+<tr>
+<td align="left">2021-22</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">51</td>
+<td align="left">31</td>
+<td align="left">26.1</td>
+</tr>
+<tr>
+<td align="left">2020-21</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">36</td>
+<td align="left">36</td>
+<td align="left">25.1</td>
+</tr>
+<tr>
+<td align="left">2019-20</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">48</td>
+<td align="left">24</td>
+<td align="left">25.3</td>
+</tr>
+<tr>
+<td align="left">2018-19</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">49</td>
+<td align="left">33</td>
+<td align="left">25.7</td>
+</tr>
+<tr>
+<td align="left">2017-18</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">55</td>
+<td align="left">27</td>
+<td align="left">24.7</td>
+</tr>
+<tr>
+<td align="left">2016-17</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">53</td>
+<td align="left">29</td>
+<td align="left">25.9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total seasons:</strong> 83</p>
+<hr />
+<h2 id="sec:3-4-team-stats-per-game-with-specific-years-new">3.4 team_stats_per_game() with Specific Years - NEW</h2>
+<p>Filter to specific championship years.</p>
+<pre><code class="language-r"># Get Celtics stats for championship years
+celtics_champs &lt;- team_stats_per_game(&quot;BOS&quot;, years = c(2008, 2024))
+</code></pre>
+<pre><code>## Searching team aggregate stats: BOS (per game)
+</code></pre>
+<pre><code>## Filtered to years: 2008, 2024 
+## Success: 2 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show all filtered seasons
+celtics_champs %&gt;%
+  select(Season, Lg, Tm, W, L, Age) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Season</th>
+<th align="left">Lg</th>
+<th align="left">Tm</th>
+<th align="left">W</th>
+<th align="left">L</th>
+<th align="left">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">2023-24</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">64</td>
+<td align="left">18</td>
+<td align="left">28.2</td>
+</tr>
+<tr>
+<td align="left">2007-08</td>
+<td align="left">NBA</td>
+<td align="left">BOS</td>
+<td align="left">66</td>
+<td align="left">16</td>
+<td align="left">27.9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Filtered seasons:</strong> 2</p>
+<hr />
+<h1 id="chp:4-league-functions">4. League Functions</h1>
+<h2 id="sec:4-1-league-per-game">4.1 league_per_game()</h2>
+<p>Get historical NBA league per game averages.</p>
+<pre><code class="language-r"># Get league per game averages
+league_avg &lt;- league_per_game()
+</code></pre>
+<pre><code>## Searching league: per_game (regular season) 
+## Success: 83 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show most recent 10 seasons
+head(league_avg, 10) %&gt;%
+  select(Season, Tm, G, PTS, AST, TRB, FGpct) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 83</p>
+<hr />
+<h2 id="sec:4-2-league-totals">4.2 league_totals()</h2>
+<p>Get historical NBA league totals.</p>
+<pre><code class="language-r"># Get league totals
+league_tots &lt;- league_totals()
+</code></pre>
+<pre><code>## Searching league: totals (regular season) 
+## Success: 87 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show most recent 10 seasons
+head(league_tots, 10) %&gt;%
+  select(Season, Tm, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Season` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 87</p>
+<hr />
+<h2 id="sec:4-3-league-per-poss">4.3 league_per_poss()</h2>
+<p>Get historical NBA league per 100 possessions stats.</p>
+<pre><code class="language-r"># Get league per 100 poss stats
+league_p100 &lt;- league_per_poss()
+</code></pre>
+<pre><code>## Searching league: per_poss (regular season) 
+## Success: 83 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show most recent 10 seasons
+head(league_p100, 10) %&gt;%
+  select(Season, Tm, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Total seasons:</strong> 83</p>
+<hr />
+<h1 id="chp:5-championship-data">5. Championship Data</h1>
+<h2 id="sec:5-1-champions">5.1 champions()</h2>
+<p>Get NBA championship history.</p>
+<pre><code class="language-r"># Get all champions
+all_champs &lt;- champions()
+</code></pre>
+<pre><code>## Obteniendo campeones de NBA...
+##   -&gt; Años disponibles: 1947 - 2025 
+##   -&gt; Éxito: 88 campeones obtenidos ( 1947 - 2025 )
+</code></pre>
+<pre><code class="language-r"># Show most recent 10 championships
+head(all_champs, 10) %&gt;%
+  select(Year, Champion, team) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="right">Year</th>
+<th align="left">Champion</th>
+<th align="left">team</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">2025</td>
+<td align="left">Oklahoma City Thunder</td>
+<td align="left">OKC</td>
+</tr>
+<tr>
+<td align="right">2024</td>
+<td align="left">Boston Celtics</td>
+<td align="left">BOS</td>
+</tr>
+<tr>
+<td align="right">2023</td>
+<td align="left">Denver Nuggets</td>
+<td align="left">DEN</td>
+</tr>
+<tr>
+<td align="right">2022</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">GSW</td>
+</tr>
+<tr>
+<td align="right">2021</td>
+<td align="left">Milwaukee Bucks</td>
+<td align="left">MIL</td>
+</tr>
+<tr>
+<td align="right">2020</td>
+<td align="left">Los Angeles Lakers</td>
+<td align="left">LAL</td>
+</tr>
+<tr>
+<td align="right">2019</td>
+<td align="left">Toronto Raptors</td>
+<td align="left">TOR</td>
+</tr>
+<tr>
+<td align="right">2018</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">GSW</td>
+</tr>
+<tr>
+<td align="right">2017</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">GSW</td>
+</tr>
+<tr>
+<td align="right">2016</td>
+<td align="left">Cleveland Cavaliers</td>
+<td align="left">CLE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total championships:</strong> 88</p>
+<hr />
+<h2 id="sec:5-2-champions-with-year-range">5.2 champions() with Year Range</h2>
+<p>Filter champions to specific years.</p>
+<pre><code class="language-r"># Get champions from 2010-2020
+champs_2010s &lt;- champions(first_year = 2010, last_year = 2020)
+</code></pre>
+<pre><code>## Obteniendo campeones de NBA...
+##   -&gt; Años disponibles: 1947 - 2025 
+##   -&gt; Éxito: 11 campeones obtenidos ( 2010 - 2020 )
+</code></pre>
+<pre><code class="language-r"># Show all
+champs_2010s %&gt;%
+  select(Year, Champion, team) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="right">Year</th>
+<th align="left">Champion</th>
+<th align="left">team</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">2020</td>
+<td align="left">Los Angeles Lakers</td>
+<td align="left">LAL</td>
+</tr>
+<tr>
+<td align="right">2019</td>
+<td align="left">Toronto Raptors</td>
+<td align="left">TOR</td>
+</tr>
+<tr>
+<td align="right">2018</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">GSW</td>
+</tr>
+<tr>
+<td align="right">2017</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">GSW</td>
+</tr>
+<tr>
+<td align="right">2016</td>
+<td align="left">Cleveland Cavaliers</td>
+<td align="left">CLE</td>
+</tr>
+<tr>
+<td align="right">2015</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">GSW</td>
+</tr>
+<tr>
+<td align="right">2014</td>
+<td align="left">San Antonio Spurs</td>
+<td align="left">SAS</td>
+</tr>
+<tr>
+<td align="right">2013</td>
+<td align="left">Miami Heat</td>
+<td align="left">MIA</td>
+</tr>
+<tr>
+<td align="right">2012</td>
+<td align="left">Miami Heat</td>
+<td align="left">MIA</td>
+</tr>
+<tr>
+<td align="right">2011</td>
+<td align="left">Dallas Mavericks</td>
+<td align="left">DAL</td>
+</tr>
+<tr>
+<td align="right">2010</td>
+<td align="left">Los Angeles Lakers</td>
+<td align="left">LAL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Championships in range:</strong> 11</p>
+<hr />
+<h1 id="chp:6-playoff-statistics-examples">6. Playoff Statistics Examples</h1>
+<p>All player and team functions support <code>season_type = &quot;playoffs&quot;</code>.</p>
+<h2 id="sec:6-1-player-playoff-stats">6.1 Player Playoff Stats</h2>
+<pre><code class="language-r"># Get LeBron playoff stats
+lebron_playoffs &lt;- player_per_game(&quot;LeBron James&quot;, season_type = &quot;playoffs&quot;)
+</code></pre>
+<pre><code>## Searching player: LeBron James 
+## Success: 18 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show first 10 seasons
+head(lebron_playoffs, 10) %&gt;%
+  select(Season, Age, Tm, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<pre><code>## Error in `select()`:
+## ! Can't select columns that don't exist.
+## ✖ Column `Tm` doesn't exist.
+</code></pre>
+<p><strong>Playoff seasons:</strong> 18</p>
+<hr />
+<h2 id="sec:6-2-team-playoff-stats">6.2 Team Playoff Stats</h2>
+<pre><code class="language-r"># Get Lakers 2020 playoff stats
+lakers_playoffs &lt;- team_per_game(&quot;LAL&quot;, 2020, season_type = &quot;playoffs&quot;)
+</code></pre>
+<pre><code>## Searching team: LAL 2020 (playoffs) 
+## Success: 16 rows obtained
+</code></pre>
+<pre><code class="language-r"># Show all players
+lakers_playoffs %&gt;%
+  select(Player, Age, G, PTS, AST, TRB) %&gt;%
+  kable()
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">G</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Anthony Davis</td>
+<td align="left">26</td>
+<td align="left">21</td>
+<td align="left">27.7</td>
+<td align="left">3.5</td>
+<td align="left">9.7</td>
+</tr>
+<tr>
+<td align="left">LeBron James</td>
+<td align="left">35</td>
+<td align="left">21</td>
+<td align="left">27.6</td>
+<td align="left">8.8</td>
+<td align="left">10.8</td>
+</tr>
+<tr>
+<td align="left">Kentavious Caldwell-Pope</td>
+<td align="left">26</td>
+<td align="left">21</td>
+<td align="left">10.7</td>
+<td align="left">1.3</td>
+<td align="left">2.1</td>
+</tr>
+<tr>
+<td align="left">Danny Green</td>
+<td align="left">32</td>
+<td align="left">21</td>
+<td align="left">8</td>
+<td align="left">1.2</td>
+<td align="left">3.1</td>
+</tr>
+<tr>
+<td align="left">Rajon Rondo</td>
+<td align="left">33</td>
+<td align="left">16</td>
+<td align="left">8.9</td>
+<td align="left">6.6</td>
+<td align="left">4.3</td>
+</tr>
+<tr>
+<td align="left">Alex Caruso</td>
+<td align="left">25</td>
+<td align="left">21</td>
+<td align="left">6.5</td>
+<td align="left">2.8</td>
+<td align="left">2.3</td>
+</tr>
+<tr>
+<td align="left">Kyle Kuzma</td>
+<td align="left">24</td>
+<td align="left">21</td>
+<td align="left">10</td>
+<td align="left">0.8</td>
+<td align="left">3.1</td>
+</tr>
+<tr>
+<td align="left">Markieff Morris</td>
+<td align="left">30</td>
+<td align="left">21</td>
+<td align="left">5.9</td>
+<td align="left">1</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">Dwight Howard</td>
+<td align="left">34</td>
+<td align="left">18</td>
+<td align="left">5.8</td>
+<td align="left">0.5</td>
+<td align="left">4.6</td>
+</tr>
+<tr>
+<td align="left">JaVale McGee</td>
+<td align="left">32</td>
+<td align="left">14</td>
+<td align="left">2.9</td>
+<td align="left">0.5</td>
+<td align="left">3.1</td>
+</tr>
+<tr>
+<td align="left">Talen Horton-Tucker</td>
+<td align="left">19</td>
+<td align="left">2</td>
+<td align="left">7</td>
+<td align="left">0</td>
+<td align="left">2.5</td>
+</tr>
+<tr>
+<td align="left">Dion Waiters</td>
+<td align="left">28</td>
+<td align="left">5</td>
+<td align="left">2</td>
+<td align="left">0.4</td>
+<td align="left">0.4</td>
+</tr>
+<tr>
+<td align="left">J.R. Smith</td>
+<td align="left">34</td>
+<td align="left">10</td>
+<td align="left">2</td>
+<td align="left">0.3</td>
+<td align="left">0.3</td>
+</tr>
+<tr>
+<td align="left">Quinn Cook</td>
+<td align="left">26</td>
+<td align="left">6</td>
+<td align="left">2.2</td>
+<td align="left">0.8</td>
+<td align="left">0.2</td>
+</tr>
+<tr>
+<td align="left">Jared Dudley</td>
+<td align="left">34</td>
+<td align="left">9</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0.2</td>
+</tr>
+<tr>
+<td align="left">Team Totals</td>
+<td align="left">NA</td>
+<td align="left">21</td>
+<td align="left">112.8</td>
+<td align="left">25.6</td>
+<td align="left">44.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Playoff roster:</strong> 16</p>
+<hr />
+<h1 id="chp:summary">Summary</h1>
+<h2 id="sec:total-functions-24">Total Functions: 24</h2>
+<h3 id="sec:player-functions-8">Player Functions (8):</h3>
+<ol>
+<li><code>player_per_game()</code> - Per game stats</li>
+<li><code>player_totals()</code> - Season totals</li>
+<li><code>player_per_minute()</code> - Per 36 minutes</li>
+<li><code>player_per_poss()</code> - Per 100 possessions</li>
+<li><code>player_advanced()</code> - Advanced stats</li>
+<li><code>player_shooting()</code> - Shooting by distance</li>
+<li><code>player_pbp()</code> - Play-by-play</li>
+<li><code>player_stats_bulk()</code> - <strong>NEW</strong> - Multiple players</li>
+</ol>
+<h3 id="sec:team-functions-11">Team Functions (11):</h3>
+<p><strong>Season-Specific (8):</strong></p>
+<ol>
+<li><code>team_per_game()</code> - Per game stats</li>
+<li><code>team_totals()</code> - Season totals</li>
+<li><code>team_advanced()</code> - Advanced stats</li>
+<li><code>team_roster()</code> - Roster info</li>
+<li><code>team_per_minute()</code> - Per 36 minutes</li>
+<li><code>team_per_poss()</code> - Per 100 possessions</li>
+<li><code>team_shooting()</code> - Shooting stats</li>
+<li><code>team_pbp()</code> - Play-by-play</li>
+</ol>
+<p><strong>Historical/Aggregate (3):</strong>
+9. <code>team_stats_totals()</code> - Historical totals (<strong>Enhanced</strong> with year filter)
+10. <code>team_stats_per_game()</code> - Historical per game (<strong>Enhanced</strong> with year filter)
+11. <code>team_stats_bulk()</code> - <strong>NEW</strong> - Multiple teams/years</p>
+<h3 id="sec:league-functions-3">League Functions (3):</h3>
+<ol>
+<li><code>league_per_game()</code> - League per game averages</li>
+<li><code>league_totals()</code> - League totals</li>
+<li><code>league_per_poss()</code> - League per 100 poss</li>
+</ol>
+<h3 id="sec:championship-data-1">Championship Data (1):</h3>
+<ol>
+<li><code>champions()</code> - NBA championship history</li>
+</ol>
+<h3 id="sec:season-type-support">Season Type Support</h3>
+<p>All player and team functions support <code>season_type</code> parameter:</p>
+<ul>
+<li><code>&quot;regular&quot;</code> - Regular season (default)</li>
+<li><code>&quot;playoffs&quot;</code> - Postseason</li>
+</ul>
+<hr />
+<h1 id="chp:new-features-summary">New Features Summary</h1>
+<h2 id="sec:1-bulk-functions">1. Bulk Functions</h2>
+<ul>
+<li><code>team_stats_bulk()</code> - Fetch multiple teams/years at once</li>
+<li><code>player_stats_bulk()</code> - Fetch multiple players at once</li>
+</ul>
+<h2 id="sec:2-year-filtering">2. Year Filtering</h2>
+<ul>
+<li><code>team_stats_totals(team, years)</code> - Filter historical data</li>
+<li><code>team_stats_per_game(team, years)</code> - Filter historical data</li>
+</ul>
+<h2 id="sec:3-benefits">3. Benefits</h2>
+<ul>
+<li>Reduces code repetition</li>
+<li>Automatic data combination</li>
+<li>Progress tracking</li>
+<li>Error handling</li>
+<li>Cleaner analysis workflows</li>
+</ul>
+</div>
+</body>
+</html>
