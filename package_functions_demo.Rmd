@@ -28,8 +28,10 @@ Get per game statistics for a player across all seasons.
 # Get LeBron James per game stats
 lebron_pg <- player_per_game("LeBron James")
 
-# Show first 10 seasons
-head(lebron_pg, 10)
+lebron_pg %>% 
+  select(Season, Age, Team, PTS, AST, TRB) %>% 
+  head(5) %>% 
+  kable() 
 ```
 
 **Total seasons:** `r nrow(lebron_pg)`
@@ -44,8 +46,10 @@ Get season totals for a player.
 # Get Stephen Curry totals
 curry_totals <- player_totals("Stephen Curry")
 
-# Show first 10 seasons
-head(curry_totals, 10)
+curry_totals %>% 
+  select(Season, Age, Team, PTS, AST, TRB) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(curry_totals)`
@@ -60,8 +64,10 @@ Get per 36 minutes statistics.
 # Get Giannis per 36 stats
 giannis_per36 <- player_per_minute("Giannis Antetokounmpo")
 
-# Show first 8 seasons
-head(giannis_per36, 10) 
+giannis_per36 %>% 
+  select(Season, Age, Team, PTS, AST, TRB) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(giannis_per36)`
@@ -76,8 +82,10 @@ Get advanced statistics (PER, TS%, WS, etc.).
 # Get Kevin Durant advanced stats
 durant_adv <- player_advanced("Kevin Durant")
 
-# Show first 8 seasons
-head(durant_adv, 10)
+durant_adv %>% 
+  select(Season, Age, Team, PER, ASTpct, TOVpct) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(durant_adv)`
@@ -92,8 +100,10 @@ Get per 100 possessions statistics. Note: Player search is accent-insensitive.
 # Get Nikola Jokic per 100 poss stats (works with or without accent)
 jokic_poss <- player_per_poss("Nikola Jokic")
 
-# Show all seasons
-head(jokic_poss, 10)
+jokic_poss %>% 
+  select(Season, Age, Team, PTS, AST, TRB) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(jokic_poss)`
@@ -108,8 +118,10 @@ Get shooting statistics by distance and zone.
 # Get Stephen Curry shooting stats
 curry_shoot <- player_shooting("Stephen Curry")
 
-# Show recent 5 seasons
-head(curry_shoot, 5)
+curry_shoot %>% 
+  select(Season, Age, Team, Dist., two_P, three_P_1) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(curry_shoot)`
@@ -124,8 +136,10 @@ Get play-by-play statistics.
 # Get James Harden pbp stats
 harden_pbp <- player_pbp("James Harden")
 
-# Show recent 5 seasons
-head(harden_pbp, 5)
+harden_pbp %>% 
+  select(Season, Age, Team, OnCourt, `On-Off`, And1) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(harden_pbp)`
@@ -145,10 +159,11 @@ goats <- player_stats_bulk(
   progress = FALSE
 )
 
-# Show first 5 seasons for each
 goats %>%
   group_by(player) %>%
-  slice(1:3) 
+  select(Season, Age, Team, PTS, AST, TRB) %>% 
+  slice(1:3) %>% 
+  kable()
 ```
 
 **Total rows:** `r nrow(goats)`
@@ -166,8 +181,10 @@ Get per game statistics for a team in a specific season.
 # Get Lakers 2020 per game stats
 lakers_2020 <- team_per_game("LAL", 2020)
 
-# Show all players
-head(lakers_2020, 5)
+lakers_2020 %>% 
+  select(Player, Age, Pos, FGpct, three_Ppct, FTpct) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(lakers_2020)`
@@ -182,8 +199,10 @@ Get season totals for a team.
 # Get Warriors 2022 totals
 warriors_2022 <- team_totals("GSW", 2022)
 
-# Show top 10 players by games
-head(warriors_2022, 5) 
+warriors_2022 %>% 
+  select(Player, Age, FGpct, three_Ppct, FTpct) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(warriors_2022)`
@@ -198,8 +217,10 @@ Get advanced statistics for a team.
 # Get Celtics 2024 advanced stats
 celtics_adv <- team_advanced("BOS", 2024)
 
-# Show top 10 players by games
-head(celtics_adv, 10) 
+celtics_adv %>% 
+  select(Player, Age, PER, ASTpct, STLpct) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(celtics_adv)`
@@ -214,8 +235,10 @@ Get roster information for a team.
 # Get Heat 2020 roster
 heat_roster <- team_roster("MIA", 2020)
 
-# Show all players
-head(heat_roster, 5)
+heat_roster %>% 
+  select(No., Player, Pos, `Birth Date`, College) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(heat_roster)`
@@ -230,8 +253,10 @@ Get per 36 minutes statistics for a team.
 # Get Nuggets 2023 per 36 stats
 nuggets_per36 <- team_per_minute("DEN", 2023)
 
-# Show top 10 players
-head(nuggets_per36, 5) 
+nuggets_per36 %>% 
+  select(Player, Age, FGpct, AST, PTS) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(nuggets_per36)`
@@ -246,8 +271,10 @@ Get per 100 possessions statistics for a team.
 # Get Bucks 2021 per 100 poss stats
 bucks_poss <- team_per_poss("MIL", 2021)
 
-# Show top 10 players
-head(bucks_poss, 5) 
+bucks_poss %>% 
+  select(Player, Age, FGpct, AST, PTS) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(bucks_poss)`
@@ -262,8 +289,10 @@ Get shooting statistics for a team.
 # Get Warriors 2016 shooting stats
 warriors_shoot <- team_shooting("GSW", 2016)
 
-# Show top 10 players
-head(warriors_shoot, 5) 
+warriors_shoot %>% 
+  select(Player, Age, FGpct, Dist., three_Ppct) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(warriors_shoot)`
@@ -278,8 +307,10 @@ Get play-by-play statistics for a team.
 # Get Lakers 2020 pbp stats
 lakers_pbp <- team_pbp("LAL", 2020)
 
-# Show top 10 players
-head(lakers_pbp, 5) 
+lakers_pbp %>% 
+  select(Player, Age, BadPass, LostBall, OnCourt) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total players:** `r nrow(lakers_pbp)`
@@ -300,11 +331,13 @@ finals_2020 <- team_stats_bulk(
   progress = FALSE
 )
 
-# Show top scorers from each team
 finals_2020 %>%
+  filter(Player != "Team Totals") %>% 
   arrange(team, desc(as.numeric(PTS))) %>%
   group_by(team) %>%
-  slice(1:5)
+  slice(1:3) %>% 
+  select(Player, Age, Pos, team) %>% 
+  kable()
 ```
 
 **Total rows:** `r nrow(finals_2020)`
@@ -323,9 +356,10 @@ lakers_3years <- team_stats_bulk(
   progress = FALSE
 )
 
-# Show LeBron's stats across these years
 lakers_3years %>%
-  filter(grepl("James", Player)) 
+  filter(grepl("Anthony Davis", Player)) %>% 
+  select(Player, Age, Pos, team, PTS, TRB) %>% 
+  kable()
 ```
 
 **Total rows:** `r nrow(lakers_3years)`
@@ -343,8 +377,10 @@ Get aggregate totals across all seasons in franchise history.
 # Get Warriors historical totals
 warriors_history <- team_stats_totals("GSW")
 
-# Show most recent 10 seasons
-head(warriors_history, 10) 
+warriors_history %>%
+  select(Season, team, W, L, G) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Total seasons:** `r nrow(warriors_history)`
@@ -359,9 +395,9 @@ Filter aggregate totals to specific years.
 # Get Lakers totals for recent years (2015-2024)
 lakers_recent <- team_stats_totals("LAL", years = 2015:2024)
 
-# Show all filtered seasons
 lakers_recent %>%
-  select(Season, Lg, Tm, W, L, Age) %>%
+  select(Season, team, W, L, G) %>% 
+  head(5) %>% 
   kable()
 ```
 
@@ -377,9 +413,9 @@ Get aggregate per game stats across all seasons.
 # Get Celtics historical per game stats
 celtics_history <- team_stats_per_game("BOS")
 
-# Show most recent 10 seasons
-head(celtics_history, 10) %>%
-  select(Season, Lg, Tm, W, L, Age) %>%
+celtics_history %>%
+  select(Season, team, W, L, G) %>% 
+  head(5) %>% 
   kable()
 ```
 
@@ -395,9 +431,8 @@ Filter to specific championship years.
 # Get Celtics stats for championship years
 celtics_champs <- team_stats_per_game("BOS", years = c(2008, 2024))
 
-# Show all filtered seasons
-celtics_champs %>%
-  select(Season, Lg, Tm, W, L, Age) %>%
+celtics_champs %>% 
+  select(Season, team, W, L, G) %>% 
   kable()
 ```
 
@@ -415,9 +450,9 @@ Get historical NBA league per game averages.
 # Get league per game averages
 league_avg <- league_per_game()
 
-# Show most recent 10 seasons
-head(league_avg, 10) %>%
-  select(Season, Tm, G, PTS, AST, TRB, FGpct) %>%
+league_avg %>% 
+  select(Season, FG, FGA, three_P, three_PA) %>% 
+  head(5) %>% 
   kable()
 ```
 
@@ -433,9 +468,9 @@ Get historical NBA league totals.
 # Get league totals
 league_tots <- league_totals()
 
-# Show most recent 10 seasons
-head(league_tots, 10) %>%
-  select(Season, Tm, G, PTS, AST, TRB) %>%
+league_tots %>% 
+  select(Season, FG, FGA, three_P, three_PA) %>% 
+  head(5) %>% 
   kable()
 ```
 
@@ -452,9 +487,7 @@ Get historical NBA league per 100 possessions stats.
 league_p100 <- league_per_poss()
 
 # Show most recent 10 seasons
-head(league_p100, 10) %>%
-  select(Season, Tm, G, PTS, AST, TRB) %>%
-  kable()
+head(league_p100, 5)
 ```
 
 **Total seasons:** `r nrow(league_p100)`
@@ -472,9 +505,7 @@ Get NBA championship history.
 all_champs <- champions()
 
 # Show most recent 10 championships
-head(all_champs, 10) %>%
-  select(Year, Champion, team) %>%
-  kable()
+head(all_champs, 5)
 ```
 
 **Total championships:** `r nrow(all_champs)`
@@ -510,9 +541,10 @@ All player and team functions support `season_type = "playoffs"`.
 lebron_playoffs <- player_per_game("LeBron James", season_type = "playoffs")
 
 # Show first 10 seasons
-head(lebron_playoffs, 10) %>%
-  select(Season, Age, Tm, G, PTS, AST, TRB) %>%
+head(lebron_playoffs, 5) %>%
   kable()
+
+head(lebron_playoffs, 5) 
 ```
 
 **Playoff seasons:** `r nrow(lebron_playoffs)`
@@ -526,9 +558,7 @@ head(lebron_playoffs, 10) %>%
 lakers_playoffs <- team_per_game("LAL", 2020, season_type = "playoffs")
 
 # Show all players
-lakers_playoffs %>%
-  select(Player, Age, G, PTS, AST, TRB) %>%
-  kable()
+head(lakers_playoffs, 5)
 ```
 
 **Playoff roster:** `r nrow(lakers_playoffs)`
@@ -578,21 +608,3 @@ All player and team functions support `season_type` parameter:
 - `"regular"` - Regular season (default)
 - `"playoffs"` - Postseason
 
----
-
-# New Features Summary
-
-## 1. Bulk Functions
-- `team_stats_bulk()` - Fetch multiple teams/years at once
-- `player_stats_bulk()` - Fetch multiple players at once
-
-## 2. Year Filtering
-- `team_stats_totals(team, years)` - Filter historical data
-- `team_stats_per_game(team, years)` - Filter historical data
-
-## 3. Benefits
-- Reduces code repetition
-- Automatic data combination
-- Progress tracking
-- Error handling
-- Cleaner analysis workflows

@@ -107,34 +107,24 @@ obtener_stats_liga <- function(tipo_stats, temporada, pausa = 2) {
 
   # Detectar si la primera fila contiene los encabezados reales
   nombres_columnas <- names(tabla)
-  nombres_vacios <- is.na(nombres_columnas) | nombres_columnas == ""
-  proporcion_vacios <- sum(nombres_vacios) / length(nombres_columnas)
+  nombres_vacios <- is.na(nombres_columnas) | nombres_columnas == "" | grepl("^col_", nombres_columnas)
 
-  # Verificar si la primera fila parece contener encabezados
-  # (strings cortos, palabras en mayúscula, típicos de encabezados)
-  primera_fila_es_header <- FALSE
-  if (nrow(tabla) > 0 && proporcion_vacios > 0.2) {
+  # Si hay columnas con nombres vacíos o tipo "col_X", verificar primera fila
+  if (nrow(tabla) > 0 && any(nombres_vacios)) {
     primera_fila <- as.character(tabla[1, ])
-    # Contar cuántos valores en la primera fila parecen encabezados
-    # (cortos, con mayúsculas, o palabras comunes de stats)
-    patron_header <- "^(Rk|Season|Lg|Age|Ht|Wt|[A-Z]{1,5}%?|G|MP|FG|FGA|[A-Z]+)$"
-    valores_header <- sum(grepl(patron_header, primera_fila), na.rm = TRUE)
+    # Verificar si la primera fila contiene nombres de columnas válidos
+    # (no vacíos, no numéricos puros, contienen letras)
+    valores_validos <- !is.na(primera_fila) & primera_fila != "" & grepl("[A-Za-z]", primera_fila)
 
-    if (valores_header > length(nombres_columnas) * 0.3) {
-      primera_fila_es_header <- TRUE
+    # Si la mayoría de valores en primera fila parecen nombres de columna, usarla
+    if (sum(valores_validos) > length(nombres_columnas) * 0.5) {
+      nuevos_nombres <- primera_fila
+      # Reemplazar valores vacíos o NA con nombres genéricos
+      nuevos_nombres[is.na(nuevos_nombres) | nuevos_nombres == ""] <- paste0("col_", seq_len(sum(is.na(nuevos_nombres) | nuevos_nombres == "")))
+      tabla <- tabla[-1, ]
+      names(tabla) <- nuevos_nombres
+      nombres_columnas <- nuevos_nombres
     }
-  }
-
-  # Si la primera fila contiene encabezados, usarla y eliminarla de los datos
-  if (primera_fila_es_header) {
-    # Usar la primera fila como nombres de columnas
-    nuevos_nombres <- as.character(tabla[1, ])
-    tabla <- tabla[-1, ]  # Eliminar la primera fila
-    names(tabla) <- nuevos_nombres
-    nombres_columnas <- nuevos_nombres
-  } else if (any(nombres_vacios)) {
-    nombres_columnas[nombres_vacios] <- paste0("col_", seq_len(sum(nombres_vacios)))
-    names(tabla) <- nombres_columnas
   }
 
   # Hacer nombres únicos
@@ -167,7 +157,6 @@ obtener_stats_liga <- function(tipo_stats, temporada, pausa = 2) {
   tabla_limpia <- tabla_limpia %>%
     dplyr::mutate(dplyr::across(dplyr::everything(), as.character)) %>%
     dplyr::mutate(
-      stat_type = tipo_stats,
       season_type = temporada
     )
 
