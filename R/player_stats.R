@@ -182,18 +182,22 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
   es_nombre <- grepl("\\s", player) || grepl("[A-Z]", player)
 
   player_id <- player
-
   player_name <- player  # Guardar el nombre original para mostrar
 
   if (es_nombre) {
-    player_id <- find_player_id(player, verbose = FALSE)
+    # Buscar el ID y el nombre real del jugador
+    busqueda <- find_player_id(player, verbose = FALSE, return_name = TRUE)
 
-    if (is.null(player_id)) {
+    if (is.null(busqueda)) {
       cat("Error: Player not found -", player, "\n")
       return(NULL)
     }
+
+    player_id <- busqueda$player_id
+    player_name <- busqueda$player_name
   } else {
-    # Si es un ID, no tenemos el nombre completo para mostrar
+    # Si es un ID, intentar obtener el nombre desde la web
+    # Por ahora usar el ID como nombre
     player_name <- player_id
   }
 
@@ -283,7 +287,7 @@ obtener_stats_jugador <- function(player, tipo_stats, temporada, pausa = 2) {
   # Agregar metadatos
   tabla_limpia <- tabla_limpia %>%
     dplyr::mutate(
-      player_id = player_id,
+      player = player_name,
       stat_type = tipo_stats,
       season_type = temporada
     )

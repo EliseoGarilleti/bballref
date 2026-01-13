@@ -29,9 +29,7 @@ Get per game statistics for a player across all seasons.
 lebron_pg <- player_per_game("LeBron James")
 
 # Show first 10 seasons
-head(lebron_pg, 10) %>%
-  select(Season, Age, Tm, G, PTS, AST, TRB, FGpct) %>%
-  kable()
+head(lebron_pg, 10)
 ```
 
 **Total seasons:** `r nrow(lebron_pg)`
@@ -47,9 +45,7 @@ Get season totals for a player.
 curry_totals <- player_totals("Stephen Curry")
 
 # Show first 10 seasons
-head(curry_totals, 10) %>%
-  select(Season, Age, Tm, G, PTS, AST, TRB, three_P) %>%
-  kable()
+head(curry_totals, 10)
 ```
 
 **Total seasons:** `r nrow(curry_totals)`
@@ -65,9 +61,7 @@ Get per 36 minutes statistics.
 giannis_per36 <- player_per_minute("Giannis Antetokounmpo")
 
 # Show first 8 seasons
-head(giannis_per36, 8) %>%
-  select(Season, Age, Tm, G, PTS, AST, TRB) %>%
-  kable()
+head(giannis_per36, 10) 
 ```
 
 **Total seasons:** `r nrow(giannis_per36)`
@@ -83,9 +77,7 @@ Get advanced statistics (PER, TS%, WS, etc.).
 durant_adv <- player_advanced("Kevin Durant")
 
 # Show first 8 seasons
-head(durant_adv, 8) %>%
-  select(Season, Age, Tm, PER, WS, BPM) %>%
-  kable()
+head(durant_adv, 10)
 ```
 
 **Total seasons:** `r nrow(durant_adv)`
@@ -101,9 +93,7 @@ Get per 100 possessions statistics. Note: Player search is accent-insensitive.
 jokic_poss <- player_per_poss("Nikola Jokic")
 
 # Show all seasons
-jokic_poss %>%
-  select(Season, Age, Tm, G, PTS, AST, TRB) %>%
-  kable()
+head(jokic_poss, 10)
 ```
 
 **Total seasons:** `r nrow(jokic_poss)`
@@ -119,9 +109,7 @@ Get shooting statistics by distance and zone.
 curry_shoot <- player_shooting("Stephen Curry")
 
 # Show recent 5 seasons
-head(curry_shoot, 5) %>%
-  select(Season, Age, Tm, FGpct, three_Ppct) %>%
-  kable()
+head(curry_shoot, 5)
 ```
 
 **Total seasons:** `r nrow(curry_shoot)`
@@ -137,9 +125,7 @@ Get play-by-play statistics.
 harden_pbp <- player_pbp("James Harden")
 
 # Show recent 5 seasons
-head(harden_pbp, 5) %>%
-  select(Season, Age, Tm, G) %>%
-  kable()
+head(harden_pbp, 5)
 ```
 
 **Total seasons:** `r nrow(harden_pbp)`
@@ -161,14 +147,14 @@ goats <- player_stats_bulk(
 
 # Show first 5 seasons for each
 goats %>%
-  group_by(player_id) %>%
+  group_by(player) %>%
   slice(1:5) %>%
-  select(Season, Age, Tm, G, PTS, AST, TRB, player_id) %>%
+  select(Season, Age, Tm, G, PTS, AST, TRB, player) %>%
   kable()
 ```
 
 **Total rows:** `r nrow(goats)`
-**Players:** `r length(unique(goats$player_id))`
+**Players:** `r paste(unique(goats$player), collapse = ", ")`
 
 ---
 

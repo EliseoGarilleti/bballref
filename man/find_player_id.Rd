@@ -4,7 +4,12 @@
 \alias{find_player_id}
 \title{Find player ID by name (internal function)}
 \usage{
-find_player_id(player_name, return_all = FALSE, verbose = TRUE)
+find_player_id(
+  player_name,
+  return_all = FALSE,
+  verbose = TRUE,
+  return_name = FALSE
+)
 }
 \arguments{
 \item{player_name}{Player's name (first and/or last name, case and accent insensitive)}
@@ -12,9 +17,11 @@ find_player_id(player_name, return_all = FALSE, verbose = TRUE)
 \item{return_all}{If TRUE, returns all matches. If FALSE (default), returns only the first match}
 
 \item{verbose}{If TRUE, prints search progress messages. If FALSE, runs silently (default: TRUE)}
+
+\item{return_name}{If TRUE, returns a list with player_id and player_name. If FALSE (default), returns only player_id}
 }
 \value{
-Character vector with player_id(s), or NULL if no match found
+Character vector with player_id(s), or list with player_id and player_name, or NULL if no match found
 }
 \description{
 Search for a player's ID on Basketball Reference using their name.
@@ -34,6 +41,9 @@ find_player_id("Nikola Jokić")  # Both work
 
 # Find all players named "James"
 find_player_id("James", return_all = TRUE)
+
+# Get both ID and name
+find_player_id("LeBron James", return_name = TRUE)
 }
 
 }

@@ -42,8 +42,9 @@ normalize_text <- function(text) {
 #' @param player_name Player's name (first and/or last name, case and accent insensitive)
 #' @param return_all If TRUE, returns all matches. If FALSE (default), returns only the first match
 #' @param verbose If TRUE, prints search progress messages. If FALSE, runs silently (default: TRUE)
+#' @param return_name If TRUE, returns a list with player_id and player_name. If FALSE (default), returns only player_id
 #'
-#' @return Character vector with player_id(s), or NULL if no match found
+#' @return Character vector with player_id(s), or list with player_id and player_name, or NULL if no match found
 #'
 #' @examples
 #' \dontrun{
@@ -58,10 +59,13 @@ normalize_text <- function(text) {
 #'
 #' # Find all players named "James"
 #' find_player_id("James", return_all = TRUE)
+#'
+#' # Get both ID and name
+#' find_player_id("LeBron James", return_name = TRUE)
 #' }
 #'
 #' @keywords internal
-find_player_id <- function(player_name, return_all = FALSE, verbose = TRUE) {
+find_player_id <- function(player_name, return_all = FALSE, verbose = TRUE, return_name = FALSE) {
 
   if (verbose) cat("Searching player:", player_name, "\n")
 
@@ -161,7 +165,13 @@ find_player_id <- function(player_name, return_all = FALSE, verbose = TRUE) {
     cat("\n")
   }
 
-  if (return_all) {
+  if (return_name) {
+    # Devolver tanto el ID como el nombre
+    return(list(
+      player_id = jugadores_encontrados$player_id[1],
+      player_name = jugadores_encontrados$nombre[1]
+    ))
+  } else if (return_all) {
     return(jugadores_encontrados$player_id)
   } else {
     return(jugadores_encontrados$player_id[1])
