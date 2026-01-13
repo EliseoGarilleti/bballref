@@ -12,8 +12,6 @@ library(dplyr)
 library(knitr)
 ```
 
-# bballref Package - Complete Function Reference
-
 This document demonstrates all functions available in the bballref package with examples and sample output.
 
 ---
@@ -94,19 +92,19 @@ durant_adv %>%
 
 ## 1.5 player_per_poss()
 
-Get per 100 possessions statistics. Note: Player search is accent-insensitive.
+Get per 100 possessions statistics.
 
 ```{r player_per_poss}
 # Get Nikola Jokic per 100 poss stats (works with or without accent)
-jokic_poss <- player_per_poss("Nikola Jokic")
+doncic_poss <- player_per_poss("Luka Doncic")
 
-jokic_poss %>% 
+doncic_poss %>% 
   select(Season, Age, Team, PTS, AST, TRB) %>% 
-  head(5) %>% 
+  head(5) %>%  
   kable()
 ```
 
-**Total seasons:** `r nrow(jokic_poss)`
+**Total seasons:** `r nrow(doncic_poss)`
 
 ---
 
@@ -144,9 +142,9 @@ harden_pbp %>%
 
 **Total seasons:** `r nrow(harden_pbp)`
 
----
+--- 
 
-## 1.8 player_stats_bulk() - NEW
+## 1.8 player_stats_bulk()
 
 Get career statistics for multiple players at once.
 
@@ -317,7 +315,7 @@ lakers_pbp %>%
 
 ---
 
-## 2.9 team_stats_bulk() - NEW
+## 2.9 team_stats_bulk()
 
 Get statistics for multiple teams and/or years at once.
 
@@ -365,6 +363,26 @@ lakers_3years %>%
 **Total rows:** `r nrow(lakers_3years)`
 **Seasons:** `r paste(sort(unique(lakers_3years$season)), collapse = ", ")`
 
+### Example: Multiple Teams, Multiple Years
+
+```{r, message=FALSE, warning=FALSE}
+bulk_data <- team_stats_bulk(
+  stat_function = team_per_game,
+  teams = c("LAL", "BOS"),
+  years = 2024:2025,
+  season_type = "regular",
+  progress = TRUE
+)
+
+bulk_data %>%
+  group_by(season, team) %>% 
+  slice(1:2) %>% 
+  select(season, team, Player, Age, Pos, team, PTS, TRB) %>% 
+  kable()
+```
+
+**Total rows:** `r nrow(bulk_data)`
+**Seasons:** `r paste(sort(unique(bulk_data$season)), collapse = ", ")`
 ---
 
 # 3. Team Aggregate Functions (Historical)
@@ -387,7 +405,7 @@ warriors_history %>%
 
 ---
 
-## 3.2 team_stats_totals() with Year Filter - NEW
+## 3.2 team_stats_totals() with Year Filter
 
 Filter aggregate totals to specific years.
 
@@ -423,7 +441,7 @@ celtics_history %>%
 
 ---
 
-## 3.4 team_stats_per_game() with Specific Years - NEW
+## 3.4 team_stats_per_game() with Specific Years
 
 Filter to specific championship years.
 
@@ -544,11 +562,10 @@ All player and team functions support `season_type = "playoffs"`.
 # Get LeBron playoff stats
 lebron_playoffs <- player_per_game("LeBron James", season_type = "playoffs")
 
-# Show first 10 seasons
-head(lebron_playoffs, 5) %>%
+lebron_playoffs %>% 
+  select(Season, Age, Team, PTS, AST) %>% 
+  head(5) %>% 
   kable()
-
-head(lebron_playoffs, 5) 
 ```
 
 **Playoff seasons:** `r nrow(lebron_playoffs)`
@@ -561,8 +578,10 @@ head(lebron_playoffs, 5)
 # Get Lakers 2020 playoff stats
 lakers_playoffs <- team_per_game("LAL", 2020, season_type = "playoffs")
 
-# Show all players
-head(lakers_playoffs, 5)
+lakers_playoffs %>% 
+  select(Player, Player, Age, PTS, AST, TRB) %>% 
+  head(5) %>% 
+  kable()
 ```
 
 **Playoff roster:** `r nrow(lakers_playoffs)`
@@ -581,7 +600,7 @@ head(lakers_playoffs, 5)
 5. `player_advanced()` - Advanced stats
 6. `player_shooting()` - Shooting by distance
 7. `player_pbp()` - Play-by-play
-8. `player_stats_bulk()` - **NEW** - Multiple players
+8. `player_stats_bulk()` - Multiple players
 
 ### Team Functions (11):
 **Season-Specific (8):**
@@ -597,7 +616,7 @@ head(lakers_playoffs, 5)
 **Historical/Aggregate (3):**
 9. `team_stats_totals()` - Historical totals (**Enhanced** with year filter)
 10. `team_stats_per_game()` - Historical per game (**Enhanced** with year filter)
-11. `team_stats_bulk()` - **NEW** - Multiple teams/years
+11. `team_stats_bulk()` - Multiple teams/years
 
 ### League Functions (3):
 1. `league_per_game()` - League per game averages
@@ -611,4 +630,3 @@ head(lakers_playoffs, 5)
 All player and team functions support `season_type` parameter:
 - `"regular"` - Regular season (default)
 - `"playoffs"` - Postseason
-

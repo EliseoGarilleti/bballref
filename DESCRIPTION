@@ -16,5 +16,5 @@ Imports:
     glue,
     magrittr
 RoxygenNote: 7.3.3
-URL: https://github.com/EliseoGarilleti/bballref
+URL: https://eliseogarilleti.github.io/bballref/, https://github.com/EliseoGarilleti/bballref
 BugReports: https://github.com/EliseoGarilleti/bballref/issues

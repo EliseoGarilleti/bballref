@@ -356,12 +356,9 @@ Reference</h1>
 </div>
 
 
-<div id="bballref-package---complete-function-reference" class="section level1">
-<h1>bballref Package - Complete Function Reference</h1>
 <p>This document demonstrates all functions available in the bballref
 package with examples and sample output.</p>
 <hr />
-</div>
 <div id="player-functions" class="section level1">
 <h1>1. Player Functions</h1>
 <div id="player_per_game" class="section level2">
@@ -441,6 +438,7 @@ curry_totals &lt;- player_totals(&quot;Stephen Curry&quot;)</code></pre>
 ## Success: 17 rows obtained</code></pre>
 <pre class="r"><code>curry_totals %&gt;% 
   select(Season, Age, Team, PTS, AST, TRB) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -494,102 +492,6 @@ curry_totals &lt;- player_totals(&quot;Stephen Curry&quot;)</code></pre>
 <td align="left">666</td>
 <td align="left">334</td>
 </tr>
-<tr class="even">
-<td align="left">2014-15</td>
-<td align="left">26</td>
-<td align="left">GSW</td>
-<td align="left">1900</td>
-<td align="left">619</td>
-<td align="left">341</td>
-</tr>
-<tr class="odd">
-<td align="left">2015-16</td>
-<td align="left">27</td>
-<td align="left">GSW</td>
-<td align="left">2375</td>
-<td align="left">527</td>
-<td align="left">430</td>
-</tr>
-<tr class="even">
-<td align="left">2016-17</td>
-<td align="left">28</td>
-<td align="left">GSW</td>
-<td align="left">1999</td>
-<td align="left">524</td>
-<td align="left">353</td>
-</tr>
-<tr class="odd">
-<td align="left">2017-18</td>
-<td align="left">29</td>
-<td align="left">GSW</td>
-<td align="left">1346</td>
-<td align="left">310</td>
-<td align="left">261</td>
-</tr>
-<tr class="even">
-<td align="left">2018-19</td>
-<td align="left">30</td>
-<td align="left">GSW</td>
-<td align="left">1881</td>
-<td align="left">361</td>
-<td align="left">369</td>
-</tr>
-<tr class="odd">
-<td align="left">2019-20</td>
-<td align="left">31</td>
-<td align="left">GSW</td>
-<td align="left">104</td>
-<td align="left">33</td>
-<td align="left">26</td>
-</tr>
-<tr class="even">
-<td align="left">2020-21</td>
-<td align="left">32</td>
-<td align="left">GSW</td>
-<td align="left">2015</td>
-<td align="left">363</td>
-<td align="left">345</td>
-</tr>
-<tr class="odd">
-<td align="left">2021-22</td>
-<td align="left">33</td>
-<td align="left">GSW</td>
-<td align="left">1630</td>
-<td align="left">404</td>
-<td align="left">335</td>
-</tr>
-<tr class="even">
-<td align="left">2022-23</td>
-<td align="left">34</td>
-<td align="left">GSW</td>
-<td align="left">1648</td>
-<td align="left">352</td>
-<td align="left">341</td>
-</tr>
-<tr class="odd">
-<td align="left">2023-24</td>
-<td align="left">35</td>
-<td align="left">GSW</td>
-<td align="left">1956</td>
-<td align="left">379</td>
-<td align="left">330</td>
-</tr>
-<tr class="even">
-<td align="left">2024-25</td>
-<td align="left">36</td>
-<td align="left">GSW</td>
-<td align="left">1718</td>
-<td align="left">421</td>
-<td align="left">310</td>
-</tr>
-<tr class="odd">
-<td align="left">2025-26</td>
-<td align="left">37</td>
-<td align="left">GSW</td>
-<td align="left">864</td>
-<td align="left">140</td>
-<td align="left">114</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total seasons:</strong> 17</p>
@@ -604,6 +506,7 @@ giannis_per36 &lt;- player_per_minute(&quot;Giannis Antetokounmpo&quot;)</code><
 ## Success: 13 rows obtained</code></pre>
 <pre class="r"><code>giannis_per36 %&gt;% 
   select(Season, Age, Team, PTS, AST, TRB) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -657,70 +560,6 @@ giannis_per36 &lt;- player_per_minute(&quot;Giannis Antetokounmpo&quot;)</code><
 <td align="left">4.7</td>
 <td align="left">9.8</td>
 </tr>
-<tr class="even">
-<td align="left">2018-19</td>
-<td align="left">24</td>
-<td align="left">MIL</td>
-<td align="left">30.4</td>
-<td align="left">6.5</td>
-<td align="left">13.7</td>
-</tr>
-<tr class="odd">
-<td align="left">2019-20</td>
-<td align="left">25</td>
-<td align="left">MIL</td>
-<td align="left">34.9</td>
-<td align="left">6.6</td>
-<td align="left">16.1</td>
-</tr>
-<tr class="even">
-<td align="left">2020-21</td>
-<td align="left">26</td>
-<td align="left">MIL</td>
-<td align="left">30.7</td>
-<td align="left">6.4</td>
-<td align="left">12</td>
-</tr>
-<tr class="odd">
-<td align="left">2021-22</td>
-<td align="left">27</td>
-<td align="left">MIL</td>
-<td align="left">32.7</td>
-<td align="left">6.3</td>
-<td align="left">12.7</td>
-</tr>
-<tr class="even">
-<td align="left">2022-23</td>
-<td align="left">28</td>
-<td align="left">MIL</td>
-<td align="left">34.8</td>
-<td align="left">6.4</td>
-<td align="left">13.2</td>
-</tr>
-<tr class="odd">
-<td align="left">2023-24</td>
-<td align="left">29</td>
-<td align="left">MIL</td>
-<td align="left">31.2</td>
-<td align="left">6.7</td>
-<td align="left">11.8</td>
-</tr>
-<tr class="even">
-<td align="left">2024-25</td>
-<td align="left">30</td>
-<td align="left">MIL</td>
-<td align="left">32</td>
-<td align="left">6.8</td>
-<td align="left">12.6</td>
-</tr>
-<tr class="odd">
-<td align="left">2025-26</td>
-<td align="left">31</td>
-<td align="left">MIL</td>
-<td align="left">36</td>
-<td align="left">7</td>
-<td align="left">12</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total seasons:</strong> 13</p>
@@ -735,16 +574,9 @@ durant_adv &lt;- player_advanced(&quot;Kevin Durant&quot;)</code></pre>
 ## Success: 21 rows obtained</code></pre>
 <pre class="r"><code>durant_adv %&gt;% 
   select(Season, Age, Team, PER, ASTpct, TOVpct) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
-<colgroup>
-<col width="6%" />
-<col width="18%" />
-<col width="18%" />
-<col width="18%" />
-<col width="18%" />
-<col width="18%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Season</th>
@@ -796,134 +628,6 @@ durant_adv &lt;- player_advanced(&quot;Kevin Durant&quot;)</code></pre>
 <td align="left">17.5</td>
 <td align="left">14.0</td>
 </tr>
-<tr class="even">
-<td align="left">2012-13</td>
-<td align="left">24</td>
-<td align="left">OKC</td>
-<td align="left">28.3</td>
-<td align="left">21.7</td>
-<td align="left">13.7</td>
-</tr>
-<tr class="odd">
-<td align="left">2013-14</td>
-<td align="left">25</td>
-<td align="left">OKC</td>
-<td align="left">29.8</td>
-<td align="left">26.7</td>
-<td align="left">12.2</td>
-</tr>
-<tr class="even">
-<td align="left">2014-15</td>
-<td align="left">26</td>
-<td align="left">OKC</td>
-<td align="left">27.6</td>
-<td align="left">22.2</td>
-<td align="left">12.0</td>
-</tr>
-<tr class="odd">
-<td align="left">2015-16</td>
-<td align="left">27</td>
-<td align="left">OKC</td>
-<td align="left">28.2</td>
-<td align="left">24.2</td>
-<td align="left">13.5</td>
-</tr>
-<tr class="even">
-<td align="left">2016-17</td>
-<td align="left">28</td>
-<td align="left">GSW</td>
-<td align="left">27.6</td>
-<td align="left">23.1</td>
-<td align="left">10.4</td>
-</tr>
-<tr class="odd">
-<td align="left">2017-18</td>
-<td align="left">29</td>
-<td align="left">GSW</td>
-<td align="left">26.0</td>
-<td align="left">25.5</td>
-<td align="left">12.9</td>
-</tr>
-<tr class="even">
-<td align="left">2018-19</td>
-<td align="left">30</td>
-<td align="left">GSW</td>
-<td align="left">24.2</td>
-<td align="left">26.2</td>
-<td align="left">12.3</td>
-</tr>
-<tr class="odd">
-<td align="left">2019-20</td>
-<td align="left">Did not play - injury</td>
-<td align="left">Did not play - injury</td>
-<td align="left">Did not play - injury</td>
-<td align="left">Did not play - injury</td>
-<td align="left">Did not play - injury</td>
-</tr>
-<tr class="even">
-<td align="left">2020-21</td>
-<td align="left">32</td>
-<td align="left">BRK</td>
-<td align="left">26.4</td>
-<td align="left">27.5</td>
-<td align="left">14.5</td>
-</tr>
-<tr class="odd">
-<td align="left">2021-22</td>
-<td align="left">33</td>
-<td align="left">BRK</td>
-<td align="left">25.6</td>
-<td align="left">29.1</td>
-<td align="left">12.9</td>
-</tr>
-<tr class="even">
-<td align="left">2022-23</td>
-<td align="left">34</td>
-<td align="left">2TM</td>
-<td align="left">25.9</td>
-<td align="left">24.5</td>
-<td align="left">13.4</td>
-</tr>
-<tr class="odd">
-<td align="left">2022-23</td>
-<td align="left">34</td>
-<td align="left">BRK</td>
-<td align="left">26.2</td>
-<td align="left">25.9</td>
-<td align="left">13.7</td>
-</tr>
-<tr class="even">
-<td align="left">2022-23</td>
-<td align="left">34</td>
-<td align="left">PHO</td>
-<td align="left">24.3</td>
-<td align="left">17.3</td>
-<td align="left">11.8</td>
-</tr>
-<tr class="odd">
-<td align="left">2023-24</td>
-<td align="left">35</td>
-<td align="left">PHO</td>
-<td align="left">21.2</td>
-<td align="left">22.2</td>
-<td align="left">13.1</td>
-</tr>
-<tr class="even">
-<td align="left">2024-25</td>
-<td align="left">36</td>
-<td align="left">PHO</td>
-<td align="left">21.2</td>
-<td align="left">19.6</td>
-<td align="left">12.9</td>
-</tr>
-<tr class="odd">
-<td align="left">2025-26</td>
-<td align="left">37</td>
-<td align="left">HOU</td>
-<td align="left">21.2</td>
-<td align="left">19.2</td>
-<td align="left">12.8</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total seasons:</strong> 21</p>
@@ -931,24 +635,16 @@ durant_adv &lt;- player_advanced(&quot;Kevin Durant&quot;)</code></pre>
 </div>
 <div id="player_per_poss" class="section level2">
 <h2>1.5 player_per_poss()</h2>
-<p>Get per 100 possessions statistics. Note: Player search is
-accent-insensitive.</p>
+<p>Get per 100 possessions statistics.</p>
 <pre class="r"><code># Get Nikola Jokic per 100 poss stats (works with or without accent)
-jokic_poss &lt;- player_per_poss(&quot;Nikola Jokic&quot;)</code></pre>
-<pre><code>## Searching player: Nikola Jokić 
-## Success: 12 rows obtained</code></pre>
-<pre class="r"><code>jokic_poss %&gt;% 
+doncic_poss &lt;- player_per_poss(&quot;Luka Doncic&quot;)</code></pre>
+<pre><code>## Searching player: Luka Dončić 
+## Success: 10 rows obtained</code></pre>
+<pre class="r"><code>doncic_poss %&gt;% 
   select(Season, Age, Team, PTS, AST, TRB) %&gt;% 
+  head(5) %&gt;%  
   kable()</code></pre>
 <table>
-<colgroup>
-<col width="4%" />
-<col width="19%" />
-<col width="19%" />
-<col width="19%" />
-<col width="19%" />
-<col width="19%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Season</th>
@@ -961,104 +657,48 @@ jokic_poss &lt;- player_per_poss(&quot;Nikola Jokic&quot;)</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">2014-15</td>
-<td align="left">Did not play - other pro league</td>
-<td align="left">Did not play - other pro league</td>
-<td align="left">Did not play - other pro league</td>
-<td align="left">Did not play - other pro league</td>
-<td align="left">Did not play - other pro league</td>
-</tr>
-<tr class="even">
-<td align="left">2015-16</td>
-<td align="left">20</td>
-<td align="left">DEN</td>
-<td align="left">23.0</td>
-<td align="left">5.5</td>
-<td align="left">16.2</td>
-</tr>
-<tr class="odd">
-<td align="left">2016-17</td>
-<td align="left">21</td>
-<td align="left">DEN</td>
-<td align="left">29.3</td>
-<td align="left">8.6</td>
-<td align="left">17.2</td>
-</tr>
-<tr class="even">
-<td align="left">2017-18</td>
-<td align="left">22</td>
-<td align="left">DEN</td>
-<td align="left">28.1</td>
-<td align="left">9.3</td>
-<td align="left">16.3</td>
-</tr>
-<tr class="odd">
 <td align="left">2018-19</td>
-<td align="left">23</td>
-<td align="left">DEN</td>
-<td align="left">31.5</td>
-<td align="left">11.4</td>
-<td align="left">17.0</td>
+<td align="left">19</td>
+<td align="left">DAL</td>
+<td align="left">31.9</td>
+<td align="left">9</td>
+<td align="left">11.8</td>
 </tr>
 <tr class="even">
 <td align="left">2019-20</td>
-<td align="left">24</td>
-<td align="left">DEN</td>
-<td align="left">30.8</td>
-<td align="left">10.8</td>
-<td align="left">15.0</td>
+<td align="left">20</td>
+<td align="left">DAL</td>
+<td align="left">41.5</td>
+<td align="left">12.7</td>
+<td align="left">13.5</td>
 </tr>
 <tr class="odd">
 <td align="left">2020-21</td>
-<td align="left">25</td>
-<td align="left">DEN</td>
-<td align="left">37.7</td>
-<td align="left">11.9</td>
-<td align="left">15.5</td>
+<td align="left">21</td>
+<td align="left">DAL</td>
+<td align="left">39.9</td>
+<td align="left">12.4</td>
+<td align="left">11.5</td>
 </tr>
 <tr class="even">
 <td align="left">2021-22</td>
-<td align="left">26</td>
-<td align="left">DEN</td>
-<td align="left">39.7</td>
-<td align="left">11.6</td>
-<td align="left">20.2</td>
+<td align="left">22</td>
+<td align="left">DAL</td>
+<td align="left">40.4</td>
+<td align="left">12.4</td>
+<td align="left">13</td>
 </tr>
 <tr class="odd">
 <td align="left">2022-23</td>
-<td align="left">27</td>
-<td align="left">DEN</td>
-<td align="left">35.6</td>
-<td align="left">14.3</td>
-<td align="left">17.2</td>
-</tr>
-<tr class="even">
-<td align="left">2023-24</td>
-<td align="left">28</td>
-<td align="left">DEN</td>
-<td align="left">37.8</td>
-<td align="left">12.8</td>
-<td align="left">17.7</td>
-</tr>
-<tr class="odd">
-<td align="left">2024-25</td>
-<td align="left">29</td>
-<td align="left">DEN</td>
-<td align="left">38.7</td>
-<td align="left">13.4</td>
-<td align="left">16.7</td>
-</tr>
-<tr class="even">
-<td align="left">2025-26</td>
-<td align="left">30</td>
-<td align="left">DEN</td>
-<td align="left">41.8</td>
-<td align="left">15.5</td>
-<td align="left">17.2</td>
+<td align="left">23</td>
+<td align="left">DAL</td>
+<td align="left">44.4</td>
+<td align="left">11</td>
+<td align="left">11.8</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Total seasons:</strong> 12</p>
+<p><strong>Total seasons:</strong> 10</p>
 <hr />
 </div>
 <div id="player_shooting" class="section level2">
@@ -1070,6 +710,7 @@ curry_shoot &lt;- player_shooting(&quot;Stephen Curry&quot;)</code></pre>
 ## Success: 17 rows obtained</code></pre>
 <pre class="r"><code>curry_shoot %&gt;% 
   select(Season, Age, Team, Dist., two_P, three_P_1) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -1123,102 +764,6 @@ curry_shoot &lt;- player_shooting(&quot;Stephen Curry&quot;)</code></pre>
 <td align="left">.555</td>
 <td align="left">.424</td>
 </tr>
-<tr class="even">
-<td align="left">2014-15</td>
-<td align="left">26</td>
-<td align="left">GSW</td>
-<td align="left">17.1</td>
-<td align="left">.518</td>
-<td align="left">.443</td>
-</tr>
-<tr class="odd">
-<td align="left">2015-16</td>
-<td align="left">27</td>
-<td align="left">GSW</td>
-<td align="left">17.4</td>
-<td align="left">.446</td>
-<td align="left">.454</td>
-</tr>
-<tr class="even">
-<td align="left">2016-17</td>
-<td align="left">28</td>
-<td align="left">GSW</td>
-<td align="left">18.4</td>
-<td align="left">.453</td>
-<td align="left">.411</td>
-</tr>
-<tr class="odd">
-<td align="left">2017-18</td>
-<td align="left">29</td>
-<td align="left">GSW</td>
-<td align="left">18.4</td>
-<td align="left">.420</td>
-<td align="left">.423</td>
-</tr>
-<tr class="even">
-<td align="left">2018-19</td>
-<td align="left">30</td>
-<td align="left">GSW</td>
-<td align="left">19.7</td>
-<td align="left">.396</td>
-<td align="left">.437</td>
-</tr>
-<tr class="odd">
-<td align="left">2019-20</td>
-<td align="left">31</td>
-<td align="left">GSW</td>
-<td align="left">19.8</td>
-<td align="left">.402</td>
-<td align="left">.245</td>
-</tr>
-<tr class="even">
-<td align="left">2020-21</td>
-<td align="left">32</td>
-<td align="left">GSW</td>
-<td align="left">19.3</td>
-<td align="left">.413</td>
-<td align="left">.421</td>
-</tr>
-<tr class="odd">
-<td align="left">2021-22</td>
-<td align="left">33</td>
-<td align="left">GSW</td>
-<td align="left">19.8</td>
-<td align="left">.387</td>
-<td align="left">.380</td>
-</tr>
-<tr class="even">
-<td align="left">2022-23</td>
-<td align="left">34</td>
-<td align="left">GSW</td>
-<td align="left">18.8</td>
-<td align="left">.436</td>
-<td align="left">.427</td>
-</tr>
-<tr class="odd">
-<td align="left">2023-24</td>
-<td align="left">35</td>
-<td align="left">GSW</td>
-<td align="left">19.8</td>
-<td align="left">.394</td>
-<td align="left">.408</td>
-</tr>
-<tr class="even">
-<td align="left">2024-25</td>
-<td align="left">36</td>
-<td align="left">GSW</td>
-<td align="left">20.0</td>
-<td align="left">.377</td>
-<td align="left">.397</td>
-</tr>
-<tr class="odd">
-<td align="left">2025-26</td>
-<td align="left">37</td>
-<td align="left">GSW</td>
-<td align="left">19.5</td>
-<td align="left">.400</td>
-<td align="left">.391</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total seasons:</strong> 17</p>
@@ -1233,6 +778,7 @@ harden_pbp &lt;- player_pbp(&quot;James Harden&quot;)</code></pre>
 ## Success: 21 rows obtained</code></pre>
 <pre class="r"><code>harden_pbp %&gt;% 
   select(Season, Age, Team, OnCourt, `On-Off`, And1) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -1286,141 +832,13 @@ harden_pbp &lt;- player_pbp(&quot;James Harden&quot;)</code></pre>
 <td align="left">7.6</td>
 <td align="left">43</td>
 </tr>
-<tr class="even">
-<td align="left">2014-15</td>
-<td align="left">25</td>
-<td align="left">HOU</td>
-<td align="left">5.7</td>
-<td align="left">8.6</td>
-<td align="left">50</td>
-</tr>
-<tr class="odd">
-<td align="left">2015-16</td>
-<td align="left">26</td>
-<td align="left">HOU</td>
-<td align="left">1.6</td>
-<td align="left">7.1</td>
-<td align="left">59</td>
-</tr>
-<tr class="even">
-<td align="left">2016-17</td>
-<td align="left">27</td>
-<td align="left">HOU</td>
-<td align="left">7.0</td>
-<td align="left">3.3</td>
-<td align="left">29</td>
-</tr>
-<tr class="odd">
-<td align="left">2017-18</td>
-<td align="left">28</td>
-<td align="left">HOU</td>
-<td align="left">10.5</td>
-<td align="left">5.3</td>
-<td align="left">56</td>
-</tr>
-<tr class="even">
-<td align="left">2018-19</td>
-<td align="left">29</td>
-<td align="left">HOU</td>
-<td align="left">6.6</td>
-<td align="left">5.5</td>
-<td align="left">76</td>
-</tr>
-<tr class="odd">
-<td align="left">2019-20</td>
-<td align="left">30</td>
-<td align="left">HOU</td>
-<td align="left">5.7</td>
-<td align="left">9.1</td>
-<td align="left">75</td>
-</tr>
-<tr class="even">
-<td align="left">2020-21</td>
-<td align="left">31</td>
-<td align="left">2TM</td>
-<td align="left">3.1</td>
-<td align="left">0.7</td>
-<td align="left">20</td>
-</tr>
-<tr class="odd">
-<td align="left">2020-21</td>
-<td align="left">31</td>
-<td align="left">HOU</td>
-<td align="left">-5.7</td>
-<td align="left">2.6</td>
-<td align="left">3</td>
-</tr>
-<tr class="even">
-<td align="left">2020-21</td>
-<td align="left">31</td>
-<td align="left">BRK</td>
-<td align="left">5.1</td>
-<td align="left">0.2</td>
-<td align="left">17</td>
-</tr>
-<tr class="odd">
-<td align="left">2021-22</td>
-<td align="left">32</td>
-<td align="left">2TM</td>
-<td align="left">3.9</td>
-<td align="left">2.7</td>
-<td align="left">52</td>
-</tr>
-<tr class="even">
-<td align="left">2021-22</td>
-<td align="left">32</td>
-<td align="left">BRK</td>
-<td align="left">1.6</td>
-<td align="left">0.3</td>
-<td align="left">38</td>
-</tr>
-<tr class="odd">
-<td align="left">2021-22</td>
-<td align="left">32</td>
-<td align="left">PHI</td>
-<td align="left">8.7</td>
-<td align="left">7.6</td>
-<td align="left">14</td>
-</tr>
-<tr class="even">
-<td align="left">2022-23</td>
-<td align="left">33</td>
-<td align="left">PHI</td>
-<td align="left">6.5</td>
-<td align="left">3.7</td>
-<td align="left">36</td>
-</tr>
-<tr class="odd">
-<td align="left">2023-24</td>
-<td align="left">34</td>
-<td align="left">LAC</td>
-<td align="left">5.9</td>
-<td align="left">6.0</td>
-<td align="left">33</td>
-</tr>
-<tr class="even">
-<td align="left">2024-25</td>
-<td align="left">35</td>
-<td align="left">LAC</td>
-<td align="left">5.8</td>
-<td align="left">4.2</td>
-<td align="left">43</td>
-</tr>
-<tr class="odd">
-<td align="left">2025-26</td>
-<td align="left">36</td>
-<td align="left">LAC</td>
-<td align="left">-0.4</td>
-<td align="left">4.7</td>
-<td align="left">25</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total seasons:</strong> 21</p>
 <hr />
 </div>
-<div id="player_stats_bulk---new" class="section level2">
-<h2>1.8 player_stats_bulk() - NEW</h2>
+<div id="player_stats_bulk" class="section level2">
+<h2>1.8 player_stats_bulk()</h2>
 <p>Get career statistics for multiple players at once.</p>
 <pre class="r"><code># Compare LeBron and Jordan
 goats &lt;- player_stats_bulk(
@@ -1525,6 +943,7 @@ lakers_2020 &lt;- team_per_game(&quot;LAL&quot;, 2020)</code></pre>
 ## Success: 21 rows obtained</code></pre>
 <pre class="r"><code>lakers_2020 %&gt;% 
   select(Player, Age, Pos, FGpct, three_Ppct, FTpct) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -1578,134 +997,6 @@ lakers_2020 &lt;- team_per_game(&quot;LAL&quot;, 2020)</code></pre>
 <td align="left">0.367</td>
 <td align="left">0.688</td>
 </tr>
-<tr class="even">
-<td align="left">Avery Bradley</td>
-<td align="left">29</td>
-<td align="left">SG</td>
-<td align="left">0.444</td>
-<td align="left">0.364</td>
-<td align="left">0.833</td>
-</tr>
-<tr class="odd">
-<td align="left">Dion Waiters</td>
-<td align="left">28</td>
-<td align="left">SG</td>
-<td align="left">0.425</td>
-<td align="left">0.233</td>
-<td align="left">0.875</td>
-</tr>
-<tr class="even">
-<td align="left">Rajon Rondo</td>
-<td align="left">33</td>
-<td align="left">PG</td>
-<td align="left">0.418</td>
-<td align="left">0.328</td>
-<td align="left">0.659</td>
-</tr>
-<tr class="odd">
-<td align="left">Dwight Howard</td>
-<td align="left">34</td>
-<td align="left">C</td>
-<td align="left">0.729</td>
-<td align="left">0.6</td>
-<td align="left">0.514</td>
-</tr>
-<tr class="even">
-<td align="left">Alex Caruso</td>
-<td align="left">25</td>
-<td align="left">PG</td>
-<td align="left">0.412</td>
-<td align="left">0.333</td>
-<td align="left">0.734</td>
-</tr>
-<tr class="odd">
-<td align="left">JaVale McGee</td>
-<td align="left">32</td>
-<td align="left">C</td>
-<td align="left">0.637</td>
-<td align="left">0.5</td>
-<td align="left">0.646</td>
-</tr>
-<tr class="even">
-<td align="left">Markieff Morris</td>
-<td align="left">30</td>
-<td align="left">PF</td>
-<td align="left">0.406</td>
-<td align="left">0.333</td>
-<td align="left">0.833</td>
-</tr>
-<tr class="odd">
-<td align="left">Talen Horton-Tucker</td>
-<td align="left">19</td>
-<td align="left">SG</td>
-<td align="left">0.467</td>
-<td align="left">0.308</td>
-<td align="left">0.5</td>
-</tr>
-<tr class="even">
-<td align="left">J.R. Smith</td>
-<td align="left">34</td>
-<td align="left">SG</td>
-<td align="left">0.318</td>
-<td align="left">0.091</td>
-<td align="left">1</td>
-</tr>
-<tr class="odd">
-<td align="left">Quinn Cook</td>
-<td align="left">26</td>
-<td align="left">PG</td>
-<td align="left">0.425</td>
-<td align="left">0.365</td>
-<td align="left">0.786</td>
-</tr>
-<tr class="even">
-<td align="left">Troy Daniels</td>
-<td align="left">28</td>
-<td align="left">SG</td>
-<td align="left">0.392</td>
-<td align="left">0.357</td>
-<td align="left">0.625</td>
-</tr>
-<tr class="odd">
-<td align="left">Devontae Cacok</td>
-<td align="left">23</td>
-<td align="left">C</td>
-<td align="left">0.5</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">Jared Dudley</td>
-<td align="left">34</td>
-<td align="left">PF</td>
-<td align="left">0.4</td>
-<td align="left">0.429</td>
-<td align="left">1</td>
-</tr>
-<tr class="odd">
-<td align="left">Kostas Antetokounmpo</td>
-<td align="left">22</td>
-<td align="left">PF</td>
-<td align="left">1</td>
-<td align="left">NA</td>
-<td align="left">0.5</td>
-</tr>
-<tr class="even">
-<td align="left">Zach Norvell</td>
-<td align="left">22</td>
-<td align="left">SG</td>
-<td align="left">0</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">Team Totals</td>
-<td align="left">NA</td>
-<td align="left"></td>
-<td align="left">0.48</td>
-<td align="left">0.349</td>
-<td align="left">0.729</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 21</p>
@@ -1720,6 +1011,7 @@ warriors_2022 &lt;- team_totals(&quot;GSW&quot;, 2022)</code></pre>
 ## Success: 18 rows obtained</code></pre>
 <pre class="r"><code>warriors_2022 %&gt;% 
   select(Player, Age, FGpct, three_Ppct, FTpct) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -1767,97 +1059,6 @@ warriors_2022 &lt;- team_totals(&quot;GSW&quot;, 2022)</code></pre>
 <td align="left">0.37</td>
 <td align="left">0.803</td>
 </tr>
-<tr class="even">
-<td align="left">Draymond Green</td>
-<td align="left">31</td>
-<td align="left">0.525</td>
-<td align="left">0.296</td>
-<td align="left">0.659</td>
-</tr>
-<tr class="odd">
-<td align="left">Damion Lee</td>
-<td align="left">29</td>
-<td align="left">0.441</td>
-<td align="left">0.337</td>
-<td align="left">0.88</td>
-</tr>
-<tr class="even">
-<td align="left">Gary Payton II</td>
-<td align="left">29</td>
-<td align="left">0.616</td>
-<td align="left">0.358</td>
-<td align="left">0.603</td>
-</tr>
-<tr class="odd">
-<td align="left">Jonathan Kuminga</td>
-<td align="left">19</td>
-<td align="left">0.513</td>
-<td align="left">0.336</td>
-<td align="left">0.684</td>
-</tr>
-<tr class="even">
-<td align="left">Nemanja Bjelica</td>
-<td align="left">33</td>
-<td align="left">0.468</td>
-<td align="left">0.362</td>
-<td align="left">0.728</td>
-</tr>
-<tr class="odd">
-<td align="left">Juan Toscano-Anderson</td>
-<td align="left">28</td>
-<td align="left">0.489</td>
-<td align="left">0.322</td>
-<td align="left">0.571</td>
-</tr>
-<tr class="even">
-<td align="left">Klay Thompson</td>
-<td align="left">31</td>
-<td align="left">0.429</td>
-<td align="left">0.385</td>
-<td align="left">0.902</td>
-</tr>
-<tr class="odd">
-<td align="left">Moses Moody</td>
-<td align="left">19</td>
-<td align="left">0.437</td>
-<td align="left">0.364</td>
-<td align="left">0.778</td>
-</tr>
-<tr class="even">
-<td align="left">Andre Iguodala</td>
-<td align="left">38</td>
-<td align="left">0.38</td>
-<td align="left">0.23</td>
-<td align="left">0.75</td>
-</tr>
-<tr class="odd">
-<td align="left">Chris Chiozza</td>
-<td align="left">26</td>
-<td align="left">0.296</td>
-<td align="left">0.321</td>
-<td align="left">0.667</td>
-</tr>
-<tr class="even">
-<td align="left">Quinndary Weatherspoon</td>
-<td align="left">25</td>
-<td align="left">0.571</td>
-<td align="left">0.2</td>
-<td align="left">1</td>
-</tr>
-<tr class="odd">
-<td align="left">Jeff Dowtin Jr.</td>
-<td align="left">24</td>
-<td align="left">0.5</td>
-<td align="left">0</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">Team Totals</td>
-<td align="left">NA</td>
-<td align="left">0.469</td>
-<td align="left">0.364</td>
-<td align="left">0.769</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 18</p>
@@ -1872,6 +1073,7 @@ celtics_adv &lt;- team_advanced(&quot;BOS&quot;, 2024)</code></pre>
 ## Success: 20 rows obtained</code></pre>
 <pre class="r"><code>celtics_adv %&gt;% 
   select(Player, Age, PER, ASTpct, STLpct) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -1919,111 +1121,6 @@ celtics_adv &lt;- team_advanced(&quot;BOS&quot;, 2024)</code></pre>
 <td align="left">20.7</td>
 <td align="left">1.1</td>
 </tr>
-<tr class="even">
-<td align="left">Sam Hauser</td>
-<td align="left">26</td>
-<td align="left">13</td>
-<td align="left">6.2</td>
-<td align="left">1.1</td>
-</tr>
-<tr class="odd">
-<td align="left">Al Horford</td>
-<td align="left">37</td>
-<td align="left">15</td>
-<td align="left">12.3</td>
-<td align="left">1.1</td>
-</tr>
-<tr class="even">
-<td align="left">Kristaps Porziņģis</td>
-<td align="left">28</td>
-<td align="left">23.2</td>
-<td align="left">10</td>
-<td align="left">1.2</td>
-</tr>
-<tr class="odd">
-<td align="left">Luke Kornet</td>
-<td align="left">28</td>
-<td align="left">19.8</td>
-<td align="left">8.9</td>
-<td align="left">1.2</td>
-</tr>
-<tr class="even">
-<td align="left">Oshae Brissett</td>
-<td align="left">25</td>
-<td align="left">12.8</td>
-<td align="left">8.7</td>
-<td align="left">1.5</td>
-</tr>
-<tr class="odd">
-<td align="left">Svi Mykhailiuk</td>
-<td align="left">26</td>
-<td align="left">11.7</td>
-<td align="left">11</td>
-<td align="left">1.3</td>
-</tr>
-<tr class="even">
-<td align="left">Neemias Queta</td>
-<td align="left">24</td>
-<td align="left">22.9</td>
-<td align="left">8.5</td>
-<td align="left">1.9</td>
-</tr>
-<tr class="odd">
-<td align="left">Xavier Tillman Sr.</td>
-<td align="left">25</td>
-<td align="left">13.3</td>
-<td align="left">9.3</td>
-<td align="left">1.6</td>
-</tr>
-<tr class="even">
-<td align="left">Dalano Banton</td>
-<td align="left">24</td>
-<td align="left">9.9</td>
-<td align="left">13.9</td>
-<td align="left">1.4</td>
-</tr>
-<tr class="odd">
-<td align="left">Jaden Springer</td>
-<td align="left">21</td>
-<td align="left">10.9</td>
-<td align="left">8.6</td>
-<td align="left">4.2</td>
-</tr>
-<tr class="even">
-<td align="left">Lamar Stevens</td>
-<td align="left">26</td>
-<td align="left">14.5</td>
-<td align="left">8.9</td>
-<td align="left">2.4</td>
-</tr>
-<tr class="odd">
-<td align="left">Jordan Walsh</td>
-<td align="left">19</td>
-<td align="left">8.4</td>
-<td align="left">7.2</td>
-<td align="left">3</td>
-</tr>
-<tr class="even">
-<td align="left">JD Davison</td>
-<td align="left">21</td>
-<td align="left">18.8</td>
-<td align="left">32.9</td>
-<td align="left">1.3</td>
-</tr>
-<tr class="odd">
-<td align="left">Drew Peterson</td>
-<td align="left">24</td>
-<td align="left">18.5</td>
-<td align="left">5.9</td>
-<td align="left">4.3</td>
-</tr>
-<tr class="even">
-<td align="left">Team Totals</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 20</p>
@@ -2038,14 +1135,15 @@ heat_roster &lt;- team_roster(&quot;MIA&quot;, 2020)</code></pre>
 ## Success: 21 rows obtained</code></pre>
 <pre class="r"><code>heat_roster %&gt;% 
   select(No., Player, Pos, `Birth Date`, College) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <colgroup>
 <col width="5%" />
-<col width="23%" />
+<col width="20%" />
 <col width="5%" />
-<col width="24%" />
-<col width="41%" />
+<col width="25%" />
+<col width="43%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2092,118 +1190,6 @@ heat_roster &lt;- team_roster(&quot;MIA&quot;, 2020)</code></pre>
 <td align="left">May 6, 1986</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
-<td align="left">40</td>
-<td align="left">Udonis Haslem</td>
-<td align="left">C</td>
-<td align="left">June 9, 1980</td>
-<td align="left">Florida</td>
-</tr>
-<tr class="odd">
-<td align="left">14</td>
-<td align="left">Tyler Herro</td>
-<td align="left">SG</td>
-<td align="left">January 20, 2000</td>
-<td align="left">Kentucky</td>
-</tr>
-<tr class="even">
-<td align="left">44</td>
-<td align="left">Solomon Hill</td>
-<td align="left">PF</td>
-<td align="left">March 18, 1991</td>
-<td align="left">Arizona</td>
-</tr>
-<tr class="odd">
-<td align="left">28</td>
-<td align="left">Andre Iguodala</td>
-<td align="left">SF</td>
-<td align="left">January 28, 1984</td>
-<td align="left">Arizona</td>
-</tr>
-<tr class="even">
-<td align="left">16</td>
-<td align="left">James Johnson</td>
-<td align="left">PF</td>
-<td align="left">February 20, 1987</td>
-<td align="left">Wake Forest</td>
-</tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="left">Derrick Jones Jr.</td>
-<td align="left">SF</td>
-<td align="left">February 15, 1997</td>
-<td align="left">UNLV</td>
-</tr>
-<tr class="even">
-<td align="left">0</td>
-<td align="left">Meyers Leonard</td>
-<td align="left">C</td>
-<td align="left">February 27, 1992</td>
-<td align="left">Illinois</td>
-</tr>
-<tr class="odd">
-<td align="left">15</td>
-<td align="left">Daryl Macon</td>
-<td align="left">PG</td>
-<td align="left">November 29, 1995</td>
-<td align="left">Arkansas</td>
-</tr>
-<tr class="even">
-<td align="left">25</td>
-<td align="left">Kendrick Nunn</td>
-<td align="left">PG</td>
-<td align="left">August 3, 1995</td>
-<td align="left">Illinois, Oakland</td>
-</tr>
-<tr class="odd">
-<td align="left">4</td>
-<td align="left">KZ Okpala</td>
-<td align="left">PF</td>
-<td align="left">April 28, 1999</td>
-<td align="left">Stanford</td>
-</tr>
-<tr class="even">
-<td align="left">9</td>
-<td align="left">Kelly Olynyk</td>
-<td align="left">C</td>
-<td align="left">April 19, 1991</td>
-<td align="left">Gonzaga</td>
-</tr>
-<tr class="odd">
-<td align="left">55</td>
-<td align="left">Duncan Robinson</td>
-<td align="left">SG</td>
-<td align="left">April 22, 1994</td>
-<td align="left">Williams, Michigan</td>
-</tr>
-<tr class="even">
-<td align="left">30</td>
-<td align="left">Chris Silva</td>
-<td align="left">PF</td>
-<td align="left">September 19, 1996</td>
-<td align="left">South Carolina</td>
-</tr>
-<tr class="odd">
-<td align="left">2</td>
-<td align="left">Gabe Vincent</td>
-<td align="left">PG</td>
-<td align="left">June 14, 1996</td>
-<td align="left">UC Santa Barbara</td>
-</tr>
-<tr class="even">
-<td align="left">11</td>
-<td align="left">Dion Waiters</td>
-<td align="left">SG</td>
-<td align="left">December 10, 1991</td>
-<td align="left">Syracuse</td>
-</tr>
-<tr class="odd">
-<td align="left">20</td>
-<td align="left">Justise Winslow</td>
-<td align="left">SG</td>
-<td align="left">March 26, 1996</td>
-<td align="left">Duke</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 21</p>
@@ -2218,6 +1204,7 @@ nuggets_per36 &lt;- team_per_minute(&quot;DEN&quot;, 2023)</code></pre>
 ## Success: 18 rows obtained</code></pre>
 <pre class="r"><code>nuggets_per36 %&gt;% 
   select(Player, Age, FGpct, AST, PTS) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -2265,97 +1252,6 @@ nuggets_per36 &lt;- team_per_minute(&quot;DEN&quot;, 2023)</code></pre>
 <td align="left">3.6</td>
 <td align="left">19.4</td>
 </tr>
-<tr class="even">
-<td align="left">Michael Porter Jr.</td>
-<td align="left">24</td>
-<td align="left">0.487</td>
-<td align="left">1.3</td>
-<td align="left">21.6</td>
-</tr>
-<tr class="odd">
-<td align="left">Christian Braun</td>
-<td align="left">21</td>
-<td align="left">0.495</td>
-<td align="left">1.8</td>
-<td align="left">11</td>
-</tr>
-<tr class="even">
-<td align="left">Jeff Green</td>
-<td align="left">36</td>
-<td align="left">0.488</td>
-<td align="left">2.3</td>
-<td align="left">14.4</td>
-</tr>
-<tr class="odd">
-<td align="left">Vlatko Čančar</td>
-<td align="left">25</td>
-<td align="left">0.476</td>
-<td align="left">3.2</td>
-<td align="left">12</td>
-</tr>
-<tr class="even">
-<td align="left">Bones Hyland</td>
-<td align="left">22</td>
-<td align="left">0.399</td>
-<td align="left">5.5</td>
-<td align="left">22.3</td>
-</tr>
-<tr class="odd">
-<td align="left">Zeke Nnaji</td>
-<td align="left">22</td>
-<td align="left">0.561</td>
-<td align="left">0.9</td>
-<td align="left">13.7</td>
-</tr>
-<tr class="even">
-<td align="left">DeAndre Jordan</td>
-<td align="left">34</td>
-<td align="left">0.765</td>
-<td align="left">2.1</td>
-<td align="left">12.2</td>
-</tr>
-<tr class="odd">
-<td align="left">Ish Smith</td>
-<td align="left">34</td>
-<td align="left">0.397</td>
-<td align="left">9</td>
-<td align="left">9.8</td>
-</tr>
-<tr class="even">
-<td align="left">Reggie Jackson</td>
-<td align="left">32</td>
-<td align="left">0.383</td>
-<td align="left">5.6</td>
-<td align="left">14.3</td>
-</tr>
-<tr class="odd">
-<td align="left">Davon Reed</td>
-<td align="left">27</td>
-<td align="left">0.313</td>
-<td align="left">2.2</td>
-<td align="left">9.3</td>
-</tr>
-<tr class="even">
-<td align="left">Thomas Bryant</td>
-<td align="left">25</td>
-<td align="left">0.485</td>
-<td align="left">0.4</td>
-<td align="left">14.6</td>
-</tr>
-<tr class="odd">
-<td align="left">Peyton Watson</td>
-<td align="left">20</td>
-<td align="left">0.492</td>
-<td align="left">2.1</td>
-<td align="left">14.5</td>
-</tr>
-<tr class="even">
-<td align="left">Jack White</td>
-<td align="left">25</td>
-<td align="left">0.421</td>
-<td align="left">2.2</td>
-<td align="left">11.5</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 18</p>
@@ -2370,6 +1266,7 @@ bucks_poss &lt;- team_per_poss(&quot;MIL&quot;, 2021)</code></pre>
 ## Success: 22 rows obtained</code></pre>
 <pre class="r"><code>bucks_poss %&gt;% 
   select(Player, Age, FGpct, AST, PTS) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -2417,125 +1314,6 @@ bucks_poss &lt;- team_per_poss(&quot;MIL&quot;, 2021)</code></pre>
 <td align="left">5.3</td>
 <td align="left">17.8</td>
 </tr>
-<tr class="even">
-<td align="left">Pat Connaughton</td>
-<td align="left">28</td>
-<td align="left">0.434</td>
-<td align="left">2.4</td>
-<td align="left">14</td>
-</tr>
-<tr class="odd">
-<td align="left">Bobby Portis</td>
-<td align="left">25</td>
-<td align="left">0.523</td>
-<td align="left">2.4</td>
-<td align="left">25.8</td>
-</tr>
-<tr class="even">
-<td align="left">Bryn Forbes</td>
-<td align="left">27</td>
-<td align="left">0.473</td>
-<td align="left">1.6</td>
-<td align="left">24.3</td>
-</tr>
-<tr class="odd">
-<td align="left">D.J. Augustin</td>
-<td align="left">33</td>
-<td align="left">0.37</td>
-<td align="left">7.2</td>
-<td align="left">15</td>
-</tr>
-<tr class="even">
-<td align="left">Thanasis Antetokounmpo</td>
-<td align="left">28</td>
-<td align="left">0.489</td>
-<td align="left">3.9</td>
-<td align="left">14.1</td>
-</tr>
-<tr class="odd">
-<td align="left">P.J. Tucker</td>
-<td align="left">35</td>
-<td align="left">0.391</td>
-<td align="left">1.9</td>
-<td align="left">6.2</td>
-</tr>
-<tr class="even">
-<td align="left">Jeff Teague</td>
-<td align="left">32</td>
-<td align="left">0.469</td>
-<td align="left">8.3</td>
-<td align="left">19.4</td>
-</tr>
-<tr class="odd">
-<td align="left">Jordan Nwora</td>
-<td align="left">22</td>
-<td align="left">0.459</td>
-<td align="left">1.2</td>
-<td align="left">29.3</td>
-</tr>
-<tr class="even">
-<td align="left">Sam Merrill</td>
-<td align="left">24</td>
-<td align="left">0.444</td>
-<td align="left">4.2</td>
-<td align="left">17.9</td>
-</tr>
-<tr class="odd">
-<td align="left">Torrey Craig</td>
-<td align="left">30</td>
-<td align="left">0.391</td>
-<td align="left">3.7</td>
-<td align="left">10.5</td>
-</tr>
-<tr class="even">
-<td align="left">Mamadi Diakite</td>
-<td align="left">24</td>
-<td align="left">0.4</td>
-<td align="left">2.7</td>
-<td align="left">14.7</td>
-</tr>
-<tr class="odd">
-<td align="left">D.J. Wilson</td>
-<td align="left">24</td>
-<td align="left">0.372</td>
-<td align="left">1.3</td>
-<td align="left">19.2</td>
-</tr>
-<tr class="even">
-<td align="left">Axel Toupane</td>
-<td align="left">28</td>
-<td align="left">0.364</td>
-<td align="left">3.1</td>
-<td align="left">10.8</td>
-</tr>
-<tr class="odd">
-<td align="left">Rodions Kurucs</td>
-<td align="left">22</td>
-<td align="left">0.625</td>
-<td align="left">5.5</td>
-<td align="left">20.7</td>
-</tr>
-<tr class="even">
-<td align="left">Justin Jackson</td>
-<td align="left">25</td>
-<td align="left">0.333</td>
-<td align="left">1.4</td>
-<td align="left">12.8</td>
-</tr>
-<tr class="odd">
-<td align="left">Elijah Bryant</td>
-<td align="left">25</td>
-<td align="left">0.462</td>
-<td align="left">4.4</td>
-<td align="left">23.5</td>
-</tr>
-<tr class="even">
-<td align="left">Jaylen Adams</td>
-<td align="left">24</td>
-<td align="left">0.125</td>
-<td align="left">5.2</td>
-<td align="left">5.2</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 22</p>
@@ -2550,6 +1328,7 @@ warriors_shoot &lt;- team_shooting(&quot;GSW&quot;, 2016)</code></pre>
 ## Success: 17 rows obtained</code></pre>
 <pre class="r"><code>warriors_shoot %&gt;% 
   select(Player, Age, FGpct, Dist., three_Ppct) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -2597,90 +1376,6 @@ warriors_shoot &lt;- team_shooting(&quot;GSW&quot;, 2016)</code></pre>
 <td align="left">14.5</td>
 <td align="left">.431</td>
 </tr>
-<tr class="even">
-<td align="left">Shaun Livingston</td>
-<td align="left">30</td>
-<td align="left">.536</td>
-<td align="left">9.2</td>
-<td align="left">.250</td>
-</tr>
-<tr class="odd">
-<td align="left">Andrew Bogut</td>
-<td align="left">31</td>
-<td align="left">.627</td>
-<td align="left">2.7</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Leandro Barbosa</td>
-<td align="left">33</td>
-<td align="left">.462</td>
-<td align="left">11.8</td>
-<td align="left">.500</td>
-</tr>
-<tr class="odd">
-<td align="left">Brandon Rush</td>
-<td align="left">30</td>
-<td align="left">.427</td>
-<td align="left">17.6</td>
-<td align="left">.364</td>
-</tr>
-<tr class="even">
-<td align="left">Marreese Speights</td>
-<td align="left">28</td>
-<td align="left">.432</td>
-<td align="left">12.5</td>
-<td align="left">.333</td>
-</tr>
-<tr class="odd">
-<td align="left">Festus Ezeli</td>
-<td align="left">26</td>
-<td align="left">.548</td>
-<td align="left">2.9</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Ian Clark</td>
-<td align="left">24</td>
-<td align="left">.441</td>
-<td align="left">14.5</td>
-<td align="left">.321</td>
-</tr>
-<tr class="odd">
-<td align="left">James Michael McAdoo</td>
-<td align="left">23</td>
-<td align="left">.536</td>
-<td align="left">3.8</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Anderson Varejão</td>
-<td align="left">33</td>
-<td align="left">.438</td>
-<td align="left">6.5</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Jason Thompson</td>
-<td align="left">29</td>
-<td align="left">.476</td>
-<td align="left">5.7</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">Kevon Looney</td>
-<td align="left">19</td>
-<td align="left">.571</td>
-<td align="left">12.1</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Team Totals</td>
-<td align="left"></td>
-<td align="left">.487</td>
-<td align="left">10.7</td>
-<td align="left">.413</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 17</p>
@@ -2695,6 +1390,7 @@ lakers_pbp &lt;- team_pbp(&quot;LAL&quot;, 2020)</code></pre>
 ## Success: 21 rows obtained</code></pre>
 <pre class="r"><code>lakers_pbp %&gt;% 
   select(Player, Age, BadPass, LostBall, OnCourt) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -2742,125 +1438,13 @@ lakers_pbp &lt;- team_pbp(&quot;LAL&quot;, 2020)</code></pre>
 <td align="left">21</td>
 <td align="left">5.7</td>
 </tr>
-<tr class="even">
-<td align="left">Dwight Howard</td>
-<td align="left">34</td>
-<td align="left">18</td>
-<td align="left">17</td>
-<td align="left">6.6</td>
-</tr>
-<tr class="odd">
-<td align="left">Avery Bradley</td>
-<td align="left">29</td>
-<td align="left">26</td>
-<td align="left">11</td>
-<td align="left">7.6</td>
-</tr>
-<tr class="even">
-<td align="left">Alex Caruso</td>
-<td align="left">25</td>
-<td align="left">34</td>
-<td align="left">15</td>
-<td align="left">10.4</td>
-</tr>
-<tr class="odd">
-<td align="left">JaVale McGee</td>
-<td align="left">32</td>
-<td align="left">19</td>
-<td align="left">11</td>
-<td align="left">5.7</td>
-</tr>
-<tr class="even">
-<td align="left">Rajon Rondo</td>
-<td align="left">33</td>
-<td align="left">67</td>
-<td align="left">7</td>
-<td align="left">1.9</td>
-</tr>
-<tr class="odd">
-<td align="left">Quinn Cook</td>
-<td align="left">26</td>
-<td align="left">16</td>
-<td align="left">11</td>
-<td align="left">5.0</td>
-</tr>
-<tr class="even">
-<td align="left">Troy Daniels</td>
-<td align="left">28</td>
-<td align="left">2</td>
-<td align="left">3</td>
-<td align="left">3.0</td>
-</tr>
-<tr class="odd">
-<td align="left">Jared Dudley</td>
-<td align="left">34</td>
-<td align="left">6</td>
-<td align="left">1</td>
-<td align="left">3.7</td>
-</tr>
-<tr class="even">
-<td align="left">Markieff Morris</td>
-<td align="left">30</td>
-<td align="left">4</td>
-<td align="left">2</td>
-<td align="left">-8.0</td>
-</tr>
-<tr class="odd">
-<td align="left">Dion Waiters</td>
-<td align="left">28</td>
-<td align="left">8</td>
-<td align="left">3</td>
-<td align="left">3.6</td>
-</tr>
-<tr class="even">
-<td align="left">Talen Horton-Tucker</td>
-<td align="left">19</td>
-<td align="left">4</td>
-<td align="left">1</td>
-<td align="left">-9.6</td>
-</tr>
-<tr class="odd">
-<td align="left">J.R. Smith</td>
-<td align="left">34</td>
-<td align="left">3</td>
-<td align="left">0</td>
-<td align="left">-16.4</td>
-</tr>
-<tr class="even">
-<td align="left">Kostas Antetokounmpo</td>
-<td align="left">22</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">18.3</td>
-</tr>
-<tr class="odd">
-<td align="left">Devontae Cacok</td>
-<td align="left">23</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">17.5</td>
-</tr>
-<tr class="even">
-<td align="left">Zach Norvell</td>
-<td align="left">22</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">-18.2</td>
-</tr>
-<tr class="odd">
-<td align="left">Team Totals</td>
-<td align="left"></td>
-<td align="left">549</td>
-<td align="left">228</td>
-<td align="left">5.8</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total players:</strong> 21</p>
 <hr />
 </div>
-<div id="team_stats_bulk---new" class="section level2">
-<h2>2.9 team_stats_bulk() - NEW</h2>
+<div id="team_stats_bulk" class="section level2">
+<h2>2.9 team_stats_bulk()</h2>
 <p>Get statistics for multiple teams and/or years at once.</p>
 <pre class="r"><code># Compare Finals teams 2020: Lakers vs Heat
 finals_2020 &lt;- team_stats_bulk(
@@ -2994,7 +1578,124 @@ lakers_3years &lt;- team_stats_bulk(
 </table>
 <p><strong>Total rows:</strong> 73 <strong>Seasons:</strong> 2022, 2023,
 2024</p>
-<hr />
+</div>
+<div id="example-multiple-teams-multiple-years" class="section level3">
+<h3>Example: Multiple Teams, Multiple Years</h3>
+<pre class="r"><code>bulk_data &lt;- team_stats_bulk(
+  stat_function = team_per_game,
+  teams = c(&quot;LAL&quot;, &quot;BOS&quot;),
+  years = 2024:2025,
+  season_type = &quot;regular&quot;,
+  progress = TRUE
+)</code></pre>
+<pre><code>## Fetching data for 4 team-season combinations...
+##   [1/4] LAL 2024
+## Searching team: LAL 2024 (regular season) 
+## Success: 22 rows obtained
+##   [2/4] BOS 2024
+## Searching team: BOS 2024 (regular season) 
+## Success: 20 rows obtained
+##   [3/4] LAL 2025
+## Searching team: LAL 2025 (regular season) 
+## Success: 25 rows obtained
+##   [4/4] BOS 2025
+## Searching team: BOS 2025 (regular season) 
+## Success: 19 rows obtained
+## Success: Combined 86 rows from 4 team-seasons</code></pre>
+<pre class="r"><code>bulk_data %&gt;%
+  group_by(season, team) %&gt;% 
+  slice(1:2) %&gt;% 
+  select(season, team, Player, Age, Pos, team, PTS, TRB) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">season</th>
+<th align="left">team</th>
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">Pos</th>
+<th align="left">PTS</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2024</td>
+<td align="left">BOS</td>
+<td align="left">Jayson Tatum</td>
+<td align="left">25</td>
+<td align="left">PF</td>
+<td align="left">26.9</td>
+<td align="left">8.1</td>
+</tr>
+<tr class="even">
+<td align="left">2024</td>
+<td align="left">BOS</td>
+<td align="left">Jaylen Brown</td>
+<td align="left">27</td>
+<td align="left">SF</td>
+<td align="left">23</td>
+<td align="left">5.5</td>
+</tr>
+<tr class="odd">
+<td align="left">2024</td>
+<td align="left">LAL</td>
+<td align="left">Anthony Davis</td>
+<td align="left">30</td>
+<td align="left">C</td>
+<td align="left">24.7</td>
+<td align="left">12.6</td>
+</tr>
+<tr class="even">
+<td align="left">2024</td>
+<td align="left">LAL</td>
+<td align="left">LeBron James</td>
+<td align="left">39</td>
+<td align="left">PF</td>
+<td align="left">25.7</td>
+<td align="left">7.3</td>
+</tr>
+<tr class="odd">
+<td align="left">2025</td>
+<td align="left">BOS</td>
+<td align="left">Jayson Tatum</td>
+<td align="left">26</td>
+<td align="left">PF</td>
+<td align="left">26.8</td>
+<td align="left">8.7</td>
+</tr>
+<tr class="even">
+<td align="left">2025</td>
+<td align="left">BOS</td>
+<td align="left">Jaylen Brown</td>
+<td align="left">28</td>
+<td align="left">SF</td>
+<td align="left">22.2</td>
+<td align="left">5.8</td>
+</tr>
+<tr class="odd">
+<td align="left">2025</td>
+<td align="left">LAL</td>
+<td align="left">Luka Dončić</td>
+<td align="left">25</td>
+<td align="left">PG</td>
+<td align="left">28.2</td>
+<td align="left">8.1</td>
+</tr>
+<tr class="even">
+<td align="left">2025</td>
+<td align="left">LAL</td>
+<td align="left">Austin Reaves</td>
+<td align="left">26</td>
+<td align="left">SG</td>
+<td align="left">20.2</td>
+<td align="left">4.5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total rows:</strong> 86 <strong>Seasons:</strong> 2024, 2025
+—</p>
 </div>
 </div>
 </div>
@@ -3009,6 +1710,7 @@ warriors_history &lt;- team_stats_totals(&quot;GSW&quot;)</code></pre>
 ## Success: 80 rows obtained</code></pre>
 <pre class="r"><code>warriors_history %&gt;%
   select(Season, team, W, L, G) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
@@ -3056,558 +1758,71 @@ warriors_history &lt;- team_stats_totals(&quot;GSW&quot;)</code></pre>
 <td align="left">29</td>
 <td align="left">82</td>
 </tr>
-<tr class="even">
-<td align="left">2020-21</td>
-<td align="left">GSW</td>
-<td align="left">39</td>
-<td align="left">33</td>
-<td align="left">72</td>
-</tr>
-<tr class="odd">
-<td align="left">2019-20</td>
-<td align="left">GSW</td>
-<td align="left">15</td>
-<td align="left">50</td>
-<td align="left">65</td>
-</tr>
-<tr class="even">
-<td align="left">2018-19</td>
-<td align="left">GSW</td>
-<td align="left">57</td>
-<td align="left">25</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2017-18</td>
-<td align="left">GSW</td>
-<td align="left">58</td>
-<td align="left">24</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2016-17</td>
-<td align="left">GSW</td>
-<td align="left">67</td>
-<td align="left">15</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2015-16</td>
-<td align="left">GSW</td>
-<td align="left">73</td>
-<td align="left">9</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2014-15</td>
-<td align="left">GSW</td>
-<td align="left">67</td>
-<td align="left">15</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2013-14</td>
-<td align="left">GSW</td>
-<td align="left">51</td>
-<td align="left">31</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2012-13</td>
-<td align="left">GSW</td>
-<td align="left">47</td>
-<td align="left">35</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2011-12</td>
-<td align="left">GSW</td>
-<td align="left">23</td>
-<td align="left">43</td>
-<td align="left">66</td>
-</tr>
-<tr class="even">
-<td align="left">2010-11</td>
-<td align="left">GSW</td>
-<td align="left">36</td>
-<td align="left">46</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2009-10</td>
-<td align="left">GSW</td>
-<td align="left">26</td>
-<td align="left">56</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2008-09</td>
-<td align="left">GSW</td>
-<td align="left">29</td>
-<td align="left">53</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2007-08</td>
-<td align="left">GSW</td>
-<td align="left">48</td>
-<td align="left">34</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2006-07</td>
-<td align="left">GSW</td>
-<td align="left">42</td>
-<td align="left">40</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2005-06</td>
-<td align="left">GSW</td>
-<td align="left">34</td>
-<td align="left">48</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2004-05</td>
-<td align="left">GSW</td>
-<td align="left">34</td>
-<td align="left">48</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2003-04</td>
-<td align="left">GSW</td>
-<td align="left">37</td>
-<td align="left">45</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2002-03</td>
-<td align="left">GSW</td>
-<td align="left">38</td>
-<td align="left">44</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">2001-02</td>
-<td align="left">GSW</td>
-<td align="left">21</td>
-<td align="left">61</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">2000-01</td>
-<td align="left">GSW</td>
-<td align="left">17</td>
-<td align="left">65</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1999-00</td>
-<td align="left">GSW</td>
-<td align="left">19</td>
-<td align="left">63</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1998-99</td>
-<td align="left">GSW</td>
-<td align="left">21</td>
-<td align="left">29</td>
-<td align="left">50</td>
-</tr>
-<tr class="odd">
-<td align="left">1997-98</td>
-<td align="left">GSW</td>
-<td align="left">19</td>
-<td align="left">63</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1996-97</td>
-<td align="left">GSW</td>
-<td align="left">30</td>
-<td align="left">52</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1995-96</td>
-<td align="left">GSW</td>
-<td align="left">36</td>
-<td align="left">46</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1994-95</td>
-<td align="left">GSW</td>
-<td align="left">26</td>
-<td align="left">56</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1993-94</td>
-<td align="left">GSW</td>
-<td align="left">50</td>
-<td align="left">32</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1992-93</td>
-<td align="left">GSW</td>
-<td align="left">34</td>
-<td align="left">48</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1991-92</td>
-<td align="left">GSW</td>
-<td align="left">55</td>
-<td align="left">27</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1990-91</td>
-<td align="left">GSW</td>
-<td align="left">44</td>
-<td align="left">38</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1989-90</td>
-<td align="left">GSW</td>
-<td align="left">37</td>
-<td align="left">45</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1988-89</td>
-<td align="left">GSW</td>
-<td align="left">43</td>
-<td align="left">39</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1987-88</td>
-<td align="left">GSW</td>
-<td align="left">20</td>
-<td align="left">62</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1986-87</td>
-<td align="left">GSW</td>
-<td align="left">42</td>
-<td align="left">40</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1985-86</td>
-<td align="left">GSW</td>
-<td align="left">30</td>
-<td align="left">52</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1984-85</td>
-<td align="left">GSW</td>
-<td align="left">22</td>
-<td align="left">60</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1983-84</td>
-<td align="left">GSW</td>
-<td align="left">37</td>
-<td align="left">45</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1982-83</td>
-<td align="left">GSW</td>
-<td align="left">30</td>
-<td align="left">52</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1981-82</td>
-<td align="left">GSW</td>
-<td align="left">45</td>
-<td align="left">37</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1980-81</td>
-<td align="left">GSW</td>
-<td align="left">39</td>
-<td align="left">43</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1979-80</td>
-<td align="left">GSW</td>
-<td align="left">24</td>
-<td align="left">58</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1978-79</td>
-<td align="left">GSW</td>
-<td align="left">38</td>
-<td align="left">44</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1977-78</td>
-<td align="left">GSW</td>
-<td align="left">43</td>
-<td align="left">39</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1976-77</td>
-<td align="left">GSW</td>
-<td align="left">46</td>
-<td align="left">36</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1975-76</td>
-<td align="left">GSW</td>
-<td align="left">59</td>
-<td align="left">23</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1974-75</td>
-<td align="left">GSW</td>
-<td align="left">48</td>
-<td align="left">34</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1973-74</td>
-<td align="left">GSW</td>
-<td align="left">44</td>
-<td align="left">38</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1972-73</td>
-<td align="left">GSW</td>
-<td align="left">47</td>
-<td align="left">35</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1971-72</td>
-<td align="left">GSW</td>
-<td align="left">51</td>
-<td align="left">31</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1970-71</td>
-<td align="left">GSW</td>
-<td align="left">41</td>
-<td align="left">41</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1969-70</td>
-<td align="left">GSW</td>
-<td align="left">30</td>
-<td align="left">52</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1968-69</td>
-<td align="left">GSW</td>
-<td align="left">41</td>
-<td align="left">41</td>
-<td align="left">82</td>
-</tr>
-<tr class="odd">
-<td align="left">1967-68</td>
-<td align="left">GSW</td>
-<td align="left">43</td>
-<td align="left">39</td>
-<td align="left">82</td>
-</tr>
-<tr class="even">
-<td align="left">1966-67</td>
-<td align="left">GSW</td>
-<td align="left">44</td>
-<td align="left">37</td>
-<td align="left">81</td>
-</tr>
-<tr class="odd">
-<td align="left">1965-66</td>
-<td align="left">GSW</td>
-<td align="left">35</td>
-<td align="left">45</td>
-<td align="left">80</td>
-</tr>
-<tr class="even">
-<td align="left">1964-65</td>
-<td align="left">GSW</td>
-<td align="left">17</td>
-<td align="left">63</td>
-<td align="left">80</td>
-</tr>
-<tr class="odd">
-<td align="left">1963-64</td>
-<td align="left">GSW</td>
-<td align="left">48</td>
-<td align="left">32</td>
-<td align="left">80</td>
-</tr>
-<tr class="even">
-<td align="left">1962-63</td>
-<td align="left">GSW</td>
-<td align="left">31</td>
-<td align="left">49</td>
-<td align="left">80</td>
-</tr>
-<tr class="odd">
-<td align="left">1961-62</td>
-<td align="left">GSW</td>
-<td align="left">49</td>
-<td align="left">31</td>
-<td align="left">80</td>
-</tr>
-<tr class="even">
-<td align="left">1960-61</td>
-<td align="left">GSW</td>
-<td align="left">46</td>
-<td align="left">33</td>
-<td align="left">79</td>
-</tr>
-<tr class="odd">
-<td align="left">1959-60</td>
-<td align="left">GSW</td>
-<td align="left">49</td>
-<td align="left">26</td>
-<td align="left">75</td>
-</tr>
-<tr class="even">
-<td align="left">1958-59</td>
-<td align="left">GSW</td>
-<td align="left">32</td>
-<td align="left">40</td>
-<td align="left">72</td>
-</tr>
-<tr class="odd">
-<td align="left">1957-58</td>
-<td align="left">GSW</td>
-<td align="left">37</td>
-<td align="left">35</td>
-<td align="left">72</td>
-</tr>
-<tr class="even">
-<td align="left">1956-57</td>
-<td align="left">GSW</td>
-<td align="left">37</td>
-<td align="left">35</td>
-<td align="left">72</td>
-</tr>
-<tr class="odd">
-<td align="left">1955-56</td>
-<td align="left">GSW</td>
-<td align="left">45</td>
-<td align="left">27</td>
-<td align="left">72</td>
-</tr>
-<tr class="even">
-<td align="left">1954-55</td>
-<td align="left">GSW</td>
-<td align="left">33</td>
-<td align="left">39</td>
-<td align="left">72</td>
-</tr>
-<tr class="odd">
-<td align="left">1953-54</td>
-<td align="left">GSW</td>
-<td align="left">29</td>
-<td align="left">43</td>
-<td align="left">72</td>
-</tr>
-<tr class="even">
-<td align="left">1952-53</td>
-<td align="left">GSW</td>
-<td align="left">12</td>
-<td align="left">57</td>
-<td align="left">70</td>
-</tr>
-<tr class="odd">
-<td align="left">1951-52</td>
-<td align="left">GSW</td>
-<td align="left">33</td>
-<td align="left">33</td>
-<td align="left">66</td>
-</tr>
-<tr class="even">
-<td align="left">1950-51</td>
-<td align="left">GSW</td>
-<td align="left">40</td>
-<td align="left">26</td>
-<td align="left">66</td>
-</tr>
-<tr class="odd">
-<td align="left">1949-50</td>
-<td align="left">GSW</td>
-<td align="left">26</td>
-<td align="left">42</td>
-<td align="left">68</td>
-</tr>
-<tr class="even">
-<td align="left">1948-49</td>
-<td align="left">GSW</td>
-<td align="left">28</td>
-<td align="left">32</td>
-<td align="left">60</td>
-</tr>
-<tr class="odd">
-<td align="left">1947-48</td>
-<td align="left">GSW</td>
-<td align="left">27</td>
-<td align="left">21</td>
-<td align="left">48</td>
-</tr>
-<tr class="even">
-<td align="left">1946-47</td>
-<td align="left">GSW</td>
-<td align="left">35</td>
-<td align="left">25</td>
-<td align="left">60</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Total seasons:</strong> 80</p>
 <hr />
 </div>
-<div id="team_stats_totals-with-year-filter---new" class="section level2">
-<h2>3.2 team_stats_totals() with Year Filter - NEW</h2>
+<div id="team_stats_totals-with-year-filter" class="section level2">
+<h2>3.2 team_stats_totals() with Year Filter</h2>
 <p>Filter aggregate totals to specific years.</p>
 <pre class="r"><code># Get Lakers totals for recent years (2015-2024)
 lakers_recent &lt;- team_stats_totals(&quot;LAL&quot;, years = 2015:2024)</code></pre>
 <pre><code>## Searching team aggregate stats: LAL (totals)</code></pre>
 <pre><code>## Filtered to years: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 
 ## Success: 10 rows obtained</code></pre>
-<pre class="r"><code># Show all filtered seasons
-head(lakers_recent, 5)</code></pre>
-<pre><code>## # A tibble: 5 × 33
-##   Season  Lg    Tm    W     L     Finish Age   Ht.   Wt.   G     MP    FG   
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1 2023-24 NBA   LAL   47    35    3      28.0  6-7   221   82    19855 3580 
-## 2 2022-23 NBA   LAL   43    39    5      27.9  6-5   212   82    19880 3516 
-## 3 2021-22 NBA   LAL   33    49    4      30.2  6-5   221   82    19980 3415 
-## 4 2020-21 NBA   LAL   42    30    3      28.2  6-6   223   72    17455 2925 
-## 5 2019-20 NBA   LAL   52    19    1      29.5  6-7   224   71    17090 3006 
-## # ℹ 21 more variables: FGA &lt;chr&gt;, FGpct &lt;chr&gt;, three_P &lt;chr&gt;, three_PA &lt;chr&gt;,
-## #   three_Ppct &lt;chr&gt;, two_P &lt;chr&gt;, two_PA &lt;chr&gt;, two_Ppct &lt;chr&gt;, FT &lt;chr&gt;,
-## #   FTA &lt;chr&gt;, FTpct &lt;chr&gt;, ORB &lt;chr&gt;, DRB &lt;chr&gt;, TRB &lt;chr&gt;, AST &lt;chr&gt;,
-## #   STL &lt;chr&gt;, BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;, PTS &lt;chr&gt;, team &lt;chr&gt;</code></pre>
+<pre class="r"><code>lakers_recent %&gt;%
+  select(Season, team, W, L, G) %&gt;% 
+  head(5) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Season</th>
+<th align="left">team</th>
+<th align="left">W</th>
+<th align="left">L</th>
+<th align="left">G</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2023-24</td>
+<td align="left">LAL</td>
+<td align="left">47</td>
+<td align="left">35</td>
+<td align="left">82</td>
+</tr>
+<tr class="even">
+<td align="left">2022-23</td>
+<td align="left">LAL</td>
+<td align="left">43</td>
+<td align="left">39</td>
+<td align="left">82</td>
+</tr>
+<tr class="odd">
+<td align="left">2021-22</td>
+<td align="left">LAL</td>
+<td align="left">33</td>
+<td align="left">49</td>
+<td align="left">82</td>
+</tr>
+<tr class="even">
+<td align="left">2020-21</td>
+<td align="left">LAL</td>
+<td align="left">42</td>
+<td align="left">30</td>
+<td align="left">72</td>
+</tr>
+<tr class="odd">
+<td align="left">2019-20</td>
+<td align="left">LAL</td>
+<td align="left">52</td>
+<td align="left">19</td>
+<td align="left">71</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Filtered seasons:</strong> 10</p>
 <hr />
 </div>
@@ -3618,42 +1833,99 @@ head(lakers_recent, 5)</code></pre>
 celtics_history &lt;- team_stats_per_game(&quot;BOS&quot;)</code></pre>
 <pre><code>## Searching team aggregate stats: BOS (per game)
 ## Success: 80 rows obtained</code></pre>
-<pre class="r"><code># Show most recent 10 seasons
-head(celtics_history, 5) </code></pre>
-<pre><code>## # A tibble: 5 × 33
-##   Season  Lg    Tm    W     L     Finish Age   Ht.   Wt.   G     MP    FG   
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1 2025-26 NBA   BOS   24    15    2      26.7  6-5   211   39    240.0 43.1 
-## 2 2024-25 NBA   BOS   61    21    1      28.9  6-7   216   82    241.8 41.6 
-## 3 2023-24 NBA   BOS   64    18    1      28.2  6-7   216   82    241.8 43.9 
-## 4 2022-23 NBA   BOS   57    25    1      27.4  6-6   222   82    243.7 42.2 
-## 5 2021-22 NBA   BOS   51    31    1      26.1  6-5   218   82    242.7 40.7 
-## # ℹ 21 more variables: FGA &lt;chr&gt;, FGpct &lt;chr&gt;, three_P &lt;chr&gt;, three_PA &lt;chr&gt;,
-## #   three_Ppct &lt;chr&gt;, two_P &lt;chr&gt;, two_PA &lt;chr&gt;, two_Ppct &lt;chr&gt;, FT &lt;chr&gt;,
-## #   FTA &lt;chr&gt;, FTpct &lt;chr&gt;, ORB &lt;chr&gt;, DRB &lt;chr&gt;, TRB &lt;chr&gt;, AST &lt;chr&gt;,
-## #   STL &lt;chr&gt;, BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;, PTS &lt;chr&gt;, team &lt;chr&gt;</code></pre>
+<pre class="r"><code>celtics_history %&gt;%
+  select(Season, team, W, L, G) %&gt;% 
+  head(5) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Season</th>
+<th align="left">team</th>
+<th align="left">W</th>
+<th align="left">L</th>
+<th align="left">G</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2025-26</td>
+<td align="left">BOS</td>
+<td align="left">24</td>
+<td align="left">15</td>
+<td align="left">39</td>
+</tr>
+<tr class="even">
+<td align="left">2024-25</td>
+<td align="left">BOS</td>
+<td align="left">61</td>
+<td align="left">21</td>
+<td align="left">82</td>
+</tr>
+<tr class="odd">
+<td align="left">2023-24</td>
+<td align="left">BOS</td>
+<td align="left">64</td>
+<td align="left">18</td>
+<td align="left">82</td>
+</tr>
+<tr class="even">
+<td align="left">2022-23</td>
+<td align="left">BOS</td>
+<td align="left">57</td>
+<td align="left">25</td>
+<td align="left">82</td>
+</tr>
+<tr class="odd">
+<td align="left">2021-22</td>
+<td align="left">BOS</td>
+<td align="left">51</td>
+<td align="left">31</td>
+<td align="left">82</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Total seasons:</strong> 80</p>
 <hr />
 </div>
-<div id="team_stats_per_game-with-specific-years---new" class="section level2">
-<h2>3.4 team_stats_per_game() with Specific Years - NEW</h2>
+<div id="team_stats_per_game-with-specific-years" class="section level2">
+<h2>3.4 team_stats_per_game() with Specific Years</h2>
 <p>Filter to specific championship years.</p>
 <pre class="r"><code># Get Celtics stats for championship years
 celtics_champs &lt;- team_stats_per_game(&quot;BOS&quot;, years = c(2008, 2024))</code></pre>
 <pre><code>## Searching team aggregate stats: BOS (per game)</code></pre>
 <pre><code>## Filtered to years: 2008, 2024 
 ## Success: 2 rows obtained</code></pre>
-<pre class="r"><code># Show all filtered seasons
-celtics_champs</code></pre>
-<pre><code>## # A tibble: 2 × 33
-##   Season  Lg    Tm    W     L     Finish Age   Ht.   Wt.   G     MP    FG   
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1 2023-24 NBA   BOS   64    18    1      28.2  6-7   216   82    241.8 43.9 
-## 2 2007-08 NBA   BOS   66    16    1      27.9  6-6   220   82    240.9 36.4 
-## # ℹ 21 more variables: FGA &lt;chr&gt;, FGpct &lt;chr&gt;, three_P &lt;chr&gt;, three_PA &lt;chr&gt;,
-## #   three_Ppct &lt;chr&gt;, two_P &lt;chr&gt;, two_PA &lt;chr&gt;, two_Ppct &lt;chr&gt;, FT &lt;chr&gt;,
-## #   FTA &lt;chr&gt;, FTpct &lt;chr&gt;, ORB &lt;chr&gt;, DRB &lt;chr&gt;, TRB &lt;chr&gt;, AST &lt;chr&gt;,
-## #   STL &lt;chr&gt;, BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;, PTS &lt;chr&gt;, team &lt;chr&gt;</code></pre>
+<pre class="r"><code>celtics_champs %&gt;% 
+  select(Season, team, W, L, G) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Season</th>
+<th align="left">team</th>
+<th align="left">W</th>
+<th align="left">L</th>
+<th align="left">G</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2023-24</td>
+<td align="left">BOS</td>
+<td align="left">64</td>
+<td align="left">18</td>
+<td align="left">82</td>
+</tr>
+<tr class="even">
+<td align="left">2007-08</td>
+<td align="left">BOS</td>
+<td align="left">66</td>
+<td align="left">16</td>
+<td align="left">82</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Filtered seasons:</strong> 2</p>
 <hr />
 </div>
@@ -3667,26 +1939,58 @@ celtics_champs</code></pre>
 league_avg &lt;- league_per_game()</code></pre>
 <pre><code>## Searching league: per_game (regular season) 
 ## Success: 83 rows obtained</code></pre>
-<pre class="r"><code># Show most recent 10 seasons
-head(league_avg, 10) </code></pre>
-<pre><code>## # A tibble: 10 × 35
-##    Rk    Season Lg    Age   Ht    Wt    G     MP    FG    FGA   three_P three_PA
-##    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   
-##  1 1     2025-… NBA   26.3  6-7   216   588   241.7 42.0  89.4  13.3    37.0    
-##  2 2     2024-… NBA   26.3  6-7   216   1230  241.3 41.7  89.2  13.5    37.6    
-##  3 3     2023-… NBA   26.4  6-6   217   1230  241.4 42.2  88.9  12.8    35.1    
-##  4 4     2022-… NBA   26.1  6-6   217   1230  241.8 42.0  88.3  12.3    34.2    
-##  5 5     2021-… NBA   26.1  6-6   216   1230  241.4 40.6  88.1  12.4    35.2    
-##  6 6     2020-… NBA   26.1  6-6   218   1080  241.4 41.2  88.4  12.7    34.6    
-##  7 7     2019-… NBA   26.1  6-6   218   1059  241.8 40.9  88.8  12.2    34.1    
-##  8 8     2018-… NBA   26.3  6-6   220   1230  241.6 41.1  89.2  11.4    32.0    
-##  9 9     2017-… NBA   26.4  6-7   221   1230  241.4 39.6  86.1  10.5    29.0    
-## 10 10    2016-… NBA   26.6  6-7   222   1230  241.6 39.0  85.4  9.7     27.0    
-## # ℹ 23 more variables: FT &lt;chr&gt;, FTA &lt;chr&gt;, ORB &lt;chr&gt;, DRB &lt;chr&gt;, TRB &lt;chr&gt;,
-## #   AST &lt;chr&gt;, STL &lt;chr&gt;, BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;, PTS &lt;chr&gt;,
-## #   FGpct &lt;chr&gt;, three_Ppct &lt;chr&gt;, FTpct &lt;chr&gt;, Pace &lt;chr&gt;, eFGpct &lt;chr&gt;,
-## #   TOVpct &lt;chr&gt;, ORBpct &lt;chr&gt;, `FT/FGA` &lt;chr&gt;, ORtg &lt;chr&gt;, TSpct &lt;chr&gt;,
-## #   stat_type &lt;chr&gt;, season_type &lt;chr&gt;</code></pre>
+<pre class="r"><code>league_avg %&gt;% 
+  select(Season, FG, FGA, three_P, three_PA) %&gt;% 
+  head(5) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Season</th>
+<th align="left">FG</th>
+<th align="left">FGA</th>
+<th align="left">three_P</th>
+<th align="left">three_PA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2025-26</td>
+<td align="left">42.0</td>
+<td align="left">89.4</td>
+<td align="left">13.3</td>
+<td align="left">37.0</td>
+</tr>
+<tr class="even">
+<td align="left">2024-25</td>
+<td align="left">41.7</td>
+<td align="left">89.2</td>
+<td align="left">13.5</td>
+<td align="left">37.6</td>
+</tr>
+<tr class="odd">
+<td align="left">2023-24</td>
+<td align="left">42.2</td>
+<td align="left">88.9</td>
+<td align="left">12.8</td>
+<td align="left">35.1</td>
+</tr>
+<tr class="even">
+<td align="left">2022-23</td>
+<td align="left">42.0</td>
+<td align="left">88.3</td>
+<td align="left">12.3</td>
+<td align="left">34.2</td>
+</tr>
+<tr class="odd">
+<td align="left">2021-22</td>
+<td align="left">40.6</td>
+<td align="left">88.1</td>
+<td align="left">12.4</td>
+<td align="left">35.2</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Total seasons:</strong> 83</p>
 <hr />
 </div>
@@ -3696,25 +2000,60 @@ head(league_avg, 10) </code></pre>
 <pre class="r"><code># Get league totals
 league_tots &lt;- league_totals()</code></pre>
 <pre><code>## Searching league: totals (regular season) 
-## Success: 87 rows obtained</code></pre>
-<pre class="r"><code># Show most recent 10 seasons
-head(league_tots, 5)</code></pre>
-<pre><code>## # A tibble: 5 × 35
-##   col_1 col_2 col_3 col_4 col_5 col_6 Totals Totals_1 Totals_2 Totals_3 Totals_4
-##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   
-## 1 Rk    Seas… Lg    Age   Ht    Wt    G      MP       FG       FGA      3P      
-## 2 1     2025… NBA   26.3  6-7   216   588    284190   49344    105141   15591   
-## 3 2     2024… NBA   26.3  6-7   216   1230   593600   102566   219527   33304   
-## 4 3     2023… NBA   26.4  6-6   217   1230   593750   103739   218702   31579   
-## 5 4     2022… NBA   26.1  6-6   217   1230   594850   103260   217219   30359   
-## # ℹ 24 more variables: Totals_5 &lt;chr&gt;, Totals_6 &lt;chr&gt;, Totals_7 &lt;chr&gt;,
-## #   Totals_8 &lt;chr&gt;, Totals_9 &lt;chr&gt;, Totals_10 &lt;chr&gt;, Totals_11 &lt;chr&gt;,
-## #   Totals_12 &lt;chr&gt;, Totals_13 &lt;chr&gt;, Totals_14 &lt;chr&gt;, Totals_15 &lt;chr&gt;,
-## #   Totals_16 &lt;chr&gt;, Shooting &lt;chr&gt;, Shooting_1 &lt;chr&gt;, Shooting_2 &lt;chr&gt;,
-## #   Advanced &lt;chr&gt;, Advanced_1 &lt;chr&gt;, Advanced_2 &lt;chr&gt;, Advanced_3 &lt;chr&gt;,
-## #   Advanced_4 &lt;chr&gt;, Advanced_5 &lt;chr&gt;, Advanced_6 &lt;chr&gt;, stat_type &lt;chr&gt;,
-## #   season_type &lt;chr&gt;</code></pre>
-<p><strong>Total seasons:</strong> 87</p>
+## Success: 83 rows obtained</code></pre>
+<pre class="r"><code>league_tots %&gt;% 
+  select(Season, FG, FGA, three_P, three_PA) %&gt;% 
+  head(5) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Season</th>
+<th align="left">FG</th>
+<th align="left">FGA</th>
+<th align="left">three_P</th>
+<th align="left">three_PA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2025-26</td>
+<td align="left">49344</td>
+<td align="left">105141</td>
+<td align="left">15591</td>
+<td align="left">43494</td>
+</tr>
+<tr class="even">
+<td align="left">2024-25</td>
+<td align="left">102566</td>
+<td align="left">219527</td>
+<td align="left">33304</td>
+<td align="left">92454</td>
+</tr>
+<tr class="odd">
+<td align="left">2023-24</td>
+<td align="left">103739</td>
+<td align="left">218702</td>
+<td align="left">31579</td>
+<td align="left">86355</td>
+</tr>
+<tr class="even">
+<td align="left">2022-23</td>
+<td align="left">103260</td>
+<td align="left">217219</td>
+<td align="left">30359</td>
+<td align="left">84165</td>
+</tr>
+<tr class="odd">
+<td align="left">2021-22</td>
+<td align="left">99930</td>
+<td align="left">216722</td>
+<td align="left">30598</td>
+<td align="left">86535</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total seasons:</strong> 83</p>
 <hr />
 </div>
 <div id="league_per_poss" class="section level2">
@@ -3724,21 +2063,58 @@ head(league_tots, 5)</code></pre>
 league_p100 &lt;- league_per_poss()</code></pre>
 <pre><code>## Searching league: per_poss (regular season) 
 ## Success: 83 rows obtained</code></pre>
-<pre class="r"><code># Show most recent 10 seasons
-head(league_p100, 5)</code></pre>
-<pre><code>## # A tibble: 5 × 34
-##   Rk    Season  Lg    Age   Ht    Wt    G     FG    FGA   three_P three_PA FT   
-##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;
-## 1 1     2025-26 NBA   26.3  6-7   216   588   41.8  89.0  13.2    36.8     18.9 
-## 2 2     2024-25 NBA   26.3  6-7   216   1230  42.0  89.8  13.6    37.8     17.0 
-## 3 3     2023-24 NBA   26.4  6-6   217   1230  42.6  89.7  13.0    35.4     17.2 
-## 4 4     2022-23 NBA   26.1  6-6   217   1230  42.0  88.4  12.4    34.2     18.4 
-## 5 5     2021-22 NBA   26.1  6-6   216   1230  41.1  89.2  12.6    35.6     17.1 
-## # ℹ 22 more variables: FTA &lt;chr&gt;, ORB &lt;chr&gt;, DRB &lt;chr&gt;, TRB &lt;chr&gt;, AST &lt;chr&gt;,
-## #   STL &lt;chr&gt;, BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;, PTS &lt;chr&gt;, FGpct &lt;chr&gt;,
-## #   three_Ppct &lt;chr&gt;, FTpct &lt;chr&gt;, Pace &lt;chr&gt;, eFGpct &lt;chr&gt;, TOVpct &lt;chr&gt;,
-## #   ORBpct &lt;chr&gt;, `FT/FGA` &lt;chr&gt;, ORtg &lt;chr&gt;, TSpct &lt;chr&gt;, stat_type &lt;chr&gt;,
-## #   season_type &lt;chr&gt;</code></pre>
+<pre class="r"><code>league_p100 %&gt;% 
+  select(Season, FG, FGA, three_P, three_PA) %&gt;% 
+  head(5) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Season</th>
+<th align="left">FG</th>
+<th align="left">FGA</th>
+<th align="left">three_P</th>
+<th align="left">three_PA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2025-26</td>
+<td align="left">41.8</td>
+<td align="left">89.0</td>
+<td align="left">13.2</td>
+<td align="left">36.8</td>
+</tr>
+<tr class="even">
+<td align="left">2024-25</td>
+<td align="left">42.0</td>
+<td align="left">89.8</td>
+<td align="left">13.6</td>
+<td align="left">37.8</td>
+</tr>
+<tr class="odd">
+<td align="left">2023-24</td>
+<td align="left">42.6</td>
+<td align="left">89.7</td>
+<td align="left">13.0</td>
+<td align="left">35.4</td>
+</tr>
+<tr class="even">
+<td align="left">2022-23</td>
+<td align="left">42.0</td>
+<td align="left">88.4</td>
+<td align="left">12.4</td>
+<td align="left">34.2</td>
+</tr>
+<tr class="odd">
+<td align="left">2021-22</td>
+<td align="left">41.1</td>
+<td align="left">89.2</td>
+<td align="left">12.6</td>
+<td align="left">35.6</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Total seasons:</strong> 83</p>
 <hr />
 </div>
@@ -3750,19 +2126,55 @@ head(league_p100, 5)</code></pre>
 <p>Get NBA championship history.</p>
 <pre class="r"><code># Get all champions
 all_champs &lt;- champions()</code></pre>
-<pre><code>## Obteniendo campeones de NBA...
-##   -&gt; Años disponibles: 1947 - 2025 
-##   -&gt; Éxito: 88 campeones obtenidos ( 1947 - 2025 )</code></pre>
-<pre class="r"><code># Show most recent 10 championships
-head(all_champs, 5)</code></pre>
-<pre><code>## # A tibble: 5 × 6
-##    Year Lg    Champion              `Runner-Up`      `Finals MVP`          team 
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt;            &lt;chr&gt;                 &lt;chr&gt;
-## 1  2025 NBA   Oklahoma City Thunder Indiana Pacers   S. Gilgeous-Alexander OKC  
-## 2  2024 NBA   Boston Celtics        Dallas Mavericks J. Brown              BOS  
-## 3  2023 NBA   Denver Nuggets        Miami Heat       N. Jokić              DEN  
-## 4  2022 NBA   Golden State Warriors Boston Celtics   S. Curry              GSW  
-## 5  2021 NBA   Milwaukee Bucks       Phoenix Suns     G. Antetokounmpo      MIL</code></pre>
+<pre><code>## Fetching NBA champions...
+##   -&gt; Available years: 1947 - 2025 
+##   -&gt; Success: 88 champions obtained ( 1947 - 2025 )</code></pre>
+<pre class="r"><code>all_champs %&gt;% 
+  select(Year, Champion, `Runner-Up`, `Finals MVP`) %&gt;% 
+  head(5) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Year</th>
+<th align="left">Champion</th>
+<th align="left">Runner-Up</th>
+<th align="left">Finals MVP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2025</td>
+<td align="left">Oklahoma City Thunder</td>
+<td align="left">Indiana Pacers</td>
+<td align="left">S. Gilgeous-Alexander</td>
+</tr>
+<tr class="even">
+<td align="right">2024</td>
+<td align="left">Boston Celtics</td>
+<td align="left">Dallas Mavericks</td>
+<td align="left">J. Brown</td>
+</tr>
+<tr class="odd">
+<td align="right">2023</td>
+<td align="left">Denver Nuggets</td>
+<td align="left">Miami Heat</td>
+<td align="left">N. Jokić</td>
+</tr>
+<tr class="even">
+<td align="right">2022</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">Boston Celtics</td>
+<td align="left">S. Curry</td>
+</tr>
+<tr class="odd">
+<td align="right">2021</td>
+<td align="left">Milwaukee Bucks</td>
+<td align="left">Phoenix Suns</td>
+<td align="left">G. Antetokounmpo</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Total championships:</strong> 88</p>
 <hr />
 </div>
@@ -3771,76 +2183,52 @@ head(all_champs, 5)</code></pre>
 <p>Filter champions to specific years.</p>
 <pre class="r"><code># Get champions from 2010-2020
 champs_2010s &lt;- champions(first_year = 2010, last_year = 2020)</code></pre>
-<pre><code>## Obteniendo campeones de NBA...
-##   -&gt; Años disponibles: 1947 - 2025 
-##   -&gt; Éxito: 11 campeones obtenidos ( 2010 - 2020 )</code></pre>
-<pre class="r"><code># Show all
-champs_2010s %&gt;%
-  select(Year, Champion, team) %&gt;%
+<pre><code>## Fetching NBA champions...
+##   -&gt; Available years: 1947 - 2025 
+##   -&gt; Success: 11 champions obtained ( 2010 - 2020 )</code></pre>
+<pre class="r"><code>champs_2010s %&gt;% 
+  select(Year, Champion, `Runner-Up`, `Finals MVP`) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
 <thead>
 <tr class="header">
 <th align="right">Year</th>
 <th align="left">Champion</th>
-<th align="left">team</th>
+<th align="left">Runner-Up</th>
+<th align="left">Finals MVP</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="right">2020</td>
 <td align="left">Los Angeles Lakers</td>
-<td align="left">LAL</td>
+<td align="left">Miami Heat</td>
+<td align="left">L. James</td>
 </tr>
 <tr class="even">
 <td align="right">2019</td>
 <td align="left">Toronto Raptors</td>
-<td align="left">TOR</td>
+<td align="left">Golden State Warriors</td>
+<td align="left">K. Leonard</td>
 </tr>
 <tr class="odd">
 <td align="right">2018</td>
 <td align="left">Golden State Warriors</td>
-<td align="left">GSW</td>
+<td align="left">Cleveland Cavaliers</td>
+<td align="left">K. Durant</td>
 </tr>
 <tr class="even">
 <td align="right">2017</td>
 <td align="left">Golden State Warriors</td>
-<td align="left">GSW</td>
+<td align="left">Cleveland Cavaliers</td>
+<td align="left">K. Durant</td>
 </tr>
 <tr class="odd">
 <td align="right">2016</td>
 <td align="left">Cleveland Cavaliers</td>
-<td align="left">CLE</td>
-</tr>
-<tr class="even">
-<td align="right">2015</td>
 <td align="left">Golden State Warriors</td>
-<td align="left">GSW</td>
-</tr>
-<tr class="odd">
-<td align="right">2014</td>
-<td align="left">San Antonio Spurs</td>
-<td align="left">SAS</td>
-</tr>
-<tr class="even">
-<td align="right">2013</td>
-<td align="left">Miami Heat</td>
-<td align="left">MIA</td>
-</tr>
-<tr class="odd">
-<td align="right">2012</td>
-<td align="left">Miami Heat</td>
-<td align="left">MIA</td>
-</tr>
-<tr class="even">
-<td align="right">2011</td>
-<td align="left">Dallas Mavericks</td>
-<td align="left">DAL</td>
-</tr>
-<tr class="odd">
-<td align="right">2010</td>
-<td align="left">Los Angeles Lakers</td>
-<td align="left">LAL</td>
+<td align="left">L. James</td>
 </tr>
 </tbody>
 </table>
@@ -3858,82 +2246,18 @@ champs_2010s %&gt;%
 lebron_playoffs &lt;- player_per_game(&quot;LeBron James&quot;, season_type = &quot;playoffs&quot;)</code></pre>
 <pre><code>## Searching player: LeBron James 
 ## Success: 18 rows obtained</code></pre>
-<pre class="r"><code># Show first 10 seasons
-head(lebron_playoffs, 5) %&gt;%
+<pre class="r"><code>lebron_playoffs %&gt;% 
+  select(Season, Age, Team, PTS, AST) %&gt;% 
+  head(5) %&gt;% 
   kable()</code></pre>
 <table>
-<colgroup>
-<col width="3%" />
-<col width="1%" />
-<col width="2%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="3%" />
-<col width="4%" />
-<col width="5%" />
-<col width="2%" />
-<col width="3%" />
-<col width="4%" />
-<col width="3%" />
-<col width="2%" />
-<col width="2%" />
-<col width="2%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="1%" />
-<col width="2%" />
-<col width="3%" />
-<col width="6%" />
-<col width="7%" />
-<col width="5%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Season</th>
 <th align="left">Age</th>
 <th align="left">Team</th>
-<th align="left">Lg</th>
-<th align="left">Pos</th>
-<th align="left">G</th>
-<th align="left">GS</th>
-<th align="left">MP</th>
-<th align="left">FG</th>
-<th align="left">FGA</th>
-<th align="left">FGpct</th>
-<th align="left">three_P</th>
-<th align="left">three_PA</th>
-<th align="left">three_Ppct</th>
-<th align="left">two_P</th>
-<th align="left">two_PA</th>
-<th align="left">two_Ppct</th>
-<th align="left">eFGpct</th>
-<th align="left">FT</th>
-<th align="left">FTA</th>
-<th align="left">FTpct</th>
-<th align="left">ORB</th>
-<th align="left">DRB</th>
-<th align="left">TRB</th>
-<th align="left">AST</th>
-<th align="left">STL</th>
-<th align="left">BLK</th>
-<th align="left">TOV</th>
-<th align="left">PF</th>
 <th align="left">PTS</th>
-<th align="left">Awards</th>
-<th align="left">player</th>
-<th align="left">stat_type</th>
-<th align="left">season_type</th>
+<th align="left">AST</th>
 </tr>
 </thead>
 <tbody>
@@ -3941,198 +2265,39 @@ head(lebron_playoffs, 5) %&gt;%
 <td align="left">2005-06</td>
 <td align="left">21</td>
 <td align="left">CLE</td>
-<td align="left">NBA</td>
-<td align="left">SF</td>
-<td align="left">13</td>
-<td align="left">13</td>
-<td align="left">46.5</td>
-<td align="left">11.2</td>
-<td align="left">23.6</td>
-<td align="left">.476</td>
-<td align="left">1.6</td>
-<td align="left">4.8</td>
-<td align="left">.333</td>
-<td align="left">9.6</td>
-<td align="left">18.8</td>
-<td align="left">.512</td>
-<td align="left">.510</td>
-<td align="left">6.7</td>
-<td align="left">9.1</td>
-<td align="left">.737</td>
-<td align="left">1.7</td>
-<td align="left">6.4</td>
-<td align="left">8.1</td>
-<td align="left">5.8</td>
-<td align="left">1.4</td>
-<td align="left">0.7</td>
-<td align="left">5.0</td>
-<td align="left">3.4</td>
 <td align="left">30.8</td>
-<td align="left"></td>
-<td align="left">LeBron James</td>
-<td align="left">per_game_stats</td>
-<td align="left">playoffs</td>
+<td align="left">5.8</td>
 </tr>
 <tr class="even">
 <td align="left">2006-07</td>
 <td align="left">22</td>
 <td align="left">CLE</td>
-<td align="left">NBA</td>
-<td align="left">SF</td>
-<td align="left">20</td>
-<td align="left">20</td>
-<td align="left">44.7</td>
-<td align="left">8.3</td>
-<td align="left">20.0</td>
-<td align="left">.416</td>
-<td align="left">1.1</td>
-<td align="left">3.8</td>
-<td align="left">.280</td>
-<td align="left">7.3</td>
-<td align="left">16.2</td>
-<td align="left">.448</td>
-<td align="left">.442</td>
-<td align="left">7.4</td>
-<td align="left">9.8</td>
-<td align="left">.755</td>
-<td align="left">1.3</td>
-<td align="left">6.8</td>
-<td align="left">8.1</td>
-<td align="left">8.0</td>
-<td align="left">1.7</td>
-<td align="left">0.5</td>
-<td align="left">3.3</td>
-<td align="left">2.0</td>
 <td align="left">25.1</td>
-<td align="left"></td>
-<td align="left">LeBron James</td>
-<td align="left">per_game_stats</td>
-<td align="left">playoffs</td>
+<td align="left">8.0</td>
 </tr>
 <tr class="odd">
 <td align="left">2007-08</td>
 <td align="left">23</td>
 <td align="left">CLE</td>
-<td align="left">NBA</td>
-<td align="left">SF</td>
-<td align="left">13</td>
-<td align="left">13</td>
-<td align="left">42.5</td>
-<td align="left">8.7</td>
-<td align="left">21.2</td>
-<td align="left">.411</td>
-<td align="left">1.4</td>
-<td align="left">5.4</td>
-<td align="left">.257</td>
-<td align="left">7.3</td>
-<td align="left">15.8</td>
-<td align="left">.463</td>
-<td align="left">.444</td>
-<td align="left">9.4</td>
-<td align="left">12.8</td>
-<td align="left">.731</td>
-<td align="left">1.2</td>
-<td align="left">6.6</td>
-<td align="left">7.8</td>
-<td align="left">7.6</td>
-<td align="left">1.8</td>
-<td align="left">1.3</td>
-<td align="left">4.2</td>
-<td align="left">2.5</td>
 <td align="left">28.2</td>
-<td align="left"></td>
-<td align="left">LeBron James</td>
-<td align="left">per_game_stats</td>
-<td align="left">playoffs</td>
+<td align="left">7.6</td>
 </tr>
 <tr class="even">
 <td align="left">2008-09</td>
 <td align="left">24</td>
 <td align="left">CLE</td>
-<td align="left">NBA</td>
-<td align="left">SF</td>
-<td align="left">14</td>
-<td align="left">14</td>
-<td align="left">41.4</td>
-<td align="left">11.4</td>
-<td align="left">22.3</td>
-<td align="left">.510</td>
-<td align="left">1.9</td>
-<td align="left">5.8</td>
-<td align="left">.333</td>
-<td align="left">9.4</td>
-<td align="left">16.5</td>
-<td align="left">.571</td>
-<td align="left">.553</td>
-<td align="left">10.6</td>
-<td align="left">14.2</td>
-<td align="left">.749</td>
-<td align="left">1.4</td>
-<td align="left">7.8</td>
-<td align="left">9.1</td>
-<td align="left">7.3</td>
-<td align="left">1.6</td>
-<td align="left">0.9</td>
-<td align="left">2.7</td>
-<td align="left">2.1</td>
 <td align="left">35.3</td>
-<td align="left"></td>
-<td align="left">LeBron James</td>
-<td align="left">per_game_stats</td>
-<td align="left">playoffs</td>
+<td align="left">7.3</td>
 </tr>
 <tr class="odd">
 <td align="left">2009-10</td>
 <td align="left">25</td>
 <td align="left">CLE</td>
-<td align="left">NBA</td>
-<td align="left">SF</td>
-<td align="left">11</td>
-<td align="left">11</td>
-<td align="left">41.8</td>
-<td align="left">9.6</td>
-<td align="left">19.2</td>
-<td align="left">.502</td>
-<td align="left">1.8</td>
-<td align="left">4.5</td>
-<td align="left">.400</td>
-<td align="left">7.8</td>
-<td align="left">14.6</td>
-<td align="left">.534</td>
-<td align="left">.550</td>
-<td align="left">8.0</td>
-<td align="left">10.9</td>
-<td align="left">.733</td>
-<td align="left">1.4</td>
-<td align="left">7.9</td>
-<td align="left">9.3</td>
-<td align="left">7.6</td>
-<td align="left">1.7</td>
-<td align="left">1.8</td>
-<td align="left">3.8</td>
-<td align="left">2.1</td>
 <td align="left">29.1</td>
-<td align="left"></td>
-<td align="left">LeBron James</td>
-<td align="left">per_game_stats</td>
-<td align="left">playoffs</td>
+<td align="left">7.6</td>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>head(lebron_playoffs, 5) </code></pre>
-<pre><code>## # A tibble: 5 × 34
-##   Season  Age   Team  Lg    Pos   G     GS    MP    FG    FGA   FGpct three_P
-##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  
-## 1 2005-06 21    CLE   NBA   SF    13    13    46.5  11.2  23.6  .476  1.6    
-## 2 2006-07 22    CLE   NBA   SF    20    20    44.7  8.3   20.0  .416  1.1    
-## 3 2007-08 23    CLE   NBA   SF    13    13    42.5  8.7   21.2  .411  1.4    
-## 4 2008-09 24    CLE   NBA   SF    14    14    41.4  11.4  22.3  .510  1.9    
-## 5 2009-10 25    CLE   NBA   SF    11    11    41.8  9.6   19.2  .502  1.8    
-## # ℹ 22 more variables: three_PA &lt;chr&gt;, three_Ppct &lt;chr&gt;, two_P &lt;chr&gt;,
-## #   two_PA &lt;chr&gt;, two_Ppct &lt;chr&gt;, eFGpct &lt;chr&gt;, FT &lt;chr&gt;, FTA &lt;chr&gt;,
-## #   FTpct &lt;chr&gt;, ORB &lt;chr&gt;, DRB &lt;chr&gt;, TRB &lt;chr&gt;, AST &lt;chr&gt;, STL &lt;chr&gt;,
-## #   BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;, PTS &lt;chr&gt;, Awards &lt;chr&gt;, player &lt;chr&gt;,
-## #   stat_type &lt;chr&gt;, season_type &lt;chr&gt;</code></pre>
 <p><strong>Playoff seasons:</strong> 18</p>
 <hr />
 </div>
@@ -4142,21 +2307,58 @@ head(lebron_playoffs, 5) %&gt;%
 lakers_playoffs &lt;- team_per_game(&quot;LAL&quot;, 2020, season_type = &quot;playoffs&quot;)</code></pre>
 <pre><code>## Searching team: LAL 2020 (playoffs) 
 ## Success: 16 rows obtained</code></pre>
-<pre class="r"><code># Show all players
-head(lakers_playoffs, 5)</code></pre>
-<pre><code>## # A tibble: 5 × 34
-##   Rk    Player  Age   Pos   G     GS    MP    FG    FGA   FGpct three_P three_PA
-##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   
-## 1 1     Anthon… 26    PF    21    21    36.6  9.8   17.1  0.571 1.1     2.9     
-## 2 2     LeBron… 35    PG    21    21    36.3  10.2  18.2  0.56  2.1     5.7     
-## 3 3     Kentav… 26    SG    21    21    29    3.8   9     0.418 2.1     5.7     
-## 4 4     Danny … 32    SG    21    21    25    2.8   8.1   0.347 1.9     5.5     
-## 5 5     Rajon … 33    PG    16    0     24.7  3.4   7.6   0.455 1.3     3.1     
-## # ℹ 22 more variables: three_Ppct &lt;chr&gt;, two_P &lt;chr&gt;, two_PA &lt;chr&gt;,
-## #   two_Ppct &lt;chr&gt;, eFGpct &lt;chr&gt;, FT &lt;chr&gt;, FTA &lt;chr&gt;, FTpct &lt;chr&gt;, ORB &lt;chr&gt;,
-## #   DRB &lt;chr&gt;, TRB &lt;chr&gt;, AST &lt;chr&gt;, STL &lt;chr&gt;, BLK &lt;chr&gt;, TOV &lt;chr&gt;, PF &lt;chr&gt;,
-## #   PTS &lt;chr&gt;, Awards &lt;chr&gt;, team &lt;chr&gt;, season &lt;chr&gt;, season_type &lt;chr&gt;,
-## #   table_id &lt;chr&gt;</code></pre>
+<pre class="r"><code>lakers_playoffs %&gt;% 
+  select(Player, Player, Age, PTS, AST, TRB) %&gt;% 
+  head(5) %&gt;% 
+  kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Player</th>
+<th align="left">Age</th>
+<th align="left">PTS</th>
+<th align="left">AST</th>
+<th align="left">TRB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Anthony Davis</td>
+<td align="left">26</td>
+<td align="left">27.7</td>
+<td align="left">3.5</td>
+<td align="left">9.7</td>
+</tr>
+<tr class="even">
+<td align="left">LeBron James</td>
+<td align="left">35</td>
+<td align="left">27.6</td>
+<td align="left">8.8</td>
+<td align="left">10.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Kentavious Caldwell-Pope</td>
+<td align="left">26</td>
+<td align="left">10.7</td>
+<td align="left">1.3</td>
+<td align="left">2.1</td>
+</tr>
+<tr class="even">
+<td align="left">Danny Green</td>
+<td align="left">32</td>
+<td align="left">8</td>
+<td align="left">1.2</td>
+<td align="left">3.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Rajon Rondo</td>
+<td align="left">33</td>
+<td align="left">8.9</td>
+<td align="left">6.6</td>
+<td align="left">4.3</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Playoff roster:</strong> 16</p>
 <hr />
 </div>
@@ -4175,8 +2377,7 @@ head(lakers_playoffs, 5)</code></pre>
 <li><code>player_advanced()</code> - Advanced stats</li>
 <li><code>player_shooting()</code> - Shooting by distance</li>
 <li><code>player_pbp()</code> - Play-by-play</li>
-<li><code>player_stats_bulk()</code> - <strong>NEW</strong> - Multiple
-players</li>
+<li><code>player_stats_bulk()</code> - Multiple players</li>
 </ol>
 </div>
 <div id="team-functions-11" class="section level3">
@@ -4194,8 +2395,7 @@ players</li>
 (<strong>Enhanced</strong> with year filter) 10.
 <code>team_stats_per_game()</code> - Historical per game
 (<strong>Enhanced</strong> with year filter) 11.
-<code>team_stats_bulk()</code> - <strong>NEW</strong> - Multiple
-teams/years</p>
+<code>team_stats_bulk()</code> - Multiple teams/years</p>
 </div>
 <div id="league-functions-3" class="section level3">
 <h3>League Functions (3):</h3>

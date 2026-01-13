@@ -1,0 +1,71 @@
+url: https://eliseogarilleti.github.io/bballref/
+
+template:
+  bootstrap: 5
+  bootswatch: cosmo
+
+navbar:
+  title: "bballref"
+  left:
+    - icon: fa-home
+      aria-label: Home
+      href: index.html
+    - text: "Reference"
+      href: reference/index.html
+  right:
+    - icon: fa-github
+      aria-label: GitHub
+      href: https://github.com/EliseoGarilleti/bballref
+
+reference:
+  - title: "Player Statistics"
+    desc: "Functions to retrieve individual player statistics"
+    contents:
+      - player_per_game
+      - player_totals
+      - player_per_minute
+      - player_per_poss
+      - player_advanced
+      - player_shooting
+      - player_pbp
+      - player_stats_bulk
+
+  - title: "Team Statistics - Season Specific"
+    desc: "Functions to retrieve team statistics for specific seasons"
+    contents:
+      - team_per_game
+      - team_totals
+      - team_per_poss
+      - team_advanced
+      - team_per_minute
+      - team_shooting
+      - team_pbp
+      - team_roster
+      - team_stats_bulk
+
+  - title: "Team Statistics - Historical Aggregates"
+    desc: "Functions to retrieve historical team statistics across all seasons"
+    contents:
+      - team_stats_totals
+      - team_stats_per_game
+
+  - title: "League Statistics"
+    desc: "Functions to retrieve league-wide statistics"
+    contents:
+      - league_per_game
+      - league_totals
+      - league_per_poss
+
+  - title: "Championship & Playoff Data"
+    desc: "Functions to retrieve championship and playoff information"
+    contents:
+      - champions
+
+  - title: "Player Search"
+    desc: "Functions to search for players"
+    contents:
+      - find_player_id
+
+home:
+  title: "bballref: NBA Statistics from Basketball Reference"
+  description: "R package for scraping NBA statistics from Basketball Reference"
