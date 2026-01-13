@@ -74,7 +74,21 @@ team_stats_totals <- function(team_code, years = NULL) {
   names(tabla) <- nombres_columnas
 
   tabla_limpia <- tabla %>%
-    dplyr::mutate(dplyr::across(dplyr::everything(), as.character)) %>%
+    dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
+
+  # Filtrar filas que son encabezados repetidos
+  # Estas filas tienen "Season" o nombres de columnas en la columna Season
+  if ("Season" %in% names(tabla_limpia)) {
+    tabla_limpia <- tabla_limpia %>%
+      dplyr::filter(
+        !is.na(Season),
+        Season != "",
+        Season != "Season",
+        !stringr::str_detect(Season, "^(Lg|Tm|W|L|Finish)")
+      )
+  }
+
+  tabla_limpia <- tabla_limpia %>%
     dplyr::mutate(
       team = team_code,
       stat_type = "aggregate_totals"
@@ -184,7 +198,21 @@ team_stats_per_game <- function(team_code, years = NULL) {
   names(tabla) <- nombres_columnas
 
   tabla_limpia <- tabla %>%
-    dplyr::mutate(dplyr::across(dplyr::everything(), as.character)) %>%
+    dplyr::mutate(dplyr::across(dplyr::everything(), as.character))
+
+  # Filtrar filas que son encabezados repetidos
+  # Estas filas tienen "Season" o nombres de columnas en la columna Season
+  if ("Season" %in% names(tabla_limpia)) {
+    tabla_limpia <- tabla_limpia %>%
+      dplyr::filter(
+        !is.na(Season),
+        Season != "",
+        Season != "Season",
+        !stringr::str_detect(Season, "^(Lg|Tm|W|L|Finish)")
+      )
+  }
+
+  tabla_limpia <- tabla_limpia %>%
     dplyr::mutate(
       team = team_code,
       stat_type = "aggregate_per_game"
